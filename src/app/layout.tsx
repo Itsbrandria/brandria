@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Krona_One } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 const korna = Krona_One({
   weight: '400',
@@ -20,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${korna.className} antialiased`}>{children}</body>
+      <body className={`${korna.className} antialiased`}>
+        <ThemeProvider attribute="class">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

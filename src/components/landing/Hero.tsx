@@ -9,11 +9,11 @@ export function Hero() {
   const [state, setState] = React.useState(false);
 
   const navigation = [
-    { title: "Home", path: "javascript:void(0)" },
-    { title: "About", path: "javascript:void(0)" },
-    { title: "Services", path: "javascript:void(0)" },
-    { title: "Portfolio", path: "javascript:void(0)" },
-    { title: "Blog", path: "javascript:void(0)" },
+    { title: "Home", path: "/" },
+    { title: "About", path: "/" },
+    { title: "Services", path: "/" },
+    { title: "Portfolio", path: "/" },
+    { title: "Blog", path: "/" },
   ];
 
   const TopEntities = [
@@ -123,10 +123,10 @@ export function Hero() {
               Over 300+ projects finished
               <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
             </h1>
-            <h2 className="text-4xl md:text-5xl font-geist font-normal tracking-tighter lg:text-5xl text-transparent bg-clip-text bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] !text-neutral-900 dark:text-neutral-100 !leading-snug">
+            <h2 className="text-4xl md:text-5xl font-geist font-normal tracking-tighter lg:text-5xl text-transparent bg-clip-text bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] !text-neutral-900 dark:!text-neutral-100 !leading-snug">
               Leading Digital Agency In Egypt
             </h2>
-            <p className="font-geist">
+            <p className="dark:text-neutral-200">
               Our Digital Agency Services In Egypt connects you to new markets, clients, and customers and help you reach new horizons.
             </p>
             <div className="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
