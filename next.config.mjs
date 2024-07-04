@@ -5,6 +5,12 @@ const nextConfig = {
       {
         hostname: "farmui.vercel.app",
       },
+      {
+        hostname: "images.unsplash.com",
+      },
+      {
+        hostname: "dbrandria.com",
+      },
     ],
   },
 };
