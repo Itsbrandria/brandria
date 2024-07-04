@@ -11,6 +11,9 @@ const nextConfig = {
       {
         hostname: "dbrandria.com",
       },
+      {
+        hostname: "wordpress-1021214-4677805.cloudwaysapps.com",
+      },
     ],
   },
 };

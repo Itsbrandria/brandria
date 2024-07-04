@@ -139,7 +139,7 @@ export function Hero() {
             </div>
           </div>
           <div className="flex-none mt-14 md:mt-0 md:max-w-xl">
-            <img
+            <Image
               src="https://wordpress-1021214-4677805.cloudwaysapps.com/wp-content/uploads/2024/07/16.png"
               className=" md:rounded-tl-[108px]"
               alt=""
