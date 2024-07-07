@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Krona_One } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-
+import { ThemeProvider } from "@/components/theme-provider";
+import { NavBar } from "@/components/nav-bar";
 const korna = Krona_One({
   weight: '400',
   style: "normal",
   display: "swap",
+  subsets: ['latin']
 });
 
 export const metadata: Metadata = {
@@ -20,12 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en"> <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <NavBar />
       <body className={`${korna.className} antialiased`}>
-        <ThemeProvider attribute="class">
-          {children}
-        </ThemeProvider>
-      </body>
+        {children}
+      </body> </ThemeProvider>
     </html>
   );
 }
