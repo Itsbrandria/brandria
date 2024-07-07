@@ -21,16 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"> <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <NavBar />
-      <body className={`${korna.className} antialiased`}>
-        {children}
-      </body> </ThemeProvider>
+    <html lang="en">
+      {/* <NavBar /> */}
+      <body className={`${korna.className} antialiased`}><ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        {children}</ThemeProvider>
+      </body>
     </html>
   );
 }
