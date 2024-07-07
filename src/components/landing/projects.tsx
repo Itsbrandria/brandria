@@ -15,6 +15,5 @@ export function Projects() {
       <ProjectsGrid />
       <Button variant="shine" className="mx-auto">View All Projects</Button>
     </section>
-
   )
 }
