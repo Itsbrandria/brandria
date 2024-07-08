@@ -22,15 +22,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <NavBar /> */}
       <body className={`${korna.className} antialiased`}><ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
       >
+
+        <NavBar />
         {children}</ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }

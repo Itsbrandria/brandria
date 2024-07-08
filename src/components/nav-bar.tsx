@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils"
 import { BookOpen, MenuIcon } from 'lucide-react'
 import Image from "next/image"
@@ -95,9 +96,9 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
-          </p>
+          </div>
         </a>
       </NavigationMenuLink>
     </li>

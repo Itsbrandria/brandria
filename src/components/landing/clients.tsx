@@ -52,23 +52,30 @@ export function Clients() {
 
 
   return (
-    <div className="relative flex h-36 w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background mt-20 gap-8">
+    <div className="relative flex  w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background mt-20 gap-8">
       <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
         Our Clients
       </h2>
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <div key={review.username} className="flex items-center gap-4">
-            <img src={review.img} width={50} height={50} className="rounded-full" />
-            <div className="flex flex-col">
-              <h3 className="text-lg font-bold">{review.name}</h3>
-              <p className="text-muted-foreground">{review.body}</p>
-            </div>
-          </div>
+      <p className='text-center w-3/4 text-lg'>
+        We are proud to work and provide digital marketing services to a diverse group of distinguished clients across various sectors, sizes, and countries such as 🇪🇬Egypt, 🇸🇦Saudi Arabia, 🇦🇪UAE, 🇶🇦Qatar, 🇰🇼Kuwait, 🇧🇭Bahrain, 🇺🇸United States, 🇩🇪Germany, 🇬🇧England, 🇫🇷France, and other countries. We offer customized solutions that meet the needs of each client.
+      </p>
+      <strong className='block font-bold text-xl italic'>
+        Join our list of distinguished clients now!
+      </strong>
+      <Marquee pauseOnHover className="[--duration:40s] ">
+        {Array.from({ length: 46 }, (_, i) => i + 10).map((client) => (
+          <Image
+            key={`client-${client}`}
+            src={`https://dbrandria.com/wp-content/uploads/2023/06/Brandria-Logos-${client}.svg`}
+            alt={`client-${client}`}
+            width={50}
+            height={50}
+            className='w-32 h-32 object-contain mx-2'
+          />
         ))}
       </Marquee>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white dark:from-background"></div>
     </div>)
 }
