@@ -30,7 +30,10 @@ export default function RootLayout({
       >
 
         <NavBar />
-        {children}</ThemeProvider>
+        <div vaul-drawer-wrapper="" className="bg-background">
+          {children}
+        </div>
+      </ThemeProvider>
       </body>
     </html >
   );

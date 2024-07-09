@@ -1,4 +1,4 @@
-import HorizontalScrollCarousel from "./horizontal-scroll";
+import HorizontalScrollCarousel from "../horizontal-scroll";
 
 export function Services() {
 
