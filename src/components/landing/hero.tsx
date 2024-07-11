@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/button";
 import { ShinyTextButton } from "../ui/button/shiny-button";
+import { useTranslations } from "next-intl";
 export function Hero() {
   const [state, setState] = React.useState(false);
 
@@ -35,6 +36,9 @@ export function Hero() {
     }
   ]
 
+  const t = useTranslations('Hero');
+
+
   return (
     <div className="relative w-full flex flex-col">
       <Image
@@ -55,7 +59,7 @@ export function Hero() {
               <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
             </h1>
             <h2 className="text-4xl md:text-5xl font-geist font-normal tracking-tighter lg:text-5xl text-transparent bg-clip-text bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] !text-neutral-900 dark:!text-neutral-100 !leading-snug">
-              Leading Digital Agency In Egypt
+              {t('title')}
             </h2>
             <p className="dark:text-neutral-200">
               Our Digital Agency Services In Egypt connects you to new markets, clients, and customers and help you reach new horizons.
