@@ -66,7 +66,7 @@ export function NavBar() {
                 alt="logo"
                 width={50}
                 height={50}
-                className="w-32"
+                className="w-44"
               />
             </Link>
           </NavigationMenuList>
