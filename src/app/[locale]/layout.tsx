@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/nav-bar";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { ReactLenis, useLenis } from "@/lib/lenis";
 const plex = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
   style: "normal",
@@ -32,24 +33,27 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   const messages = await getMessages();
+
   return (
     <html lang={locale === "ar" ? "rtl" : "ltr"}>
       <body
         className={`${locale === "ar" ? plexArabic.className : plex.className} antialiased `}
       >
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NavBar />
-            <div vaul-drawer-wrapper="" className="bg-background">
-              {children}
-            </div>
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <ReactLenis root>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NavBar />
+              <div vaul-drawer-wrapper="" className="bg-background">
+                {children}
+              </div>
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </ReactLenis>
       </body>
     </html>
   );

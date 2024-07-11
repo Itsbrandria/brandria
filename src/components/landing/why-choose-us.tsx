@@ -14,41 +14,38 @@ type FeatureText = {
   description: string;
 };
 
-const featureText: FeatureText[] = [{
-  icon: <Coins className="h-6 w-6" />,
-  title: "Guaranteed results",
-  description:
-    "Our results are tangible and increase return on investment.",
-}, {
-  icon: <Coins className="h-6 w-6" />,
-  title: "Extensive experience",
-  description:
-    "We have years of experience working with major brands in Egypt and the Middle East."
-},
-{
-  icon: <Coins className="h-6 w-6" />,
-  title: "Professional and creative team",
-  description:
-    "We have our specialized and creative team ready to turn your ideas into reality or help you create new ideas.",
-},
-
-
-
+const featureText: FeatureText[] = [
+  {
+    icon: <Coins className="h-6 w-6" />,
+    title: "Guaranteed results",
+    description: "Our results are tangible and increase return on investment.",
+  },
+  {
+    icon: <Coins className="h-6 w-6" />,
+    title: "Extensive experience",
+    description:
+      "We have years of experience working with major brands in Egypt and the Middle East.",
+  },
+  {
+    icon: <Coins className="h-6 w-6" />,
+    title: "Professional and creative team",
+    description:
+      "We have our specialized and creative team ready to turn your ideas into reality or help you create new ideas.",
+  },
 ];
 
 export const WhyChooseUs = () => {
   return (
-    <Section className="border-b lg:-mt-[10rem]">
+    <Section className="border-b ">
       <Container className="not-prose">
         <div className="flex flex-col gap-6">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl !leading-relaxed">
-            <Balancer>
-              Why choose Digital Branderia?
-            </Balancer>
+            <Balancer>Why choose Digital Branderia?</Balancer>
           </h2>
           <h3 className="text-2xl font-light opacity-70">
             <Balancer>
-              Choosing Digital Branderia as your digital partner in the Middle East for digital marketing services is the best decision. Why?
+              Choosing Digital Branderia as your digital partner in the Middle
+              East for digital marketing services is the best decision. Why?
             </Balancer>
           </h3>
 
@@ -66,4 +63,3 @@ export const WhyChooseUs = () => {
     </Section>
   );
 };
-
