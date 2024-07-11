@@ -27,7 +27,7 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <html lang={locale}>
-      <body className={`${plex.className} antialiased`}>
+      <body className={`${plex.className} antialiased `}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"

@@ -1,18 +1,26 @@
 "use client";
-import { cn } from "@/lib/utils"
-import { BookOpen, MenuIcon } from 'lucide-react'
-import Image from "next/image"
-import Link from "next/link"
-import * as React from "react"
-import { Dialog, DialogClose } from "./ui/dialog"
-import { Button } from "./ui/button/button"
-import { NavigationMenu, NavigationMenuLink, NavigationMenuList } from "./ui/navigation-menu"
-import { SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
-import { ModeToggle } from "./mode-toggle"
-
+import { cn } from "@/lib/utils";
+import { BookOpen, MenuIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import * as React from "react";
+import { Dialog, DialogClose } from "./ui/dialog";
+import { Button } from "./ui/button/button";
+import {
+  NavigationMenu,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "./ui/navigation-menu";
+import {
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
+import { ModeToggle } from "./mode-toggle";
 
 export function NavBar() {
-
   const navigation = [
     { title: "Home", path: "/" },
     { title: "About", path: "/" },
@@ -32,21 +40,20 @@ export function NavBar() {
             <SheetHeader>
               <SheetTitle>fabrika.</SheetTitle>
               <SheetDescription>
-                Scale and launch products with expert developers, on-demand, at a flat monthly fee
+                Scale and launch products with expert developers, on-demand, at
+                a flat monthly fee
               </SheetDescription>
             </SheetHeader>
             <div className="flex flex-col space-y-3 mt-[1rem] z-[99]">
-
-              {
-                navigation.map((item, index) => (
-
-                  <DialogClose asChild key={`Desktop-Item-${index}`}>
-                    <Link href={item.path}>
-                      <Button variant="outline" className="w-full text-lg">{item.title}</Button>
-                    </Link>
-                  </DialogClose>
-                ))
-              }
+              {navigation.map((item, index) => (
+                <DialogClose asChild key={`Desktop-Item-${index}`}>
+                  <Link href={item.path}>
+                    <Button variant="outline" className="w-full text-lg">
+                      {item.title}
+                    </Button>
+                  </Link>
+                </DialogClose>
+              ))}
               <ModeToggle />
             </div>
           </SheetContent>
@@ -55,8 +62,8 @@ export function NavBar() {
           <NavigationMenuList className="max-[825px]:hidden ">
             <Link href="/" className="pl-2">
               <Image
-                src='/logo.svg'
-                alt='logo'
+                src="/logo.svg"
+                alt="logo"
                 width={50}
                 height={50}
                 className="w-32"
@@ -65,19 +72,18 @@ export function NavBar() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center gap-2 max-[825px]:hidden">
-          {
-            navigation.map((item, index) => (
-              <Link href={item.path} key={`item-${index}`}>
-                <Button variant="ghost">{item.title}</Button>
-              </Link>
-            ))
-          }
+          {navigation.map((item, index) => (
+            <Link href={item.path} key={`item-${index}`}>
+              <Button variant="ghost" className="text-lg">
+                {item.title}
+              </Button>
+            </Link>
+          ))}
           <ModeToggle />
         </div>
       </div>
     </nav>
-
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
@@ -91,7 +97,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >
@@ -102,6 +108,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";
