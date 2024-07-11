@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/nav-bar";
@@ -10,6 +10,13 @@ const plex = IBM_Plex_Sans({
   style: "normal",
   display: "swap",
   subsets: ["latin"],
+});
+
+const plexArabic = IBM_Plex_Sans_Arabic({
+  weight: ["400", "500", "600", "700"],
+  style: "normal",
+  display: "swap",
+  subsets: ["arabic"],
 });
 
 export const metadata: Metadata = {
@@ -26,8 +33,10 @@ export default async function RootLayout({
 }) {
   const messages = await getMessages();
   return (
-    <html lang={locale}>
-      <body className={`${plex.className} antialiased `}>
+    <html lang={locale === "ar" ? "rtl" : "ltr"}>
+      <body
+        className={`${locale === "ar" ? plexArabic.className : plex.className} antialiased `}
+      >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"

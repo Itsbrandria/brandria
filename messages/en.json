@@ -1,5 +1,8 @@
 {
   "Hero": {
-    "title": "Leading Digital Agency In Egypt"
+    "title": "Leading Digital Agency In Egypt",
+    "description": "We are a leading digital agency in Egypt that provides a wide range of services to help your business grow.",
+    "cta": "Start Your Project",
+    "services": "Our Services"
   }
 }

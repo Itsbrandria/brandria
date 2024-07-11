@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { Button } from "./ui/button/button";
+import { useTranslations, useLocale } from "next-intl";
 
 export const HeroParallax = ({
   products,
@@ -33,11 +34,11 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    useTransform(scrollYProgress, [0, 1], [0, 300]),
     springConfig,
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    useTransform(scrollYProgress, [0, 1], [0, -250]),
     springConfig,
   );
   const rotateX = useSpring(
@@ -104,23 +105,32 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
+  const t = useTranslations("Hero");
+  const locale = useLocale();
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold font-bungee">
-        Welcome To <br /> Digital Brandria
+    <div
+      className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 flex flex-col gap-4"
+      dir={locale === "ar" ? "rtl" : "ltr"}
+    >
+      <h1 className="text-2xl md:text-7xl font-bold ltr:font-bungee !leading-snug">
+        <Balancer>{t("title")}</Balancer>
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 ">
-        <Balancer>
-          Our Digital Agency Services In Egypt connects you to new markets,
-          clients, and customers and help you reach new horizons.
-        </Balancer>
+      <p className="max-w-2xl text-lg md:text-xl dark:text-neutral-200 !leading-loose">
+        <Balancer>{t("description")}</Balancer>
       </p>
-      <div className="flex items-center gap-2 relative z-40 mt-4 ">
-        <button className="font-bold shadow-[0_4px_14px_0_rgb(255,0,0,39%)] hover:shadow-[0_6px_20px_rgba(255,0,0,23%)] hover:bg-[rgba(255,0,0,0.9)] px-8 py-2 bg-red-600 rounded-md text-white  transition duration-200 ease-linear">
-          Start Your Project
-        </button>
-        <Button variant="outline" className="dark:text-neutral-200 font-bold">
-          Our Work
+      <div className="flex items-center gap-2 relative z-40">
+        <Button
+          size="lg"
+          className="text-lg font-bold shadow-[0_4px_14px_0_rgb(255,0,0,39%)] hover:shadow-[0_6px_20px_rgba(255,0,0,23%)] hover:bg-[rgba(255,0,0,0.9)] bg-red-600 rounded-md text-white  transition duration-200 ease-linear"
+        >
+          {t("cta")}
+        </Button>
+        <Button
+          size="lg"
+          variant="outline"
+          className="dark:text-neutral-200 font-bold text-lg"
+        >
+          {t("services")}
         </Button>
       </div>
     </div>
@@ -157,7 +167,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover absolute h-full w-full inset-0"
+          className="object-cover absolute h-full w-full inset-0 aspect-square"
           alt={product.title}
         />
       </Link>
