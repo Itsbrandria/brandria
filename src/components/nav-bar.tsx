@@ -19,6 +19,7 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { ModeToggle } from "./mode-toggle";
+import { LanguageToggle } from "./lang-toggle";
 
 export function NavBar() {
   const navigation = [
@@ -80,6 +81,7 @@ export function NavBar() {
             </Link>
           ))}
           <ModeToggle />
+          <LanguageToggle />
         </div>
       </div>
     </nav>
