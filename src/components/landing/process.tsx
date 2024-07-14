@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { Separator } from "../ui/separator";
 import { useLocale } from "next-intl"
+import BlurFade from "../magicui/blur-fade";
 
 const processes = [
   {
@@ -48,7 +49,7 @@ export function Process() {
           locale === "en" ? "How it works" : "كيف نقوم بذلك؟"
         }
       </h2>
-      <div className="grid-cols-2 grid gap-x-4 gap-y-8 w-full">
+      <div className="lg:grid-cols-2 *:max-lg:col-span-2 grid gap-x-4 gap-y-8 w-full">
         {processes.map((process, index) => (
           <ProcessCard
             key={index}
@@ -59,7 +60,7 @@ export function Process() {
             index={index + 1}
             lang={locale}
             className={
-              index === 4 ? "col-span-2" : ""
+              index === 4 ? "col-span-2 max-w-2xl justify-center mx-auto" : ""
             }
           />
         ))}
@@ -86,33 +87,34 @@ function ProcessCard({
   className?: string;
 }) {
   return (
-    <div className={
-      clsx(
-        "drop-shadow-xl border border-zinc-400 dark:border-zinc-700 relative shadow-[0px_5px_0px_0px_rgba(255,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,0,0,0.5)] rounded-xl dark:bg-zinc-900/50 bg-zinc-50 w-full p-4 flex flex-col gap-4",
-        className
-      )
-    } dir={
-      lang === "en" ? "ltr" : "rtl"
+    <BlurFade inView delay={0.05 * index} className={className}>
+      <div className={
+        clsx(
+          "drop-shadow-xl border border-zinc-400 dark:border-zinc-700 relative shadow-[0px_5px_0px_0px_rgba(255,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,0,0,0.5)] rounded-xl dark:bg-zinc-900/50 bg-zinc-50 w-full p-4 flex flex-col gap-4",
+        )
+      } dir={
+        lang === "en" ? "ltr" : "rtl"
 
-    }>
-      <div className="space-y-1 flex flex-col items-center">
-        <span className="text-base dark:text-red-500">
+      }>
+        <div className="space-y-1 flex flex-col items-center">
+          <span className="text-base dark:text-red-500">
+            {
+              (lang === "en" ? "Step" : "خطوة") + " " + index
+            }
+          </span>
+          <h3 className="text-2xl font-bold ltr:tracking-wider">
+            {
+              lang === "en" ? title : titleAR
+            }
+          </h3>
+        </div>
+        <Separator />
+        <p className="text-lg">
           {
-            (lang === "en" ? "Step" : "خطوة") + " " + index
+            lang === "en" ? description : descriptionAR
           }
-        </span>
-        <h3 className="text-2xl font-bold ltr:tracking-wider">
-          {
-            lang === "en" ? title : titleAR
-          }
-        </h3>
+        </p>
       </div>
-      <Separator />
-      <p className="text-lg">
-        {
-          lang === "en" ? description : descriptionAR
-        }
-      </p>
-    </div>
+    </BlurFade>
   );
 }
