@@ -2,6 +2,7 @@
 import { Clients } from "@/components/landing/clients";
 import CTA from "@/components/landing/cta";
 import { Hero } from "@/components/landing/hero";
+import { Process } from "@/components/landing/process";
 import { Projects } from "@/components/landing/projects";
 import { Services } from "@/components/landing/services";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
@@ -16,6 +17,7 @@ export default function Home() {
       <Clients />
       {/* <Services /> */}
       <WhyChooseUs />
+      <Process />
       <CTA />
     </main>
   );
