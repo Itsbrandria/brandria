@@ -2,14 +2,7 @@
 import * as React from "react";
 import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function LanguageToggle() {
   const [isPending, startTransition] = React.useTransition();
