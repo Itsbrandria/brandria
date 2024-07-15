@@ -2,16 +2,18 @@
 import * as React from "react";
 import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button/button";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+
 
 export function LanguageToggle() {
   const [isPending, startTransition] = React.useTransition();
   const router = useRouter();
   const localActive = useLocale();
+  const currentPath = usePathname();
 
   const onSelectChange = () => {
     startTransition(() => {
-      router.replace(`/${localActive === "en" ? "ar" : "en"}`);
+      router.replace(`/${localActive === "en" ? "ar" : "en"}/${currentPath.split("/").slice(2).join("/")}`);
     });
   };
   return (

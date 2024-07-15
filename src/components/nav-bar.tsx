@@ -20,11 +20,13 @@ import {
 } from "./ui/sheet";
 import { ModeToggle } from "./mode-toggle";
 import { LanguageToggle } from "./lang-toggle";
+import { useLocale } from "next-intl";
 
 export function NavBar() {
+  const locale = useLocale();
   const navigation = [
     { title: "Home", path: "/" },
-    { title: "About", path: "/" },
+    { title: "About", path: `/${locale}/about` },
     { title: "Services", path: "/" },
     { title: "Portfolio", path: "/" },
     { title: "Blog", path: "/" },
