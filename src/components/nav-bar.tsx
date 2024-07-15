@@ -21,15 +21,41 @@ import {
 import { ModeToggle } from "./mode-toggle";
 import { LanguageToggle } from "./lang-toggle";
 import { useLocale } from "next-intl";
+import { title } from "process";
 
 export function NavBar() {
   const locale = useLocale();
   const navigation = [
-    { title: "Home", path: "/" },
-    { title: "About", path: `/${locale}/about` },
-    { title: "Services", path: "/" },
-    { title: "Portfolio", path: "/" },
-    { title: "Blog", path: "/" },
+    {
+      title: "Home",
+      titleAR:
+        "الرئيسية",
+      path: "/"
+    },
+    {
+      title: "About",
+      titleAR:
+        "عننا",
+      path: `/${locale}/about`
+    },
+    {
+      title: "Services",
+      titleAR:
+        "خدماتنا",
+      path: "/"
+    },
+    {
+      title: "Portfolio",
+      titleAR:
+        "أعمالنا",
+      path: "/"
+    },
+    {
+      title: "Blog",
+      titleAR:
+        "المدونة",
+      path: "/"
+    },
   ];
 
   return (
@@ -52,7 +78,7 @@ export function NavBar() {
                 <DialogClose asChild key={`Desktop-Item-${index}`}>
                   <Link href={item.path}>
                     <Button variant="outline" className="w-full text-lg">
-                      {item.title}
+                      {locale === 'en' ? item.title : item.titleAR}
                     </Button>
                   </Link>
                 </DialogClose>
@@ -78,7 +104,7 @@ export function NavBar() {
           {navigation.map((item, index) => (
             <Link href={item.path} key={`item-${index}`}>
               <Button variant="ghost" className="text-lg">
-                {item.title}
+                {locale === 'en' ? item.title : item.titleAR}
               </Button>
             </Link>
           ))}
