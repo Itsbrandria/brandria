@@ -4,8 +4,9 @@ export function Services() {
 
   const cards = [
     {
-      image: '/16.svg',
+      image: '/16.png',
       title: 'Brands Creation',
+      subtitle: "Branding",
       description: <p>
         Create a solid and memorable brand identity with our solutions encompassing brand strategy, design, communication, personal branding, and more.
       </p>,
@@ -13,8 +14,9 @@ export function Services() {
       btnText: 'Strength Your Brand Identity'
     },
     {
-      image: '/17.svg',
+      image: '/17.png',
       title: 'Content At Scale',
+      subtitle: "Content Creation",
       description: <p>
         Covering all your digital production needs by delivering high-quality copywriting, photography, and state-of-the-art motion and video services.
       </p>,
@@ -22,8 +24,9 @@ export function Services() {
       btnText: 'Elevate Your Online Presence'
     },
     {
-      image: '/18.svg',
+      image: '/18.png',
       title: 'Digital Marketing',
+      subtitle: "Marketing",
       description: <p>
         We offer a full range of digital marketing services to help you grow your business and reach new heights.
       </p>,
@@ -31,8 +34,9 @@ export function Services() {
       btnText: 'Grow Your Business'
     },
     {
-      image: '/19.svg',
+      image: '/19.png',
       title: 'Web Design & Development',
+      subtitle: "Web Design",
       description: <p>
         We create beautiful, responsive websites that are designed to help you grow your business and reach new heights.
       </p>,
@@ -51,7 +55,7 @@ export function Services() {
       <p className="text-lg text-center w-3/4 mx-auto pt-4">
         We offer a variety of services that can help you grow your business and reach new heights. Our team of experts is here to help you every step of the way.
       </p>
-      <HorizontalScrollCarousel cards={cards} />
+      <HorizontalScrollCarousel Cards={cards} />
     </div>
 
   )
