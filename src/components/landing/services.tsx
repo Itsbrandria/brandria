@@ -7,9 +7,7 @@ export function Services() {
       image: '/16.png',
       title: 'Brands Creation',
       subtitle: "Branding",
-      description: <p>
-        Create a solid and memorable brand identity with our solutions encompassing brand strategy, design, communication, personal branding, and more.
-      </p>,
+      description: "Create a solid and memorable brand identity with our solutions encompassing brand strategy, design, communication, personal branding, and more.",
       link: '/services/digital-marketing',
       btnText: 'Strength Your Brand Identity'
     },
@@ -17,9 +15,7 @@ export function Services() {
       image: '/17.png',
       title: 'Content At Scale',
       subtitle: "Content Creation",
-      description: <p>
-        Covering all your digital production needs by delivering high-quality copywriting, photography, and state-of-the-art motion and video services.
-      </p>,
+      description: "Covering all your digital production needs by delivering high-quality copywriting, photography, and state-of-the-art motion and video services.",
       link: '/services/content-creation',
       btnText: 'Elevate Your Online Presence'
     },
@@ -27,9 +23,8 @@ export function Services() {
       image: '/18.png',
       title: 'Digital Marketing',
       subtitle: "Marketing",
-      description: <p>
-        We offer a full range of digital marketing services to help you grow your business and reach new heights.
-      </p>,
+      description:
+        "We offer a full range of digital marketing services to help you grow your business and reach new heights.",
       link: '/services/digital-marketing',
       btnText: 'Grow Your Business'
     },
@@ -37,9 +32,7 @@ export function Services() {
       image: '/19.png',
       title: 'Web Design & Development',
       subtitle: "Web Design",
-      description: <p>
-        We create beautiful, responsive websites that are designed to help you grow your business and reach new heights.
-      </p>,
+      description: "We create beautiful, responsive websites that are designed to help you grow your business and reach new heights.",
       link: '/services/web-design',
       btnText: 'Get Started'
     }

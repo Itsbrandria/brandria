@@ -4,6 +4,7 @@ import { Button } from "./ui/button/button";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useLocale } from "next-intl";
 import styles from './styles.module.scss';
 
 interface Props {
@@ -26,13 +27,16 @@ export default function HorizontalScrollCarousel({
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const [currentCard, setCurrentCard] = useState(0);
 
+  let isRTL = useLocale() === 'ar';
+
+
+
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     const sections = gsap.utils.toArray(".card-section");
     const totalWidth = sections.length * 100;
-
     const pin = gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      xPercent: isRTL ? 100 * (sections.length - 1) : -100 * (sections.length - 1),
       ease: "none",
       scrollTrigger: {
         trigger: triggerRef.current,
@@ -45,7 +49,7 @@ export default function HorizontalScrollCarousel({
         },
         end: () => `+=${totalWidth}%`,
         onUpdate: (self) => {
-          const progress = self.progress;
+          const progress = isRTL ? 1 - self.progress : self.progress;
           const newCurrentCard = Math.round(progress * (Cards.length - 1));
           setCurrentCard(newCurrentCard);
         },
@@ -55,9 +59,9 @@ export default function HorizontalScrollCarousel({
     return () => {
       pin.kill();
     };
-  }, [Cards.length]);
+  }, [Cards.length, isRTL]);
   return (
-    <main className={styles.scrollSectionOuter}>
+    <section className={styles.scrollSectionOuter}>
       <div ref={triggerRef} className={styles.scrollContainer}>
         <div ref={sectionRef} className={styles.scrollSectionInner}>
           {Cards.map((card, index) => (
@@ -68,7 +72,7 @@ export default function HorizontalScrollCarousel({
         </div>
         <Indicator total={Cards.length} current={currentCard} />
       </div>
-    </main>
+    </section>
   );
 }
 
