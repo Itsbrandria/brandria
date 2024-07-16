@@ -4,7 +4,7 @@ import { Button } from "./ui/button/button";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import styles from './styles.module.scss';
 
 interface Props {
@@ -18,11 +18,7 @@ interface Props {
   }[]
 }
 
-export default function HorizontalScrollCarousel({
-  Cards
-}: {
-  Cards: Props['cards']
-}) {
+export default function HorizontalScrollCarousel() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const [currentCard, setCurrentCard] = useState(0);
@@ -50,7 +46,7 @@ export default function HorizontalScrollCarousel({
         end: () => `+=${totalWidth}%`,
         onUpdate: (self) => {
           const progress = isRTL ? 1 - self.progress : self.progress;
-          const newCurrentCard = Math.round(progress * (Cards.length - 1));
+          const newCurrentCard = Math.round(progress * (4 - 1));
           setCurrentCard(newCurrentCard);
         },
       },
@@ -59,30 +55,31 @@ export default function HorizontalScrollCarousel({
     return () => {
       pin.kill();
     };
-  }, [Cards.length, isRTL]);
+  }, [isRTL]);
   return (
     <section className={styles.scrollSectionOuter}>
       <div ref={triggerRef} className={styles.scrollContainer}>
         <div ref={sectionRef} className={styles.scrollSectionInner}>
-          {Cards.map((card, index) => (
+          {[1, 2, 3, 4].map((card, index) => (
             <div key={index} className={`${styles.cardSection} card-section`}>
-              <Card {...card} />
+              <Card card={card} />
             </div>
           ))}
         </div>
-        <Indicator total={Cards.length} current={currentCard} />
+        <Indicator total={4} current={currentCard} />
       </div>
     </section>
   );
 }
 
-const Card: FC<Props['cards'][0]> = (card) => {
+const Card = ({ card }: { card: number }) => {
+  const t = useTranslations(`OurServices.cards.${card}`);
   return (
     <div className="flex items-center w-full h-full p-8">
       <div className="h-full flex justify-center  w-5/12">
         <Image
-          src={card.image}
-          alt={card.title}
+          src={t('image')}
+          alt={t('title')}
           width={500}
           height={500}
           unoptimized
@@ -91,16 +88,28 @@ const Card: FC<Props['cards'][0]> = (card) => {
       </div>
       <div className="flex items-center justify-center h-full flex-1 ">
         <div className="text-center w-3/4 flex flex-col gap-4">
-          <span className="tracking-widest font-mono dark:text-red-400 font-bold text-3xl text-red-700">
-            {card.subtitle}
+          <span className="ltr:tracking-widest ltr:font-mono dark:text-red-400 font-bold text-3xl text-red-700">
+            {
+              t('subtitle')
+            }
           </span>
-          <h3 className="text-9xl font-bold tracking-tighter">{card.title}</h3>
+          <h3 className="text-9xl font-bold ltr:tracking-tighter rtl:leading-tight">
+            {
+              t('title')
+            }
+          </h3>
           <p className="text-2xl leading-relaxed">
-            {card.description}
+            {
+              t('description')
+            }
           </p>
           <Button variant='ringHover' className="text-3xl py-8" size='lg'>
-            <Link href={card.link}>
-              {card.btnText}
+            <Link href={
+              t('link')
+            }>
+              {
+                t('btnText')
+              }
             </Link>
           </Button>
         </div>

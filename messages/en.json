@@ -15,9 +15,47 @@
     "p": "Choosing Digital Branderia as your digital partner in the Middle East for digital marketing services is the best decision. Why?",
     "learnMore": "Contact sales to learn more"
   },
+  "OurServices": {
+    "h": "Our Services",
+    "p": "We offer a variety of services that can help you grow your business and reach new heights. Our team of experts is here to help you every step of the way.",
+    "cards": {
+      "1": {
+        "image": "/16.png",
+        "title": "Brands Creation",
+        "subtitle": "Branding",
+        "description": "Create a solid and memorable brand identity with our solutions encompassing brand strategy, design, communication, personal branding, and more.",
+        "link": "/services/digital-marketing",
+        "btnText": "Strengthen Your Brand Identity"
+      },
+      "2": {
+        "image": "/17.png",
+        "title": "Content At Scale",
+        "subtitle": "Content Creation",
+        "description": "Covering all your digital production needs by delivering high-quality copywriting, photography, and state-of-the-art motion and video services.",
+        "link": "/services/content-creation",
+        "btnText": "Elevate Your Online Presence"
+      },
+      "3": {
+        "image": "/18.png",
+        "title": "Digital Marketing",
+        "subtitle": "Marketing",
+        "description": "We offer a full range of digital marketing services to help you grow your business and reach new heights.",
+        "link": "/services/digital-marketing",
+        "btnText": "Grow Your Business"
+      },
+      "4": {
+        "image": "/19.png",
+        "title": "Web Design & Development",
+        "subtitle": "Web Design",
+        "description": "We create beautiful, responsive websites that are designed to help you grow your business and reach new heights.",
+        "link": "/services/web-design",
+        "btnText": "Get Started"
+      }
+    }
+  },
   "About": {
     "h": "A Success Story by Ambitious Marketing Pioneers",
     "p1": "Our journey is filled with strife, contention, and hard work. We have a long and proud history and heritage of working in digital marketing, advertising, brand identity promotion, technology, and media, transforming businesses worldwide.",
-    "p2": "We strive to give businesses and individuals the digital marketing services they deserve to grow and succeed while spreading our message that good digital marketing is a right for all firms. It’s our mission to bring you excellent services that always break boundaries."
+    "p2": "We strive to give businesses and individuals the digital marketing services they deserve to grow and succeed while spreading our message that good digital marketing is a right for all firms. It's our mission to bring you excellent services that always break boundaries."
   }
 }
