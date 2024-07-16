@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLocale, useTranslations } from "next-intl";
 import styles from './styles.module.scss';
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { Card } from "./ui/service-card";
 
 interface Props {
   cards: {
@@ -22,16 +24,19 @@ export default function HorizontalScrollCarousel() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const [currentCard, setCurrentCard] = useState(0);
+  const isMobile = useMediaQuery('(max-width: 640px)');
 
   let isRTL = useLocale() === 'ar';
 
 
 
-  gsap.registerPlugin(ScrollTrigger);
+
+
+  !isMobile && gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     const sections = gsap.utils.toArray(".card-section");
     const totalWidth = sections.length * 100;
-    const pin = gsap.to(sections, {
+    const pin = !isMobile && gsap.to(sections, {
       xPercent: isRTL ? 100 * (sections.length - 1) : -100 * (sections.length - 1),
       ease: "none",
       scrollTrigger: {
@@ -53,10 +58,12 @@ export default function HorizontalScrollCarousel() {
     });
 
     return () => {
-      pin.kill();
+      pin && pin.kill();
     };
   }, [isRTL]);
+  console.log(isMobile);
   return (
+
     <section className={styles.scrollSectionOuter}>
       <div ref={triggerRef} className={styles.scrollContainer}>
         <div ref={sectionRef} className={styles.scrollSectionInner}>
@@ -69,54 +76,9 @@ export default function HorizontalScrollCarousel() {
         <Indicator total={4} current={currentCard} />
       </div>
     </section>
+
   );
 }
-
-const Card = ({ card }: { card: number }) => {
-  const t = useTranslations(`OurServices.cards.${card}`);
-  return (
-    <div className="flex items-center w-full h-full p-8">
-      <div className="h-full flex justify-center  w-5/12">
-        <Image
-          src={t('image')}
-          alt={t('title')}
-          width={500}
-          height={500}
-          unoptimized
-          className="object-contain h-full w-full"
-        />
-      </div>
-      <div className="flex items-center justify-center h-full flex-1 ">
-        <div className="text-center w-3/4 flex flex-col gap-4">
-          <span className="ltr:tracking-widest ltr:font-mono dark:text-red-400 font-bold text-3xl text-red-700">
-            {
-              t('subtitle')
-            }
-          </span>
-          <h3 className="text-9xl font-bold ltr:tracking-tighter rtl:leading-tight">
-            {
-              t('title')
-            }
-          </h3>
-          <p className="text-2xl leading-relaxed">
-            {
-              t('description')
-            }
-          </p>
-          <Button variant='ringHover' className="text-3xl py-8" size='lg'>
-            <Link href={
-              t('link')
-            }>
-              {
-                t('btnText')
-              }
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Indicator = ({ total, current }: {
   total: number;
