@@ -20,8 +20,7 @@ import {
 } from "./ui/sheet";
 import { ModeToggle } from "./mode-toggle";
 import { LanguageToggle } from "./lang-toggle";
-import { useLocale } from "next-intl";
-import { title } from "process";
+import { useLocale, useTranslations } from "next-intl";
 
 export function NavBar() {
   const locale = useLocale();
@@ -58,19 +57,46 @@ export function NavBar() {
     },
   ];
 
+  const t = useTranslations('Hero')
+
   return (
     <nav className="flex items-center min-w-full w-full fixed justify-center p-2 z-[50] mt-[2rem]">
       <div className="flex justify-between md:w-1/2 w-[95%] border dark:border-zinc-900 dark:bg-black bg-opacity-10 relative backdrop-filter backdrop-blur-lg bg-white border-white border-opacity-20 rounded-xl p-2 shadow-lg">
         <Dialog>
-          <SheetTrigger className="min-[825px]:hidden p-2 transition">
-            <MenuIcon />
-          </SheetTrigger>
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-2">
+              <SheetTrigger className="min-[825px]:hidden p-2 transition flex gap-4 items-center justify-between w-full">
+                <MenuIcon />
+              </SheetTrigger>
+              <Image
+                src="/logo.svg"
+                alt="logo"
+                width={100}
+                height={100}
+                className="w-28"
+              />
+            </div>
+            <div className="flex gap-2 items-center">
+              <ModeToggle />
+              <LanguageToggle />
+            </div>
+          </div>
+
           <SheetContent side="left">
             <SheetHeader>
-              <SheetTitle>fabrika.</SheetTitle>
+              <SheetTitle>
+                <Image
+                  src="/logo.svg"
+                  alt="logo"
+                  width={50}
+                  height={50}
+                  className="w-44"
+                />
+              </SheetTitle>
               <SheetDescription>
-                Scale and launch products with expert developers, on-demand, at
-                a flat monthly fee
+                {
+                  t('description')
+                }
               </SheetDescription>
             </SheetHeader>
             <div className="flex flex-col space-y-3 mt-[1rem] z-[99]">
@@ -83,7 +109,10 @@ export function NavBar() {
                   </Link>
                 </DialogClose>
               ))}
-              <ModeToggle />
+              <div className="flex gap-2">
+                <ModeToggle />
+                <LanguageToggle />
+              </div>
             </div>
           </SheetContent>
         </Dialog>

@@ -63,7 +63,15 @@ const FAQ = () => {
   return (
     <Section className="w-full">
       <div>
-        <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">Frequently Asked Questions</h2>
+        <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+          {
+            locale === 'en' ? <>
+              Frequently Asked Questions
+            </> : <>
+              الأسئلة الأكثر شيوعا
+            </>
+          }
+        </h2>
 
         <div className="not-prose mt-4 flex flex-col gap-4 md:mt-8">
           {content.map((item, index) => (
@@ -72,7 +80,7 @@ const FAQ = () => {
                 value={locale === 'en' ? item.question : item.questionAR}
                 className="rounded-md  px-4 transition-all hover:bg-muted/50 !border-b-0"
               >
-                <AccordionTrigger className="text-left hover:no-underline text-3xl lg:text-5xl leading-normal ">
+                <AccordionTrigger className="ltr:text-left rtl:text-start hover:no-underline text-3xl lg:text-5xl leading-normal ">
                   {
                     locale === 'en' ? item.question : item.questionAR
 
