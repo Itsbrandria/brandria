@@ -1,10 +1,7 @@
 import { FC, ReactNode, useRef, useState, useEffect } from "react";
-import Image from "next/image";
-import { Button } from "./ui/button/button";
-import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import styles from './styles.module.scss';
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Card } from "./ui/service-card";
@@ -32,11 +29,11 @@ export default function HorizontalScrollCarousel() {
 
 
 
-  !isMobile && gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     const sections = gsap.utils.toArray(".card-section");
     const totalWidth = sections.length * 100;
-    const pin = !isMobile && gsap.to(sections, {
+    const pin = gsap.to(sections, {
       xPercent: isRTL ? 100 * (sections.length - 1) : -100 * (sections.length - 1),
       ease: "none",
       scrollTrigger: {
@@ -61,7 +58,6 @@ export default function HorizontalScrollCarousel() {
       pin && pin.kill();
     };
   }, [isRTL]);
-  console.log(isMobile);
   return (
 
     <section className={styles.scrollSectionOuter}>

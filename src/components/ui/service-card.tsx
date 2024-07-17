@@ -8,8 +8,8 @@ export
   const Card = ({ card }: { card: number }) => {
     const t = useTranslations(`OurServices.cards.${card}`);
     return (
-      <div className="flex items-center w-full h-full p-8 lg:flex-row flex-col">
-        <div className="h-full flex justify-center w-full  lg:w-5/12">
+      <div className="flex items-center w-full h-full p-8 lg:flex-row flex-col lg:w-screen">
+        <div className="h-full flex justify-center w-full  lg:w-6/12">
           <Image
             src={t('image')}
             alt={t('title')}
@@ -19,7 +19,7 @@ export
             className="object-contain h-full w-full"
           />
         </div>
-        <div className="flex items-center justify-center h-full flex-1 ">
+        <div className="flex items-center justify-center h-full flex-1 lg:w-6/12">
           <div className="text-center lg:w-3/4 flex flex-col lg:gap-4 gap-2">
             <span className="ltr:tracking-widest ltr:font-mono dark:text-red-400 font-bold lg:text-3xl text-red-700">
               {
