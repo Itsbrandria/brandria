@@ -47,7 +47,7 @@ const processes = [
 export function Process() {
   const locale = useLocale()
   return (
-    <section className="space-y-8 w-full max-w-6xl" dir={
+    <section className="space-y-8 w-full max-w-6xl mt-4" dir={
       locale === "en" ? "ltr" : "rtl"
 
     }>

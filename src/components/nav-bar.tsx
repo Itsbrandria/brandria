@@ -21,7 +21,6 @@ import {
 import { ModeToggle } from "./mode-toggle";
 import { LanguageToggle } from "./lang-toggle";
 import { useLocale, useTranslations } from "next-intl";
-import { title } from "process";
 
 export function NavBar() {
   const locale = useLocale();
@@ -67,10 +66,8 @@ export function NavBar() {
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-2">
               <SheetTrigger className="min-[825px]:hidden p-2 transition flex gap-4 items-center justify-between w-full">
-
                 <MenuIcon />
               </SheetTrigger>
-
               <Image
                 src="/logo.svg"
                 alt="logo"
@@ -79,12 +76,10 @@ export function NavBar() {
                 className="w-28"
               />
             </div>
-
             <div className="flex gap-2 items-center">
               <ModeToggle />
               <LanguageToggle />
             </div>
-
           </div>
 
           <SheetContent side="left">

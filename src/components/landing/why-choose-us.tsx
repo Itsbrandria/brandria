@@ -51,60 +51,14 @@ const featureText: FeatureText[] = [
 
 export const WhyChooseUs = () => {
   const t = useTranslations('WhyChooseUs');
-  const lang = useLocale();
-  // return (
-  //   <Section className="border-b " >
-  //     <Container className="not-prose">
-  //       <div className="flex flex-col gap-6" dir={
-  //         lang === "en" ? "ltr" : "rtl"
-
-  //       }>
-  //         <BlurFade inView delay={0.05}>
-  //           <h2 className="text-3xl font-bold ltr:tracking-tighter sm:text-4xl md:text-5xl !leading-relaxed">
-  //             <Balancer>
-  //               {
-  //                 t('title')
-  //               }
-  //             </Balancer>
-  //           </h2>
-  //         </BlurFade>
-  //         <BlurFade inView delay={0.05 * 2}>
-  //           <p className="text-2xl font-light opacity-70">
-  //             <Balancer>
-  //               {
-  //                 t('p')
-  //               }
-  //             </Balancer>
-
-  //           </p>
-  //         </BlurFade>
-  //         <BlurFade inView delay={0.05 * 3}>
-  //           <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
-  //             {featureText.map(({ icon, title, description }, index) => (
-  //               <div className="flex flex-col gap-4" key={index}>
-  //                 {icon}
-  //                 <h4 className="text-xl text-primary">{title}</h4>
-  //                 <p className="text-base opacity-75">{description}</p>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </BlurFade>
-  //       </div>
-  //     </Container>
-  //   </Section>
-  // );
-
-
-
+  const locale = useLocale()
   return (
     <>
-      {/* Icon Blocks */}
       <div className="container py-12 lg:py-24">
-        {/* Grid */}
         <div className="grid md:grid-cols-2 gap-12">
           <div className="lg:w-3/4">
             <BlurFade inView delay={0.05}>
-              <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+              <h2 className="scroll-m-20 border-b pb-2 tracking-tight transition-colors first:mt-0 text-3xl font-bold ltr:tracking-tighter sm:text-4xl md:text-5xl text-center">
                 <Balancer>
                   {
                     t('title')
@@ -113,7 +67,7 @@ export const WhyChooseUs = () => {
               </h2>
             </BlurFade>
             <BlurFade inView delay={0.05 * 2}>
-              <p className="mt-3 text-muted-foreground">
+              <p className="mt-3 text-muted-foreground text-xl !leading-relaxed">
                 <Balancer>
                   {
                     t('p')
@@ -123,13 +77,21 @@ export const WhyChooseUs = () => {
             </BlurFade>
             <p className="mt-5">
               <a
-                className="inline-flex items-center gap-x-1 group font-medium hover:underline underline-offset-4 "
+                className="inline-flex items-center gap-x-1 group font-medium hover:underline underline-offset-4 text-xl"
                 href="#"
               >
                 {
                   t('learnMore')
                 }
-                <ChevronRightIcon className="flex-shrink-0 w-4 h-4 transition ease-in-out group-hover:translate-x-1" />
+                {
+                  locale === 'en' ? (
+                    <ChevronRightIcon className="flex-shrink-0 w-4 h-4 transition ease-in-out group-hover:translate-x-1" />
+
+                  ) : (
+                    <ChevronRightIcon className="flex-shrink-0 w-4 h-4 transition ease-in-out group-hover:translate-x-1 rotate-180" />
+
+                  )
+                }
               </a>
             </p>
           </div>
