@@ -25,18 +25,17 @@ export function Services() {
       {
         isMobile ? (<>
           <section>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
               {[1, 2, 3, 4].map((card, index) => (
-                <div key={index} >
+                <div key={index}>
                   <Card card={card} />
                 </div>
               ))}
             </div>
           </section>
-
         </>) : (<HorizontalScrollCarousel />)
       }
-    </div>
+    </div >
 
   )
 }

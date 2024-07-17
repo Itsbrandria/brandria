@@ -1,7 +1,5 @@
 import React from "react";
-import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
-import { Coins } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import BlurFade from "../magicui/blur-fade";
 import {
