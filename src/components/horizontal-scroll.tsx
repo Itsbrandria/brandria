@@ -21,7 +21,7 @@ export default function HorizontalScrollCarousel() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const [currentCard, setCurrentCard] = useState(0);
-  const isMobile = useMediaQuery('(max-width: 640px)');
+
 
   let isRTL = useLocale() === 'ar';
 

@@ -1,9 +1,16 @@
 "use client";
 import React from "react";
 import { HeroParallax } from "../hero-parallax";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import MobileHero from "./mb-hero";
 
 export function Hero() {
-  return <HeroParallax products={products} />;
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  return isMobile ? (
+    <>
+      <MobileHero />
+    </>
+  ) : (<HeroParallax products={products} />);
 }
 export const products = [
   {
