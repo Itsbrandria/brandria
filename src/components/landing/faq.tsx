@@ -62,26 +62,23 @@ const FAQ = () => {
   const locale = useLocale();
   return (
     <Section className="w-full">
-      <Container>
-        <h3 className="!mt-0">Frequently Asked Questions</h3>
-        <h4 className="text-muted-foreground">
-          Can&apos;t find the answer you&apos;re looking for? Reach out to our
-          customer support team.
-        </h4>
+      <div>
+        <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">Frequently Asked Questions</h2>
+
         <div className="not-prose mt-4 flex flex-col gap-4 md:mt-8">
           {content.map((item, index) => (
             <Accordion key={index} type="single" collapsible>
               <AccordionItem
                 value={locale === 'en' ? item.question : item.questionAR}
-                className="rounded-md border bg-muted/20 px-4 transition-all hover:bg-muted/50"
+                className="rounded-md  px-4 transition-all hover:bg-muted/50 !border-b-0"
               >
-                <AccordionTrigger className="text-left hover:no-underline text-xl">
+                <AccordionTrigger className="text-left hover:no-underline text-3xl lg:text-5xl leading-normal ">
                   {
                     locale === 'en' ? item.question : item.questionAR
 
                   }
                 </AccordionTrigger>
-                <AccordionContent className="text-lg md:w-3/4">
+                <AccordionContent className="lg:text-2xl text-xl leading-relaxed">
                   <Balancer>
                     {
                       locale === 'en' ? item.answer : item.answerAR
@@ -94,7 +91,7 @@ const FAQ = () => {
             </Accordion>
           ))}
         </div>
-      </Container>
+      </div>
     </Section>
   );
 };

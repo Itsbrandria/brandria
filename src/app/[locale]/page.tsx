@@ -4,7 +4,6 @@ import CTA from "@/components/landing/cta";
 import FAQ from "@/components/landing/faq";
 import { Hero } from "@/components/landing/hero";
 import { Process } from "@/components/landing/process";
-// import { Projects } from "@/components/landing/projects";
 import { Services } from "@/components/landing/services";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { useLenis } from "lenis/react";
@@ -12,14 +11,13 @@ import { useLenis } from "lenis/react";
 export default function Home() {
   const lenis = useLenis(({ scroll }) => { });
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-8 gap-14">
+    <main className="flex min-h-screen flex-col items-center justify-between p-8 gap-8">
       <Hero />
-      {/* <Projects /> */}
       <Clients />
       <Services />
       <WhyChooseUs />
-      <Process />
       <CTA />
+      <Process />
       <FAQ />
     </main>
   );
