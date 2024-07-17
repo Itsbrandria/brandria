@@ -22,7 +22,7 @@ type FeatureText = {
 
 const featureText: FeatureText[] = [
   {
-    icon: <Coins className="h-6 w-6" />,
+    icon: <BookOpenIcon className="flex-shrink-0 w-5 h-5" />,
     title: "Guaranteed results",
     description: "Our results are tangible and increase return on investment.",
     titleAR: "نتائج مضمونة",
@@ -30,7 +30,7 @@ const featureText: FeatureText[] = [
       "نتائجنا ملموسة وتزيد من عائد الاستثمار.",
   },
   {
-    icon: <Coins className="h-6 w-6" />,
+    icon: <MessagesSquareIcon className="flex-shrink-0 w-5 h-5" />,
     title: "Extensive experience",
     description:
       "We have years of experience working with major brands in Egypt and the Middle East.",
@@ -39,7 +39,7 @@ const featureText: FeatureText[] = [
       "لدينا سنوات من الخبرة في العمل مع العلامات التجارية الكبرى في مصر والشرق الأوسط.",
   },
   {
-    icon: <Coins className="h-6 w-6" />,
+    icon: <ThumbsUpIcon className="flex-shrink-0 w-5 h-5" />,
     title: "Professional and creative team",
     description:
       "We have our specialized and creative team ready to turn your ideas into reality or help you create new ideas.",
@@ -95,66 +95,37 @@ export const WhyChooseUs = () => {
               </a>
             </p>
           </div>
-          {/* End Col */}
           <div className="space-y-6 lg:space-y-10">
-            {/* Icon Block */}
-            <div className="flex">
-              {/* Icon */}
-              <span className="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border bg-primary text-primary-foreground">
-                <BookOpenIcon className="flex-shrink-0 w-5 h-5" />
-              </span>
-              <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
-                  Industry-leading documentation
-                </h3>
-                <p className="mt-1 text-muted-foreground">
-                  Our documentation and extensive Client libraries contain
-                  everything a business needs to build a custom integration in a
-                  fraction of the time.
-                </p>
-              </div>
-            </div>
-            {/* End Icon Block */}
-            {/* Icon Block */}
-            <div className="flex">
-              {/* Icon */}
-              <span className="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border  bg-primary text-primary-foreground">
-                <MessagesSquareIcon className="flex-shrink-0 w-5 h-5" />
-              </span>
-              <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
-                  Developer community support
-                </h3>
-                <p className="mt-1 text-muted-foreground">
-                  We actively contribute to open-source projects—giving back to
-                  the community through development, patches, and sponsorships.
-                </p>
-              </div>
-            </div>
-            {/* End Icon Block */}
-            {/* Icon Block */}
-            <div className="flex">
-              {/* Icon */}
-              <span className="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border bg-primary text-primary-foreground">
-                <ThumbsUpIcon className="flex-shrink-0 w-5 h-5" />
-              </span>
-              <div className="ms-5 sm:ms-8">
-                <h3 className="text-base sm:text-lg font-semibold">
-                  Simple and affordable
-                </h3>
-                <p className="mt-1 text-muted-foreground">
-                  From boarding passes to movie tickets, there&apos;s pretty
-                  much nothing you can&apos;t do.
-                </p>
-              </div>
-            </div>
-            {/* End Icon Block */}
+            {
+              featureText.map(
+                (f) => (
+                  <div className="flex" key={f.title}>
+                    <span className="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border bg-primary text-primary-foreground">
+                      {
+                        f.icon
+                      }
+                    </span>
+                    <div className="ms-5 sm:ms-8">
+                      <h3 className="text-xl sm:text-lg font-semibold">
+                        {
+                          locale === 'en' ? f.title : f.titleAR
+                        }
+                      </h3>
+                      <p className="mt-1 text-muted-foreground text-lg">
+                        <Balancer>
+                          {
+                            locale === 'en' ? f.description : f.descriptionAR
+                          }
+                        </Balancer>
+                      </p>
+                    </div>
+                  </div>
+                )
+              )
+            }
           </div>
-          {/* End Col */}
         </div>
-        {/* End Grid */}
       </div>
-      {/* End Icon Blocks */}
     </>
   );
 };
