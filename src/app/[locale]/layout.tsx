@@ -32,7 +32,9 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = await getMessages();
+  const messages = await getMessages({
+    locale
+  });
 
   return (
     <html lang={locale} dir={
@@ -42,19 +44,20 @@ export default async function RootLayout({
         className={`${locale === "ar" ? plexArabic.className : plex.className} antialiased `}
       >
         <ReactLenis root>
-          <NextIntlClientProvider messages={messages}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
+
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          > <NextIntlClientProvider messages={messages} locale={locale}>
               <NavBar />
               <div vaul-drawer-wrapper="" className="bg-background">
                 {children}
               </div>
-            </ThemeProvider>
-          </NextIntlClientProvider>
+            </NextIntlClientProvider>
+          </ThemeProvider>
+
         </ReactLenis>
       </body>
     </html>

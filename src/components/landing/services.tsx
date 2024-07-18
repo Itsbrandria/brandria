@@ -13,7 +13,7 @@ export function Services() {
 
 
   return (
-    <div className="lg:relative w-full">
+    <section className="lg:relative w-full" id='ourS'>
       <h2 className="text-3xl font-bold ltr:tracking-tighter sm:text-4xl md:text-5xl text-center">
         {t("h")}
       </h2>
@@ -35,7 +35,7 @@ export function Services() {
           </section>
         </>) : (<HorizontalScrollCarousel />)
       }
-    </div >
+    </section >
 
   )
 }

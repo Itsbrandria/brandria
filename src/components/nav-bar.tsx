@@ -76,7 +76,7 @@ export function NavBar() {
                 className="w-28"
               />
             </div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center lg:hidden">
               <ModeToggle />
               <LanguageToggle />
             </div>

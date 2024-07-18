@@ -58,9 +58,9 @@ export const HeroParallax = ({
     springConfig,
   );
   return (
-    <div
+    <section
       ref={ref}
-      className=" h-[205vh] py-4 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[250dvh] 2xl:h-[210dvh]  overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 max-w-7xl 2xl:max-w-7xl"
     >
       <Header />
       <motion.div
@@ -70,7 +70,6 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -100,7 +99,7 @@ export const HeroParallax = ({
           ))}
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
@@ -109,7 +108,7 @@ export const Header = () => {
   const locale = useLocale();
   return (
     <div
-      className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 flex flex-col gap-4 z-40"
+      className="max-w-7xl 2xl:w-screen relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 flex flex-col gap-4 z-40"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <h1 className="text-2xl md:text-7xl font-bold ltr:font-bungee !leading-snug">
@@ -125,13 +124,16 @@ export const Header = () => {
         >
           {t("cta")}
         </Button>
-        <Button
+        <a href="#ourS"><Button
           size="lg"
           variant="outline"
           className="dark:text-neutral-200 font-bold text-lg"
+
         >
+
           {t("services")}
-        </Button>
+
+        </Button>  </a>
       </div>
     </div>
   );
@@ -165,9 +167,9 @@ export const ProductCard = ({
       >
         <Image
           src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover absolute h-full w-full inset-0 aspect-square"
+          height="800"
+          width="800"
+          className="object-scale-down absolute h-full w-full inset-0 aspect-square"
           alt={product.title}
         />
       </Link>

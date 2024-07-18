@@ -52,7 +52,7 @@ export const WhyChooseUs = () => {
   const locale = useLocale()
   return (
     <>
-      <div className="container py-12 lg:py-24">
+      <div className="container py-12 2xl:py-24">
         <div className="grid md:grid-cols-2 gap-12">
           <div className="lg:w-3/4">
             <BlurFade inView delay={0.05}>

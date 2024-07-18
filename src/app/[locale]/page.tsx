@@ -11,7 +11,7 @@ import { useLenis } from "lenis/react";
 export default function Home() {
   const lenis = useLenis(({ scroll }) => { });
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between lg:p-8 gap-8 px-4 py-8">
+    <main className="flex min-h-screen flex-col items-center justify-between lg:p-8 gap-8 px-4 py-8 ">
       <Hero />
       <Clients />
       <Services />
