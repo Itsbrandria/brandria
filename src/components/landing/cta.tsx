@@ -17,7 +17,7 @@ const CTA = () => {
   return (
     <section className="!py-0 w-full">
       <div className="container flex flex-col items-center gap-6  border  p-2 text-center md:rounded-xl w-full py-8 ">
-        <h2 className="!my-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center text-[#e93331] ltr:tracking-wide">
+        <h2 className="!my-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center text-[#e93331] ltr:tracking-wides">
           <Balancer>
             {
               locale === "en" ? "Ready to get started?" : "هل أنت جاهز للبدء؟"

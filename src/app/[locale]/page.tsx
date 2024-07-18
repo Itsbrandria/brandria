@@ -14,8 +14,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-8 gap-8  py-8 ">
       <Hero />
       <Clients />
+      <Services />
       <section className="px-4">
-        <Services />
+
         <WhyChooseUs />
       </section>
       <CTA />
