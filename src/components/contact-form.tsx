@@ -76,7 +76,7 @@ export function ContactForm() {
   return (
     <Credenza>
       <CredenzaTrigger asChild>
-        <Button className="w-fit" variant='shine'>
+        <Button className="w-fit text-lg lg:text-xl" variant='shine'>
           Reach Us Now!
         </Button>
       </CredenzaTrigger>

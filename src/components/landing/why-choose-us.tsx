@@ -54,7 +54,7 @@ export const WhyChooseUs = () => {
   const locale = useLocale()
   return (
     <>
-      <section className="container py-12 2xl:py-24 space-y-8 lg:space-y-14">
+      <section className="container pt-12 pb-4 2xl:py-24 space-y-8 lg:space-y-14">
         <h2 className="text-3xl  tracking-tighter sm:text-4xl md:text-5xl text-center ">
           {
             locale === 'en' ? (
@@ -68,13 +68,13 @@ export const WhyChooseUs = () => {
             )
           }
         </h2>
-        <div className="grid lg:grid-cols-2 gap-8 gap-y-12">
+        <div className="grid lg:grid-cols-2 gap-8 gap-y-12 grid-cols-1">
           {
             featureText.map(
               (f, idx) => (
                 <div key={f.title} className={clsx(
                   "flex flex-col gap-2 justify-center max-w-lg",
-                  idx === 2 && "col-span-2 max-w-2xl justify-center mx-auto"
+                  idx === 2 && "lg:col-span-2 lg:max-w-2xl lg:justify-center lg:mx-auto"
                 )}>
                   <h3 className="text-2xl tracking-tight md:text-3xl text-center font-medium">
                     <Balancer>

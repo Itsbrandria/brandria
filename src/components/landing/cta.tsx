@@ -10,25 +10,32 @@ import { Button } from "@/components/ui/button/button";
 // Custom components
 import { Section, Container } from "@/components/craft";
 import { ContactForm } from "../contact-form";
+import { useLocale } from "next-intl";
 
 const CTA = () => {
+  const locale = useLocale();
   return (
-    <Section className="px-4 !py-0 w-full">
-      <Container className="flex flex-col items-center gap-6 rounded-lg border bg-accent/50 p-2 text-center md:rounded-xl w-full">
-        <h2 className="!my-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-          <Balancer>Ready to get started?</Balancer>
-        </h2>
-        <h3 className="!mb-0 text-muted-foreground">
+    <section className="!py-0 w-full">
+      <div className="container flex flex-col items-center gap-6  border  p-2 text-center md:rounded-xl w-full py-8 ">
+        <h2 className="!my-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center text-[#e93331] ltr:tracking-wide">
           <Balancer>
-            Contact us now to get a free consultation.
+            {
+              locale === "en" ? "Ready to get started?" : "هل أنت جاهز للبدء؟"
+            }
+          </Balancer>
+        </h2>
+        <h3 className="!mb-0 text-zinc-200 text-lg lg:text-xl">
+          <Balancer>
+            {
+              locale === "en" ? "Let's create something amazing together." : "لنخلق شيئًا مذهلاً معًا."
+            }
           </Balancer>
         </h3>
         <div className="not-prose mx-auto flex items-center gap-2">
-
           <ContactForm />
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
   );
 };
 

@@ -100,3 +100,19 @@
     0 0 50px #ff0000,
     0 0 75px #ff0000;
   }
+.cta{
+   background: linear-gradient(
+  45deg,
+  #030218,
+  #2f69b2,
+  #1763fc,
+  #6a7efb,
+  #7345a7,
+  #fda2e5,
+  #e93331,
+  #f0b303,
+  #ffff17,
+  #00b46b
+);
+}
+ 
