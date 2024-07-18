@@ -174,9 +174,14 @@ export const ProductCard = ({
         />
       </Link>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
+      <div className="absolute flex flex-col gap-2 bottom-4 px-2">
+        <h2 className=" opacity-0 group-hover/product:opacity-100 text-white text-xl font-bold">
+          {product.title}
+        </h2>
+        <p className=" opacity-0 group-hover/product:opacity-100 text-white">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique.
+        </p>
+      </div>
     </motion.div>
   );
 };
