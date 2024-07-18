@@ -16,11 +16,10 @@ export default function Home() {
       <Clients />
       <Services />
       <section className="px-4">
-
         <WhyChooseUs />
       </section>
       <CTA />
-      <section className="px-4">
+      <section className="px-4 flex flex-col justify-center items-center">
         <Process />
         <FAQ />
       </section>
