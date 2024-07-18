@@ -106,24 +106,49 @@ export const HeroParallax = ({
 export const Header = () => {
   const t = useTranslations("Hero");
   const locale = useLocale();
+  const splitedText = t("description").split(" ");
+
   return (
     <div
       className="max-w-7xl 2xl:w-screen relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 flex flex-col gap-4 z-40"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <h1 className="text-2xl md:text-7xl font-bold  !leading-snug max-w-xl">
+      <motion.h1 
+        initial = {{ opacity:0,y:15 }}
+        animate = {{ opacity:1,y:0 }}
+        exit  = {{ opacity:0,y:15 }}
+        transition={{ duration:0.5,delay:0.2 }}
+       className="text-2xl md:text-7xl font-bold  !leading-snug max-w-xl">
         <Balancer>{t("title")}</Balancer>
-      </h1>
+      </motion.h1>
       <p className="max-w-2xl text-lg md:text-xl dark:text-neutral-200 !leading-loose">
-        <Balancer>{t("description")}</Balancer>
+        
+      {splitedText.map((el, i) => (
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 1,
+            delay: i / 10
+          }}
+          key={i}
+        >
+          {el}{" "}
+        </motion.span>
+      ))}
+        
       </p>
       <div className="flex items-center gap-2 relative z-40">
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}>
         <Button
           size="lg"
           className="text-lg font-bold shadow-[0_4px_14px_0_rgb(255,0,0,39%)] hover:shadow-[0_6px_20px_rgba(255,0,0,23%)] hover:bg-[rgba(255,0,0,0.9)] bg-red-600 rounded-md text-white  transition duration-200 ease-linear"
         >
           {t("cta")}
         </Button>
+        </motion.div>
         <a href="#ourS"><Button
           size="lg"
           variant="outline"
