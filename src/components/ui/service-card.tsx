@@ -8,7 +8,7 @@ export
   const Card = ({ card }: { card: number }) => {
     const t = useTranslations(`OurServices.cards.${card}`);
     return (
-      <div className="flex items-center  h-full lg:p-8 lg:flex-row flex-col lg:w-screen max-w-sm">
+      <div className="flex items-center  h-full lg:p-8 lg:flex-row flex-col lg:w-screen">
         <div className="h-full flex justify-center  lg:w-6/12">
           <Image
             src={t('image')}
@@ -16,11 +16,11 @@ export
             width={500}
             height={500}
             unoptimized
-            className="object-contain h-full "
+            className="object-contain h-full lg:w-full"
           />
         </div>
         <div className="flex items-center justify-center h-full lg:flex-1 lg:w-6/12 *:w-fit *:overflow-x-hidden ">
-          <div className="text-center lg:w-3/4 flex flex-col lg:gap-4 gap-2">
+          <div className="text-center lg:w-3/4 lg:px-4 flex flex-col lg:gap-4 gap-2 h-full justify-center">
             <span className="ltr:tracking-widest ltr:font-mono dark:text-red-400 font-bold lg:text-3xl text-red-700">
               {
                 t('subtitle')
@@ -33,7 +33,7 @@ export
                 }
               </Balancer>
             </h3>
-            <p className="lg:text-2xl text-lg leading-relaxed">
+            <p className="lg:text-2xl text-lg !leading-relaxed">
               <Balancer>
                 {
                   t('description')
