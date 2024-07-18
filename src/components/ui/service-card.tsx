@@ -25,7 +25,7 @@ export const Card = ({ card }: { card: number }) => {
               t('subtitle')
             }
           </span>
-          <h3 className="2xl:text-9xl text-5xl font-bold ltr:tracking-tighter rtl:leading-tight">
+          <h3 className="2xl:text-7xl text-5xl font-bold ltr:tracking-tighter rtl:leading-tight">
             <Balancer>
               {
                 t('title')

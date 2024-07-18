@@ -111,7 +111,7 @@ export const Header = () => {
       className="max-w-7xl 2xl:w-screen relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 flex flex-col gap-4 z-40"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <h1 className="text-2xl md:text-7xl font-bold ltr:font-bungee !leading-snug">
+      <h1 className="text-2xl md:text-7xl font-bold  !leading-snug max-w-xl">
         <Balancer>{t("title")}</Balancer>
       </h1>
       <p className="max-w-2xl text-lg md:text-xl dark:text-neutral-200 !leading-loose">
