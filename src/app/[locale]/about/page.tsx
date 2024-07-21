@@ -6,6 +6,9 @@ import "lite-youtube-embed/src/lite-yt-embed.css";
 import Script from "next/script";
 import { Suspense } from "react";
 import VideoComponent from "@/components/ui/video";
+import dynamic from "next/dynamic";
+
+const Scene = dynamic(() => import('@/components/ThreeD/Scene'), {ssr: false})
 
 export default function Page() {
   const t = useTranslations("About");
@@ -13,22 +16,29 @@ export default function Page() {
   return (
     <section className="py-36 space-y-12">
       <Script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></Script>
-      <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center ">
-        <SparklesText text={t("h")} sparklesCount={30} />
-      </h1>
-      <div className="lg:max-w-7xl mx-auto space-y-4">
-        <div className="text-2xl font-medium leading-relaxed">
-          <BlurFade inView delay={0.1}>
-            {" "}
-            <Balancer>{t("p1")}</Balancer>
-          </BlurFade>
-        </div>
+      <div className="flex ">
+        <div>
+          <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center overflow-hidden">
+            <SparklesText text={t("h")} sparklesCount={30} />
+          </h1>
+          <div className="lg:max-w-7xl mx-auto space-y-4">
+            <div className="text-2xl font-medium leading-relaxed">
+              <BlurFade inView delay={0.1}>
+                {" "}
+                <Balancer>{t("p1")}</Balancer>
+              </BlurFade>
+            </div>
 
-        <div className="text-2xl font-medium leading-relaxed">
-          <BlurFade inView delay={0.1 * 2}>
-            {" "}
-            <Balancer>{t("p2")} </Balancer>
-          </BlurFade>
+            <div className="text-2xl font-medium leading-relaxed">
+              <BlurFade inView delay={0.1 * 2}>
+                {" "}
+                <Balancer>{t("p2")} </Balancer>
+              </BlurFade>
+            </div>
+          </div>
+        </div>
+        <div className="bg-neutral-900 h-auto w-full border border-1 border-gray-500 rounded-e-full align-bottom">
+          <Scene/>
         </div>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
@@ -39,6 +49,7 @@ export default function Page() {
           />
         </div>
       </Suspense>
+
     </section>
   );
 }
