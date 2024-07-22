@@ -1,12 +1,7 @@
-"use client";
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
-import { useTranslations, useLocale } from "next-intl";
 
-export function Clients() {
-  const t = useTranslations("Clients");
-  const locale = useLocale();
+export async function Clients() {
   return (
     <div className="relative flex  w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background  gap-4">
       <Marquee pauseOnHover className="[--duration:40s] ">

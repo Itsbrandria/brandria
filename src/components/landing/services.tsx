@@ -1,16 +1,13 @@
-"use client";
-import { useTranslations } from "next-intl";
-import HorizontalScrollCarousel from "../horizontal-scroll";
+import { getTranslations } from "next-intl/server";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Card } from "../ui/service-card";
 import Balancer from "react-wrap-balancer";
-import Scene from "../ThreeD/Scene";
-import { useGLTF } from '@react-three/drei'
-import { StarryNight } from "../StarryNight";
+import dynamic from "next/dynamic";
 
-export function Services() {
+const HorizontalScrollCarousel = dynamic(() => import('@/components/horizontal-scroll'), { ssr: false });
+export async function Services() {
 
-  const t = useTranslations("OurServices");
+  const t = await getTranslations("OurServices");
 
   const isMobile = useMediaQuery('(max-width: 640px)');
 
