@@ -1,5 +1,3 @@
-"use client";
-import { AuroraHero } from "@/components/AuroraHero";
 import { Clients } from "@/components/landing/clients";
 import CTA from "@/components/landing/cta";
 import FAQ from "@/components/landing/faq";
@@ -15,18 +13,11 @@ import dynamic from "next/dynamic";
 const Services = dynamic(() => import('@/components/landing/services').then((mod) => mod.Services), { ssr: false });
 
 export default function Home() {
-  const lenis = useLenis(({ scroll }) => { });
+  // const lenis = useLenis(({ scroll }) => { });
 
-  const isMobile = useMediaQuery('(max-width: 640px)');
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-8 gap-8  py-8 lg:px-0">
-      {
-        isMobile ? (
-          <MobileHero />
-        ) : (
-          <Hero />
-        )
-      }
+      <Hero />
       <Clients />
       <Services />
       <section className="w-full">

@@ -1,3 +1,4 @@
+"use client";
 import { useTranslations } from "next-intl";
 import HorizontalScrollCarousel from "../horizontal-scroll";
 import { useMediaQuery } from "@/hooks/use-media-query";
