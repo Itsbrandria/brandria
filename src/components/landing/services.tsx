@@ -5,6 +5,7 @@ import { Card } from "../ui/service-card";
 import Balancer from "react-wrap-balancer";
 import Scene from "../ThreeD/Scene";
 import {useGLTF} from '@react-three/drei'
+import { StarryNight } from "../StarryNight";
 
 export function Services() {
 
@@ -25,8 +26,15 @@ export function Services() {
             </Balancer>
           </p>
         </div>
-        <div className="bg-neutral-900 h-96 w-auto border border-1 border-gray-500 rounded-3xl align-bottom flex-1">
-          <Scene/>
+        <div className=" h-96 border border-1 border-gray-500 rounded-3xl align-bottom flex-2">
+          <StarryNight>
+            <h1 className="text-center text-2xl font-extrabold z-0">They Are Watching</h1>
+            <div className="z-40 h-96">
+              <Scene/>
+            </div>
+            
+          </StarryNight>
+
         </div>
       </div>
       {

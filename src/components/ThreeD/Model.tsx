@@ -5,11 +5,11 @@ import { motion } from 'framer-motion-3d'
 import { useScroll } from 'framer-motion'
 
 
-useGLTF.preload('/vintage_camera.glp')
+useGLTF.preload('/Watching.glp')
 
 export default function Model() {
   const group = useRef<Group>(null);
-  const { nodes, materials, scene } = useGLTF('/vintage_camera.glb')
+  const { nodes, materials, scene } = useGLTF('/Watching.glb')
 
   return (
     <group ref={group}>

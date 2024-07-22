@@ -9,8 +9,8 @@ interface StarryNightProps {
 
 export const StarryNight: React.FC<StarryNightProps> = ({ children }) => {
   return (
-    <section className='relative grid overflow-hidden'>
-      <div className='z-10'>
+    <section className='relative overflow-hidden h-full w-full'>
+      <div className='z-10 h-full w-full'>
         {children}
       </div>
       <div className='absolute inset-0 z-0'>
