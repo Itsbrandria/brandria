@@ -7,16 +7,13 @@ import { useScroll } from 'framer-motion'
 
 useGLTF.preload('/vintage_camera.glp')
 
-export default function Model( ) {
-
+export default function Model() {
   const group = useRef<Group>(null);
   const { nodes, materials, scene } = useGLTF('/vintage_camera.glb')
 
-
-
   return (
     <group ref={group}>
-        <primitive object={scene}/>
+      <primitive object={scene} />
     </group>
-  )
+  );
 }
