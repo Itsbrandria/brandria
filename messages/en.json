@@ -36,7 +36,7 @@
         "btnText": "Elevate Your Online Presence"
       },
       "3": {
-        "image": "/Online delivery.lottie",
+        "image": "/Offline delivery.lottie",
         "title": "Digital Marketing",
         "subtitle": "Marketing",
         "description": "We offer a full range of digital marketing services to help you grow your business and reach new heights.",
@@ -44,7 +44,8 @@
         "btnText": "Grow Your Business"
       },
       "4": {
-        "image": "/Offline delivery.lottie",
+        "image": "/Online delivery.lottie",
+
         "title": "Web Design & Development",
         "subtitle": "Web Design",
         "description": "We create beautiful, responsive websites that are designed to help you grow your business and reach new heights.",

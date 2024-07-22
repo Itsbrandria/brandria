@@ -61,7 +61,7 @@ const content: FAQItem[] = [
 const FAQ = () => {
   const locale = useLocale();
   return (
-    <Section className="w-full">
+    <section className="">
       <div>
         <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
           {
@@ -100,7 +100,7 @@ const FAQ = () => {
           ))}
         </div>
       </div>
-    </Section>
+    </section>
   );
 };
 

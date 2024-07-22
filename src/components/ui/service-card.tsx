@@ -7,9 +7,9 @@ import Balancer from "react-wrap-balancer";
 
 export const Card = ({ card }: { card: number }) => {
   const t = useTranslations(`OurServices.cards.${card}`);
-  
+
   return (
-    <div className="flex items-center  h-full lg:p-8 lg:flex-row flex-col lg:w-screen">
+    <div className="flex items-end  h-full lg:p-8 lg:flex-row flex-col lg:w-screen">
       <div className="h-full flex justify-center  lg:w-6/12">
         <DotLottieReact
           src={t('image')}
