@@ -1,15 +1,16 @@
 import { getTranslations } from "next-intl/server";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import { Card } from "../ui/service-card";
 import Balancer from "react-wrap-balancer";
 import dynamic from "next/dynamic";
+import { headers } from 'next/headers';
 
 const HorizontalScrollCarousel = dynamic(() => import('@/components/horizontal-scroll'), { ssr: false });
-export async function Services() {
 
+export async function Services() {
   const t = await getTranslations("OurServices");
 
-  const isMobile = useMediaQuery('(max-width: 640px)');
+  const userAgent = headers().get('user-agent') || '';
+  const isMobile = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(userAgent);
 
   return (
     <section className="lg:relative w-full overflow-hidden" id='ourS'>
@@ -24,19 +25,9 @@ export async function Services() {
             </Balancer>
           </p>
         </div>
-        {/* <div className=" h-96 border border-1 border-gray-500 rounded-3xl align-bottom flex-2">
-          <StarryNight>
-            <h1 className="text-center text-2xl font-extrabold z-0">They Are Watching</h1>
-            <div className="z-40 h-96">
-              <Scene/>
-            </div>
-            
-          </StarryNight>
-
-        </div> */}
       </div>
       {
-        isMobile ? (<>
+        isMobile ? (
           <section>
             <div className="flex flex-col gap-4">
               {[1, 2, 3, 4].map((card, index) => (
@@ -46,9 +37,10 @@ export async function Services() {
               ))}
             </div>
           </section>
-        </>) : (<HorizontalScrollCarousel />)
+        ) : (
+          <HorizontalScrollCarousel />
+        )
       }
     </section >
-
   )
 }
