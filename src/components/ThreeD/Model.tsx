@@ -1,0 +1,19 @@
+import {useGLTF} from '@react-three/drei'
+import { useRef } from 'react'
+import { Group } from 'three'
+import { motion } from 'framer-motion-3d'
+import { useScroll } from 'framer-motion'
+
+
+useGLTF.preload('/Watching.glp')
+
+export default function Model() {
+  const group = useRef<Group>(null);
+  const { nodes, materials, scene } = useGLTF('/Watching.glb')
+
+  return (
+    <group ref={group}>
+      <primitive object={scene} />
+    </group>
+  );
+}

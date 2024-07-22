@@ -1,4 +1,5 @@
 "use client";
+import { AuroraHero } from "@/components/AuroraHero";
 import { Clients } from "@/components/landing/clients";
 import CTA from "@/components/landing/cta";
 import FAQ from "@/components/landing/faq";
@@ -6,6 +7,7 @@ import { Hero } from "@/components/landing/hero";
 import { Process } from "@/components/landing/process";
 import { Services } from "@/components/landing/services";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
+import { StarryNight } from "@/components/StarryNight";
 import { useLenis } from "lenis/react";
 
 export default function Home() {
@@ -15,14 +17,21 @@ export default function Home() {
       <Hero />
       <Clients />
       <Services />
-      <section className="px-4">
-        <WhyChooseUs />
+      <section className="px-4 w-full">
+        <StarryNight>
+          <WhyChooseUs />
+        </StarryNight>
       </section>
       <CTA />
       <section className="px-4 flex flex-col justify-center items-center">
         <Process />
         <FAQ />
       </section>
+      <AuroraHero>
+        <h1 className="text-4xl">
+          Hello To Everyone Here
+        </h1>
+      </AuroraHero>
     </main>
   );
 }
