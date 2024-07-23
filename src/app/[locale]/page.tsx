@@ -7,7 +7,7 @@ import { Process } from "@/components/landing/process";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { StarryNight } from "@/components/StarryNight";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { useLenis } from "lenis/react";
+// import { useLenis } from "lenis/react";
 import dynamic from "next/dynamic";
 
 const Services = dynamic(() => import('@/components/landing/services').then((mod) => mod.Services), { ssr: false });

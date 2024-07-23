@@ -56,6 +56,7 @@ const config = {
       },
       fontFamily: {
         bungee: ["Bungee", "sans-serif"],
+        pp: ["PP", "mono-space"],
       },
       borderRadius: {
         lg: "var(--radius)",

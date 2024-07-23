@@ -7,10 +7,24 @@
   }
   
   @font-face {
-    font-family: 'Bungee';
-    src: url('/BungeeColor-Regular-COLRv0.woff2') format('woff2');
+    font-family: 'PP';
+    src: url('/PPMonumentExtended-Regular.otf') format('otf');
         font-weight: normal;
     font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'PP';
+    src: url('/PPMonumentExtended-Black.otf') format('otf');
+        font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'PP';
+    src: url('/PPMonumentExtended-Italic') format('otf');
+        font-weight: normal;
+    font-style: italic;
   }
 
 
@@ -116,3 +130,6 @@
 );
 }
  
+h1, h2, h3, h4, h5, h6 {
+ @apply font-pp;
+}
