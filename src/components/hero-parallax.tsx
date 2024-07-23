@@ -12,7 +12,7 @@ import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { Button } from "./ui/button/button";
 import { useTranslations, useLocale } from "next-intl";
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogOverlay } from "./ui/dialog";
 
 export const HeroParallax = ({
   products,
@@ -21,6 +21,7 @@ export const HeroParallax = ({
     title: string;
     link: string;
     thumbnail: string;
+    description: string;
   }[];
 }) => {
   const firstRow = products.slice(0, 3);
@@ -61,18 +62,18 @@ export const HeroParallax = ({
   return (
     <section
       ref={ref}
-      className="h-[250dvh] 2xl:h-[210dvh]  overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 w-full"
-    >
+      className="h-[250dvh] 2xl:h-[300dvh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 w-full">
       <Header />
+
       <motion.div
         style={{
           rotateX,
           rotateZ,
           translateY,
           opacity,
-        }}
-      >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        }}>
+          
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20 -mt-72">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -90,15 +91,8 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
+
+        
       </motion.div>
     </section>
   );
@@ -153,13 +147,9 @@ export const Header = () => {
         <a href="#ourS"><Button
           size="lg"
           variant="outline"
-          className="dark:text-neutral-200 font-bold text-lg"
-
-        >
-
+          className="dark:text-neutral-200 font-bold text-lg">
           {t("services")}
-
-        </Button>  </a>
+        </Button></a>
       </div>
     </div>
   );
@@ -173,6 +163,7 @@ export const ProductCard = ({
     title: string;
     link: string;
     thumbnail: string;
+    description: string;
   };
   translate: MotionValue<number>;
 }) => {
@@ -210,13 +201,16 @@ export const ProductCard = ({
           </div>
         </motion.div>
       </DialogTrigger>
-      <DialogContent>
-        <div>
+      <DialogContent  style={{ backgroundImage: `url(${product.thumbnail})`}}>
+        <div style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
           {product.title}
         </div>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique.
+        <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
+          {product.description}        
         </p>
+        <Button>
+          Go To Project
+        </Button>
       </DialogContent>
     </Dialog>
   );

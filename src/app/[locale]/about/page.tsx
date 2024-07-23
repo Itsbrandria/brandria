@@ -4,22 +4,22 @@ import SparklesText from "@/components/magicui/sparkles-text";
 import { useLocale, useTranslations } from "next-intl";
 import Balancer from "react-wrap-balancer";
 import "lite-youtube-embed/src/lite-yt-embed.css";
-import Script from "next/script";
-import { Suspense } from "react";
-import VideoComponent from "@/components/ui/video";
+import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { Coins , Lightbulb, Earth, Handshake, UsersRound, UserRoundPlus, Target} from "lucide-react";
+import {Lightbulb, Earth, Handshake, UsersRound, UserRoundPlus, Target} from "lucide-react";
 import NumberTicker from "@/components/magicui/number-ticker";
 import Image from "next/image";
 import Marquee from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { StarryNight } from "@/components/StarryNight";
 // import { useGLTF } from '@react-three/drei'
 
 
 
 const featureText = [
   {
-    icon: <Lightbulb className="h-6 w-6" />,
+    icon: <Lightbulb className="h-9 w-9" />,
     title: "Fueling Creativity and Innovation",
     description:
       "We are fueled by a relentless drive for creativity and innovation, constantly pushing boundaries to create unique and standout solutions for your brand.",
@@ -28,7 +28,7 @@ const featureText = [
   },
 
   {
-    icon: <Earth className="h-6 w-6" />,
+    icon: <Earth className="h-9 w-9" />,
     title: "Expertise, Experience, and Global Reach",
     description:
       "With extensive expertise and global reach, our seasoned professionals deliver tailored solutions that drive real results.",
@@ -36,7 +36,7 @@ const featureText = [
     descriptionAR:"بفضل خبرتنا الواسعة وانتشارنا العالمي، يقدم محترفونا المتمرسون حلولًا مخصصة تحقق نتائج حقيقية."
   }, 
   {
-    icon: <Handshake className="h-6 w-6" />,
+    icon: <Handshake className="h-9 w-9" />,
     title: "Collaboration and Client-Centric Approach",
     description:
       "We value collaboration and take a client-centric approach, ensuring your vision and goals are at the forefront of our strategies.",
@@ -48,7 +48,7 @@ const featureText = [
 
 const featureText2 = [
   {
-    icon: <UserRoundPlus className="h-6 w-6" />,
+    icon: <UserRoundPlus className="h-9 w-9" />,
     title: "People first",
     description:
       "Be real, be authentic. Strive for growth, and challenge yourself to be your best version. Don’t be afraid to try and fail. Most importantly, be yourself",
@@ -57,7 +57,7 @@ const featureText2 = [
   },
 
   {
-    icon: <UsersRound className="h-6 w-6" />,
+    icon: <UsersRound className="h-9 w-9" />,
     title: "Teamwork",
     description:
       "Push each other forward with curiosity and the desire to learn more and be the better version of yourself, but be understanding, kind, and supportive of your teammates.",
@@ -66,7 +66,7 @@ const featureText2 = [
     }, 
   
   {
-    icon: < Target className="h-6 w-6" />,
+    icon: < Target className="h-9 w-9" />,
     title: "Always aim higher",
     description: "With extensive expertise and global reach, our seasoned professionals deliver tailored solutions that drive real results.",
     titleAR:"دوماً هدفك أعلى",
@@ -79,14 +79,41 @@ export default function Page() {
   const t = useTranslations("About");
   const locale = useLocale()
   // useGLTF.preload('/vintage_camera.glp')
+  const [mouseY, setMouseY] = useState(0);
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setMouseY(event.clientY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  // Calculate rotation based on mouseY
+  const rotation = (mouseY / window.innerWidth - 0.1) * 150; // Adjust 20 to control the rotation sensitivity
 
   return (
     <main className="py-36 flex flex-col gap-20">
-
       <div className="flex px-14 flex-col gap-12">
-        <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center overflow-hidden">
+        <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-left overflow-hidden">
           <SparklesText text={t("h")} sparklesCount={30} />
         </h1>
+        <div>
+        <motion.img
+            style={{ perspective: '1000px'}}
+            initial={{ rotateZ: 0 }}
+            animate={{ rotateZ: rotation }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+             src="/GooglyEyes.svg"
+            alt="Description of the image"
+            width={100}
+            height={100}
+            />
+        </div>
         <div className="flex">
           <div className="lg:max-w-5xl mx-auto space-y-4 ">
             <div className="text-lg lg:text-2xl  !leading-relaxed">
@@ -94,7 +121,6 @@ export default function Page() {
                 <Balancer>{t("p1")}</Balancer>
               </BlurFade>
             </div>
-
             <div className="text-lg lg:text-2xl font-light !leading-relaxed">
               <BlurFade inView delay={0.1 * 2}>
                 <Balancer>{t("p2")} </Balancer>
@@ -111,6 +137,7 @@ export default function Page() {
           />
         </div>
       </Suspense> */}
+      <StarryNight>
       <section className="w-9/12 mx-auto flex flex-col gap-8 ">
         <h2 className="text-2xl lg:text-6xl font-bold">
           {t("h2")}
@@ -119,7 +146,6 @@ export default function Page() {
         {t("p3")}
         </p>
         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
-
           {featureText.map(
             (f , index) => (
             <div className="flex flex-col gap-4" key={index}>
@@ -130,6 +156,7 @@ export default function Page() {
           ))}
         </div>
       </section>
+      </StarryNight>
       <section className="w-9/12 mx-auto flex flex-col gap-2">
         <h2 className="text-2xl lg:text-6xl font-bold">
         {t("h3")}
