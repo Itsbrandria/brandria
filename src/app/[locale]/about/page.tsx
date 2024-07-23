@@ -1,3 +1,4 @@
+'use client';
 import BlurFade from "@/components/magicui/blur-fade";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { useTranslations } from "next-intl";
@@ -6,8 +7,6 @@ import "lite-youtube-embed/src/lite-yt-embed.css";
 import Script from "next/script";
 import { Suspense } from "react";
 import VideoComponent from "@/components/ui/video";
-<<<<<<< Updated upstream
-=======
 import dynamic from "next/dynamic";
 import { Coins } from "lucide-react";
 import NumberTicker from "@/components/magicui/number-ticker";
@@ -23,27 +22,20 @@ const featureText = [
     icon: <Coins className="h-6 w-6" />,
     title: "Fueling Creativity and Innovation",
     description:
-      "We are fueled by a relentless drive for creativity and innovation, constantly pushing boundaries to create unique and standout solutions for your brand.",
-    arTitle:"تحفيز الإبداع والابتكار",
-    arDescription:"نحن مدفوعون بدافع لا يتوقف نحو الإبداع والابتكار، ونسعى دائمًا لتجاوز الحدود لخلق حلول فريدة ومميزة لعلامتك التجارية."
-    },
+      "We are fueled by a relentless drive for creativity and innovation, constantly pushing boundaries to create unique and standout solutions for your brand."
+  },
 
   {
     icon: <Coins className="h-6 w-6" />,
     title: "Expertise, Experience, and Global Reach",
     description:
-      "With extensive expertise and global reach, our seasoned professionals deliver tailored solutions that drive real results.",
-    arTitle: "الخبرة، التجربة، والانتشار العالمي",
-    arDescription:"بفضل خبرتنا الواسعة وانتشارنا العالمي، يقدم محترفونا المتمرسون حلولًا مخصصة تحقق نتائج حقيقية.",
-  },
-
-  {
+      "With extensive expertise and global reach, our seasoned professionals deliver tailored solutions that drive real results."
+  }, {
     icon: <Coins className="h-6 w-6" />,
     title: "Collaboration and Client-Centric Approach",
     description:
       "We value collaboration and take a client-centric approach, ensuring your vision and goals are at the forefront of our strategies."
-  
-    },
+  },
 ];
 
 
@@ -67,30 +59,32 @@ const featureText2 = [
   },
 ];
 // const Scene = dynamic(() => import('@/components/ThreeD/Scene'), { ssr: false })
->>>>>>> Stashed changes
 
 export default function Page() {
   const t = useTranslations("About");
+  // useGLTF.preload('/vintage_camera.glp')
 
   return (
-    <section className="py-36 space-y-12">
-      <Script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></Script>
-      <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center ">
-        <SparklesText text={t("h")} sparklesCount={30} />
-      </h1>
-      <div className="lg:max-w-7xl mx-auto space-y-4">
-        <div className="text-2xl font-medium leading-relaxed">
-          <BlurFade inView delay={0.1}>
-            {" "}
-            <Balancer>{t("p1")}</Balancer>
-          </BlurFade>
-        </div>
+    <main className="py-36 flex flex-col gap-20">
 
-        <div className="text-2xl font-medium leading-relaxed">
-          <BlurFade inView delay={0.1 * 2}>
-            {" "}
-            <Balancer>{t("p2")} </Balancer>
-          </BlurFade>
+      <div className="flex px-14 flex-col gap-12">
+        <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center overflow-hidden">
+          <SparklesText text={t("h")} sparklesCount={30} />
+        </h1>
+        <div className="flex">
+          <div className="lg:max-w-5xl mx-auto space-y-4 ">
+            <div className="text-lg lg:text-2xl  !leading-relaxed">
+              <BlurFade inView delay={0.1}>
+                <Balancer>{t("p1")}</Balancer>
+              </BlurFade>
+            </div>
+
+            <div className="text-lg lg:text-2xl font-light !leading-relaxed">
+              <BlurFade inView delay={0.1 * 2}>
+                <Balancer>{t("p2")} </Balancer>
+              </BlurFade>
+            </div>
+          </div>
         </div>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
@@ -101,15 +95,12 @@ export default function Page() {
           />
         </div>
       </Suspense>
-<<<<<<< Updated upstream
-    </section>
-=======
       <section className="w-9/12 mx-auto flex flex-col gap-8 ">
         <h2 className="text-2xl lg:text-6xl font-bold">
-          {t("h2")}
+          Who We Are
         </h2>
         <p className="text-lg lg:text-xl !leading-loose ">
-          {t("p3")}  
+          Established in 2016, we quickly spread all over the MENA region, with our two main branches in Cairo and Dubai. We are a growing team of passionate marketing specialists with satisfied clients worldwide.Our founders and managers are experts in the digital marketing, media, and advertising spaces, with decades of experience working with high-profile companies such as Google, Microsoft, NASA, the Pentagon, and Atlassian. Our team is hard-working, experienced, and has a burning passion for digital marketing and advertising.Digital Brandria boasts over 20 years of experience, where we have served over 500 clients, designed over 300 websites, managed over 200 high-profile accounts, written over 2000 captivating articles, and designed over 5000 amazing graphics and videos.
         </p>
         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
           {featureText.map(({ icon, title, description }, index) => (
@@ -123,10 +114,10 @@ export default function Page() {
       </section>
       <section className="w-9/12 mx-auto flex flex-col gap-2">
         <h2 className="text-2xl lg:text-6xl font-bold">
-          {t("h3")}
+          Our Core Values
         </h2>
         <p className="text-lg lg:text-xl !leading-loose ">
-          {t("p4")}
+          Our core values bind us, and it’s shown in everything we do, in every step we take.
         </p>
         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
           {featureText2.map(({ icon, title, description }, index) => (
@@ -141,14 +132,14 @@ export default function Page() {
       <section className="flex gap-4 w-9/12 mx-auto mt-10">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl lg:text-6xl font-bold">
-            {t("h4")}
+            Our Office Culture
           </h2>
           <p className="text-lg lg:text-xl !leading-loose ">
             Our branches’ offices are not just the physical place that hosts our team of professionals and specialists. It is the place that makes us feel connected, opens our hearts to each other, and helps us out through thick and thin. It’s also a place to enjoy great food and organize wonderful weekend gatherings. Our office is an environment that fosters a sense of connection and nurtures its community.          </p>
         </div>
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl lg:text-6xl font-bold">
-            {t("h5")}
+            Our Mission
           </h2>
           <p className="text-lg lg:text-xl !leading-loose ">
             Our mission is to strive to eradicate the mediocrity of digital marketing worldwide. Not to be the best in digital marketing, but to master the ability to foster a nurturing environment for people in the digital marketing field.
@@ -186,6 +177,65 @@ export default function Page() {
         </Marquee>
       </section>
     </main>
->>>>>>> Stashed changes
   );
 }
+const reviews = [
+  {
+    name: "Dr.Mona Gad",
+    username: "Mona Gad",
+    body: "Excellent team with brilliant ideas and great efforts",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Dr.Rasha Hamed Shereif",
+    username: "YOUClinic",
+    body: "Highly professional and I really recommend them",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "Mohamed Tawansy",
+    username: "LNG",
+    body: "Although the business with Brandria started within less than a year, but one the advantages of working with them is the ability to speed delivery while maintaining quality, creative ideas and succession.. our work with them are distinguished.",
+    img: "https://avatar.vercel.sh/john",
+  },
+
+];
+
+
+
+
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
+  return (
+    <figure
+      className={cn(
+        "relative w-1/5 h-full cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <img className="rounded-full" width="64" height="64" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-xl font-medium dark:text-white">
+            {name}
+          </figcaption>
+          <p className="text-lg font-medium dark:text-white/40">{username}</p>
+        </div>
+      </div>
+      <blockquote className="mt-2 text-2xl">{body}</blockquote>
+    </figure>
+  );
+};

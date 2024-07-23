@@ -1,16 +1,18 @@
-"use client";
-import React from "react";
 import { HeroParallax } from "../hero-parallax";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import MobileHero from "./mb-hero";
+import { headers } from 'next/headers';
 
 export function Hero() {
-  const isMobile = useMediaQuery('(max-width: 640px)');
+  const userAgent = headers().get('user-agent') || '';
+  const isMobile = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(userAgent);
+
   return isMobile ? (
     <>
       <MobileHero />
     </>
-  ) : (<HeroParallax products={products} />);
+  ) : (
+    <HeroParallax products={products} />
+  );
 }
 export const products = [
   {

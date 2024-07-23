@@ -19,6 +19,7 @@ const config = {
     },
     extend: {
       colors: {
+        brand: "#e93331",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -96,7 +97,11 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar-hide")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-scrollbar-hide"),
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config;
 
 export default config;
