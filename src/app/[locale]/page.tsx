@@ -30,11 +30,6 @@ export default function Home() {
         <Process />
         <FAQ />
       </section>
-      {/* <AuroraHero>
-        <h1 className="text-4xl">
-          Hello To Everyone Here
-        </h1>
-      </AuroraHero> */}
     </main>
   );
 }

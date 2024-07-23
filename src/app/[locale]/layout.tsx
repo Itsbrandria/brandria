@@ -43,22 +43,22 @@ export default async function RootLayout({
       <body
         className={`${locale === "ar" ? plexArabic.className : inter.className} antialiased `}
       >
-        <ReactLenis root>
+        {/* <ReactLenis root> */}
 
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          > <NextIntlClientProvider messages={messages} locale={locale}>
-              <NavBar />
-              <div vaul-drawer-wrapper="" className="bg-background">
-                {children}
-              </div>
-            </NextIntlClientProvider>
-          </ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        > <NextIntlClientProvider messages={messages} locale={locale}>
+            <NavBar />
+            <div vaul-drawer-wrapper="" className="bg-background">
+              {children}
+            </div>
+          </NextIntlClientProvider>
+        </ThemeProvider>
 
-        </ReactLenis>
+        {/* </ReactLenis> */}
       </body>
     </html>
   );
