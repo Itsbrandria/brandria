@@ -12,6 +12,7 @@ import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { Button } from "./ui/button/button";
 import { useTranslations, useLocale } from "next-intl";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 export const HeroParallax = ({
   products,
@@ -60,7 +61,7 @@ export const HeroParallax = ({
   return (
     <section
       ref={ref}
-      className="h-[250dvh] 2xl:h-[210dvh]  overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 max-w-7xl 2xl:max-w-7xl"
+      className="h-[250dvh] 2xl:h-[210dvh]  overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 w-full"
     >
       <Header />
       <motion.div
@@ -113,41 +114,41 @@ export const Header = () => {
       className="max-w-7xl 2xl:w-screen relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 flex flex-col gap-4 z-40"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <motion.h1 
-        initial = {{ opacity:0,y:15 }}
-        animate = {{ opacity:1,y:0 }}
-        exit  = {{ opacity:0,y:15 }}
-        transition={{ duration:0.5,delay:0.2 }}
-       className="text-2xl md:text-7xl font-bold  !leading-snug max-w-xl">
+      <motion.h1
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 15 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="text-2xl md:text-7xl font-bold  !leading-snug max-w-xl">
         <Balancer>{t("title")}</Balancer>
       </motion.h1>
       <p className="max-w-2xl text-lg md:text-xl dark:text-neutral-200 !leading-loose">
-        
-      {splitedText.map((el, i) => (
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 1,
-            delay: i / 10
-          }}
-          key={i}
-        >
-          {el}{" "}
-        </motion.span>
-      ))}
-        
+
+        {splitedText.map((el, i) => (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: i / 10
+            }}
+            key={i}
+          >
+            {el}{" "}
+          </motion.span>
+        ))}
+
       </p>
       <div className="flex items-center gap-2 relative z-40">
-      <motion.div
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-        <Button
-          size="lg"
-          className="text-lg font-bold shadow-[0_4px_14px_0_rgb(255,0,0,39%)] hover:shadow-[0_6px_20px_rgba(255,0,0,23%)] hover:bg-[rgba(255,0,0,0.9)] bg-red-600 rounded-md text-white  transition duration-200 ease-linear"
-        >
-          {t("cta")}
-        </Button>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+          <Button
+            size="lg"
+            className="text-lg font-bold shadow-[0_4px_14px_0_rgb(255,0,0,39%)] hover:shadow-[0_6px_20px_rgba(255,0,0,23%)] hover:bg-[rgba(255,0,0,0.9)] bg-red-600 rounded-md text-white  transition duration-200 ease-linear"
+          >
+            {t("cta")}
+          </Button>
         </motion.div>
         <a href="#ourS"><Button
           size="lg"
@@ -176,37 +177,47 @@ export const ProductCard = ({
   translate: MotionValue<number>;
 }) => {
   return (
-    <motion.div
-      style={{
-        x: translate,
-      }}
-      whileHover={{
-        y: -20,
-      }}
-      key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
-    >
-      <Link
-        href={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
-        <Image
-          src={product.thumbnail}
-          height="800"
-          width="800"
-          className="object-scale-down absolute h-full w-full inset-0 aspect-square"
-          alt={product.title}
-        />
-      </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <div className="absolute flex flex-col gap-2 bottom-4 px-2">
-        <h2 className=" opacity-0 group-hover/product:opacity-100 text-white text-xl font-bold">
+    <Dialog>
+      <DialogTrigger>
+        <motion.div
+          style={{
+            x: translate,
+          }}
+          whileHover={{
+            y: -20,
+          }}
+          key={product.title}
+          className="group/product h-96 w-[30rem] relative flex-shrink-0"
+        >
+          <Link
+            href={product.link}
+            className="block group-hover/product:shadow-2xl "
+          >
+            <Image
+              src={product.thumbnail}
+              height="800"
+              width="800"
+              className="object-cover absolute h-full w-full inset-0 aspect-square"
+              alt={product.title}
+            />
+          </Link>
+          <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black"></div>
+          <div className="absolute flex flex-col gap-2 bottom-4 px-2">
+            <h2 className=" opacity-0 group-hover/product:opacity-100 text-white text-2xl font-bold">
+              {product.title}
+            </h2>
+
+          </div>
+        </motion.div>
+      </DialogTrigger>
+      <DialogContent>
+        <div>
           {product.title}
-        </h2>
-        <p className=" opacity-0 group-hover/product:opacity-100 text-white">
+        </div>
+        <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique.
         </p>
-      </div>
-    </motion.div>
+      </DialogContent>
+    </Dialog>
   );
 };

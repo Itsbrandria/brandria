@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/nav-bar";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ReactLenis, useLenis } from "@/lib/lenis";
-const plex = IBM_Plex_Sans({
+const inter = Inter({
   weight: ["400", "500", "600", "700"],
   style: "normal",
   display: "swap",
@@ -41,24 +41,24 @@ export default async function RootLayout({
       locale === "ar" ? "rtl" : "ltr"
     }>
       <body
-        className={`${locale === "ar" ? plexArabic.className : plex.className} antialiased `}
+        className={`${locale === "ar" ? plexArabic.className : inter.className} antialiased `}
       >
-        <ReactLenis root>
+        {/* <ReactLenis root> */}
 
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          > <NextIntlClientProvider messages={messages} locale={locale}>
-              <NavBar />
-              <div vaul-drawer-wrapper="" className="bg-background">
-                {children}
-              </div>
-            </NextIntlClientProvider>
-          </ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        > <NextIntlClientProvider messages={messages} locale={locale}>
+            <NavBar />
+            <div vaul-drawer-wrapper="" className="bg-background">
+              {children}
+            </div>
+          </NextIntlClientProvider>
+        </ThemeProvider>
 
-        </ReactLenis>
+        {/* </ReactLenis> */}
       </body>
     </html>
   );

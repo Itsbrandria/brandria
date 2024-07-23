@@ -3,16 +3,13 @@ import MobileHero from "./mb-hero";
 import { headers } from 'next/headers';
 
 export function Hero() {
-  const userAgent = headers().get('user-agent') || '';
-  const isMobile = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(userAgent);
+  // const userAgent = headers().get('user-agent') || '';
+  // const isMobile = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(userAgent);
 
-  return isMobile ? (
-    <>
-      <MobileHero />
-    </>
-  ) : (
-    <HeroParallax products={products} />
-  );
+  return <HeroParallax products={
+    products
+
+  } />;
 }
 export const products = [
   {
