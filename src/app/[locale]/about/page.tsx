@@ -4,22 +4,22 @@ import SparklesText from "@/components/magicui/sparkles-text";
 import { useLocale, useTranslations } from "next-intl";
 import Balancer from "react-wrap-balancer";
 import "lite-youtube-embed/src/lite-yt-embed.css";
-import Script from "next/script";
-import { Suspense } from "react";
-import VideoComponent from "@/components/ui/video";
+import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { Coins , Lightbulb, Earth, Handshake, UsersRound, UserRoundPlus, Target} from "lucide-react";
+import {Lightbulb, Earth, Handshake, UsersRound, UserRoundPlus, Target} from "lucide-react";
 import NumberTicker from "@/components/magicui/number-ticker";
 import Image from "next/image";
 import Marquee from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
+import { AnimationProps, motion } from "framer-motion";
+import { StarryNight } from "@/components/StarryNight";
 // import { useGLTF } from '@react-three/drei'
 
 
 
 const featureText = [
   {
-    icon: <Lightbulb className="h-6 w-6" />,
+    icon: <Lightbulb className="h-9 w-9" />,
     title: "Fueling Creativity and Innovation",
     description:
       "We are fueled by a relentless drive for creativity and innovation, constantly pushing boundaries to create unique and standout solutions for your brand.",
@@ -28,7 +28,7 @@ const featureText = [
   },
 
   {
-    icon: <Earth className="h-6 w-6" />,
+    icon: <Earth className="h-9 w-9" />,
     title: "Expertise, Experience, and Global Reach",
     description:
       "With extensive expertise and global reach, our seasoned professionals deliver tailored solutions that drive real results.",
@@ -36,7 +36,7 @@ const featureText = [
     descriptionAR:"بفضل خبرتنا الواسعة وانتشارنا العالمي، يقدم محترفونا المتمرسون حلولًا مخصصة تحقق نتائج حقيقية."
   }, 
   {
-    icon: <Handshake className="h-6 w-6" />,
+    icon: <Handshake className="h-9 w-9" />,
     title: "Collaboration and Client-Centric Approach",
     description:
       "We value collaboration and take a client-centric approach, ensuring your vision and goals are at the forefront of our strategies.",
@@ -48,7 +48,7 @@ const featureText = [
 
 const featureText2 = [
   {
-    icon: <UserRoundPlus className="h-6 w-6" />,
+    icon: <UserRoundPlus className="h-9 w-9" />,
     title: "People first",
     description:
       "Be real, be authentic. Strive for growth, and challenge yourself to be your best version. Don’t be afraid to try and fail. Most importantly, be yourself",
@@ -57,7 +57,7 @@ const featureText2 = [
   },
 
   {
-    icon: <UsersRound className="h-6 w-6" />,
+    icon: <UsersRound className="h-9 w-9" />,
     title: "Teamwork",
     description:
       "Push each other forward with curiosity and the desire to learn more and be the better version of yourself, but be understanding, kind, and supportive of your teammates.",
@@ -66,7 +66,7 @@ const featureText2 = [
     }, 
   
   {
-    icon: < Target className="h-6 w-6" />,
+    icon: < Target className="h-9 w-9" />,
     title: "Always aim higher",
     description: "With extensive expertise and global reach, our seasoned professionals deliver tailored solutions that drive real results.",
     titleAR:"دوماً هدفك أعلى",
@@ -75,33 +75,139 @@ const featureText2 = [
 ];
 // const Scene = dynamic(() => import('@/components/ThreeD/Scene'), { ssr: false })
 
+const svgVariants = {
+  hidden: { rotate: 0 },
+  visible: {
+    rotate : 0,
+    transition: { duration: 1 }
+  }
+
+}
+
+const pathVariants: AnimationProps ={
+  transition: {
+    duration:3,
+    ease:"easeInOut"
+  },
+  variants:{
+    visible: {
+      pathLength: 1,
+
+      },
+    hidden: {
+      pathLength: 0
+    }
+  }
+
+}
+
 export default function Page() {
   const t = useTranslations("About");
   const locale = useLocale()
   // useGLTF.preload('/vintage_camera.glp')
+  const [mouseY, setMouseY] = useState(0);
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setMouseY(event.clientY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  // Calculate rotation based on mouseY
+  const rotation = (mouseY / window.innerWidth - 0.25) * 150; 
+  // Adjust 20 to control the rotation sensitivity
+  const rotation2 = (mouseY / window.innerHeight - 0.25) * 500; // Adjust 20 to control the rotation sensitivity
 
   return (
     <main className="py-36 flex flex-col gap-20">
-
       <div className="flex px-14 flex-col gap-12">
-        <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center overflow-hidden">
-          <SparklesText text={t("h")} sparklesCount={30} />
-        </h1>
-        <div className="flex">
-          <div className="lg:max-w-5xl mx-auto space-y-4 ">
-            <div className="text-lg lg:text-2xl  !leading-relaxed">
-              <BlurFade inView delay={0.1}>
-                <Balancer>{t("p1")}</Balancer>
-              </BlurFade>
-            </div>
-
-            <div className="text-lg lg:text-2xl font-light !leading-relaxed">
-              <BlurFade inView delay={0.1 * 2}>
-                <Balancer>{t("p2")} </Balancer>
-              </BlurFade>
+        <div className="grid grid-cols-12 gap-4">
+        <div className="p-4 col-span-2">
+          <motion.img
+              style={{ perspective: '1000px'}}
+              initial={{ rotateZ: 0 }}
+              animate={{ rotateZ: rotation }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              src="/GooglyEyes.svg"
+              alt="Description of the image"
+              width={100}
+              height={100}
+              />
+          </div>
+          <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center  p-4 col-span-9 overflow-hidden">
+            <SparklesText text={t("h")} sparklesCount={30} />
+          </h1>
+          <div className="p-4 col-span-1  transform scale-x-[-1]">
+          <motion.img
+              style={{ perspective: '1000px'}}
+              initial={{ rotateY: 0 }}
+              animate={{ rotateY: rotation2 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              src="/GooglyEyes.svg"
+              alt="Description of the image"
+              width={100}
+              height={100}
+              />
+          </div>
+          <div className="p-4 col-span-2">
+          <motion.svg xmlns="http://www.w3.org/2000/svg" width="133" height="250" viewBox="0 0 133.571 364.888"
+            variants={svgVariants}
+            initial = "hidden" animate = "visible"
+          >
+            <g id="Dodles2" transform="translate(1104.122 -135.885)">
+              <motion.path id="Path_127" data-name="Path 127" variants={pathVariants} initial = "hidden" animate = "visible" d="M-1046.4,466.3c-5.1-1.6-10.6-.7-15.7,1,3.5-6,4.6-13.4,2.2-19.9a18.72,18.72,0,0,0-17.8-12.2,15.97,15.97,0,0,0-11.2,4.4c-1.3,1.2.7,3.2,2,2,6-5.9,16.5-4.2,21.7,1.9,6.3,7.3,4.4,18.9-1.5,25.8-.8.9-.1,2.9,1.3,2.3,8.2-3.4,21.3-6.2,25.7,4.3,3.5,8.4-1.2,17.5-9.5,20.7a23.831,23.831,0,0,1-15.6.2c-1.7-.5-2.4,2.1-.7,2.7,9.7,3.1,22.5.7,27.6-9C-1033.3,481.5-1036.4,469.5-1046.4,466.3Z" fill="#ff001c"/>
+              <motion.path id="Path_128" data-name="Path 128" variants={pathVariants} initial = "hidden" animate = "visible" d="M-1061.2,222.8c-5.1-1.6-10.6-.7-15.7,1,3.5-6,4.6-13.4,2.2-19.9a18.72,18.72,0,0,0-17.8-12.2,15.97,15.97,0,0,0-11.2,4.4c-1.3,1.2.7,3.2,2,2,6-5.9,16.5-4.2,21.7,1.9,6.3,7.3,4.4,18.9-1.5,25.8-.8.9-.1,2.9,1.3,2.3,8.2-3.4,21.3-6.2,25.7,4.3,3.5,8.4-1.2,17.5-9.5,20.7a23.831,23.831,0,0,1-15.6.2c-1.7-.5-2.4,2.1-.7,2.7,9.7,3.1,22.5.7,27.6-9C-1048.1,238-1051.2,225.9-1061.2,222.8Z" fill="#ff001c"/>
+              <motion.path id="Path_129" data-name="Path 129" variants={pathVariants} initial = "hidden" animate = "visible" d="M-971.7,136.2c-4.8-1.3-9,1.6-11.5,5.4-3,4.4-3.1,9.6-3.6,14.8s-1.9,10.2-6.5,13.3c-4.5,3-9.9,3.7-15.2,3.9-6,.3-12,.2-17.7,1.9a39.4,39.4,0,0,0-13.7,7.3c-4.1,3.4-7.9,7.8-9.5,12.9a18.409,18.409,0,0,0,1.8,14.5c5.4,10.1,16.2,14.4,25.6,20,4.6,2.7,8.9,5.9,11.8,10.5,2.6,4.1,4.1,9.1,2.6,13.8-2.8,8.7-13.5,10.4-21.3,10.1-5.8-.2-11.4-1.8-17.2-1.7a24.587,24.587,0,0,0-15,5.2c-8.1,6.3-13.1,16.5-15,26.5a53.939,53.939,0,0,0,3.1,30.5,54.478,54.478,0,0,0,3.5,6.8c1.1,1.8,3.9.1,2.8-1.6-10.6-16.9-9.8-41.7,4.2-56.6a22.654,22.654,0,0,1,13.3-7.3c5.9-.8,11.9.8,17.7,1.3,8,.8,17.8-.2,23.6-6.5,7-7.6,4.1-18.4-1.9-25.5-7.1-8.4-18.2-11.5-26.7-17.9-4-3-7.7-7.1-9.4-11.9-1.8-5.2-.7-10.1,2.5-14.5,6.2-8.7,16.4-13.5,26.9-14.2,10.1-.7,22.5.4,29.4-8.7,3.2-4.3,3.6-9.7,4.1-14.8.4-4.8,1.3-9.7,5.2-12.9a6.088,6.088,0,0,1,5.6-1.4C-970.6,139.9-969.7,136.8-971.7,136.2Z" fill="#ff001c"/>
+              <motion.path id="Path_131" data-name="Path 131" variants={pathVariants} initial = "hidden" animate = "visible" d="M-1010.1,443.2c-3.9-1.6-8-2.2-12.1-2.9-3.8-.7-7.8-1.7-10.5-4.7-3.1-3.4-3.4-8.4-2-12.6a23.641,23.641,0,0,1,8.4-11.3c4.1-3.1,9.2-5.1,14.4-4.2,2,.3,2.9-2.8.9-3.1-10.5-1.7-20.8,5.4-25.4,14.5-2.3,4.7-3.1,10.1-1,15,1.9,4.5,5.8,7.2,10.4,8.6,5.1,1.5,10.5,1.5,15.4,3.6a1.734,1.734,0,0,0,2.2-.6A1.9,1.9,0,0,0-1010.1,443.2Z" fill="#ff001c"/>
+              <motion.path id="Path_133" data-name="Path 133" variants={pathVariants} initial = "hidden" animate = "visible" d="M-1038.2,147a67.136,67.136,0,0,0-27,26.1c-1,1.8,1.6,3.6,2.7,1.8a63.756,63.756,0,0,1,25.7-25C-1034.9,148.9-1036.3,146-1038.2,147Z" fill="#ff001c"/>
+              <motion.path id="Path_138" data-name="Path 138" variants={pathVariants} initial = "hidden" animate = "visible" d="M-1013.1,333.8a70.965,70.965,0,0,0-19.2-34.9c-1.5-1.5-3.7,1-2.2,2.4a69.02,69.02,0,0,1,18.2,33.5C-1015.7,336.9-1012.6,335.9-1013.1,333.8Z" fill="#ff001c"/>
+              <motion.path id="Path_140" data-name="Path 140" variants={pathVariants} initial = "hidden" animate = "visible" d="M-1024.8,356.5a15.435,15.435,0,0,0-10,5.1,25.887,25.887,0,0,0-3.7,5.6,16.185,16.185,0,0,0-17.2-6.7,15.592,15.592,0,0,0-9.7,7.3,16.84,16.84,0,0,0-2,4.8,12.277,12.277,0,0,0-3.3-3.9,9.31,9.31,0,0,0-11.4-.3c-6.9,5.3-8.3,16-5.9,23.8.8,2.7,5,1.3,4.2-1.4-1.8-5.9-1-13.9,3.7-18.3a4.983,4.983,0,0,1,7.2,0c2.6,2.3,3.4,6,4.3,9.2.5,2,4,1.9,4.2-.2.8-6.8,2.1-14.3,9.5-16.6a11.441,11.441,0,0,1,14.4,8.1,2.187,2.187,0,0,0,4,.3c2.3-5.1,5-11.2,11.2-12.3a10.44,10.44,0,0,1,12.1,8.5,2.291,2.291,0,0,0,2.3,2.1,2.219,2.219,0,0,0,2.1-2.3C-1010.2,361.6-1016.9,355.8-1024.8,356.5Z" fill="#ff001c"/>
+            </g>
+          </motion.svg>
+          </div>
+          <div className="flex p-4 col-span-9">
+            <div className="lg:max-w-5xl mx-auto space-y-4 ">
+              <div className="text-lg lg:text-2xl  !leading-relaxed">
+                <BlurFade inView delay={0.1}>
+                  <Balancer>{t("p1")}</Balancer>
+                </BlurFade>
+              </div>
+              <div className="text-lg lg:text-2xl font-light !leading-relaxed">
+                <BlurFade inView delay={0.1 * 2}>
+                  <Balancer>{t("p2")} </Balancer>
+                </BlurFade>
+              </div>
             </div>
           </div>
+          <div className="p-4 col-span-1">
+            <Image 
+              src="/Dodles.svg"
+              alt="Description of the image"
+              width={100}
+              height={500}
+            />
+          </div>
+
+          <div className="bg-red-800 p-4 col-span-6"/>
+          <div className="bg-red-800 p-4 col-span-6"/>
+          <div className="bg-red-800 p-4 col-span-6"/>
+          <div className="bg-red-800 p-4 col-span-6"/>
+          <div className="bg-red-800 p-4 col-span-6"/>
+          <div className="bg-red-800 p-4 col-span-6"/>
+          <div className="bg-red-800 p-4 col-span-6"/>
         </div>
+
+<div>
+
+</div>
+
+
       </div>
       {/* <Suspense fallback={<div>Loading...</div>}>
         <div className="aspect-w-16 aspect-h-9">
@@ -111,6 +217,7 @@ export default function Page() {
           />
         </div>
       </Suspense> */}
+      <StarryNight>
       <section className="w-9/12 mx-auto flex flex-col gap-8 ">
         <h2 className="text-2xl lg:text-6xl font-bold">
           {t("h2")}
@@ -119,7 +226,6 @@ export default function Page() {
         {t("p3")}
         </p>
         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
-
           {featureText.map(
             (f , index) => (
             <div className="flex flex-col gap-4" key={index}>
@@ -130,6 +236,7 @@ export default function Page() {
           ))}
         </div>
       </section>
+      </StarryNight>
       <section className="w-9/12 mx-auto flex flex-col gap-2">
         <h2 className="text-2xl lg:text-6xl font-bold">
         {t("h3")}

@@ -18,6 +18,12 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        'text-sm': '0 1px 2px rgba(0, 0, 0, 0.05)',
+        'text-md': '0 2px 4px rgba(0, 0, 0, 0.1)',
+        'text-lg': '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'text-xl': '0 10px 20px rgba(0, 0, 0, 0.2)',
+      },
       colors: {
         brand: "#e93331",
         border: "hsl(var(--border))",
@@ -102,6 +108,7 @@ const config = {
     require("tailwindcss-animate"),
     require("tailwind-scrollbar-hide"),
     require("@tailwindcss/typography"),
+    
   ],
 } satisfies Config;
 

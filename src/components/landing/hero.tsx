@@ -15,35 +15,39 @@ export const products = [
   {
     title: "Mn Elshorfa",
     link: "#",
-    thumbnail:
-      "https://dbrandria.com/wp-content/uploads/2023/07/mn-elshorfa.webp",
+    thumbnail:"https://dbrandria.com/wp-content/uploads/2023/07/mn-elshorfa.webp",
+    description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique."
   },
   {
     title: "Shoryan Mn Dahab",
     link: "#",
-    thumbnail:
-      "https://dbrandria.com/wp-content/uploads/2023/07/shoryan-men-dahab.jpg",
+    thumbnail:"https://dbrandria.com/wp-content/uploads/2023/07/shoryan-men-dahab.jpg",
+    description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique."
   },
   {
     title: "Capmas",
     link: "#",
     thumbnail: "https://dbrandria.com/wp-content/uploads/2022/11/capmas.jpg",
+    description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique."
   },
   {
     title: "El Rehla",
     link: "#",
     thumbnail:
       "https://dbrandria.com/wp-content/uploads/2023/07/elrehla-cover.webp",
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique."
   },
   {
     title: "Egyptain LNG",
     link: "#",
     thumbnail: "https://dbrandria.com/wp-content/uploads/2023/07/lng.webp",
+    description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique."
   },
   {
     title: "Arab League Documentry",
     link: "#",
     thumbnail:
       "https://dbrandria.com/wp-content/uploads/2023/07/arabl-2048x1118.webp",
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae at, qui alias quaerat accusamus nemo repellendus, velit eius tenetur eum nulla commodi enim deleniti provident veniam ratione nisi nihil similique."
   },
 ];
