@@ -1,8 +1,8 @@
 "use client";
 import { Projects } from "@/lib/types";
 import { Button } from "./ui/button/button";
-import { PortfolioItem } from "@/app/[locale]/portfolio/page";
 import { useState } from "react";
+import { PortfolioItem } from "./portfolio-item";
 export function PortfolioBody({
   data
 }: {
