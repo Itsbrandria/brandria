@@ -15,10 +15,13 @@ export const PortfolioItem = (project: Project) => {
         src={
           project.yoast_head_json.og_image[0].url
         }
-        alt="Project 1"
+        alt={
+          project.title.rendered
+        }
         width={1500}
         height={1000}
         className="object-cover w-full aspect-[4/3] group-hover:scale-105 transition-transform  h-96"
+        loading="eager"
       />
       <div className="mt-4">
         <h3 className="text-lg font-semibold">{
