@@ -1,3 +1,4 @@
+'use server';
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 

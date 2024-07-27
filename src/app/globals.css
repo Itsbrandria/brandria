@@ -8,17 +8,11 @@
   
   @font-face {
     font-family: 'PP';
-    src: url('/PPMonumentExtended-Regular') format('otf');
+    src: url('/PPMonumentExtended-Variable.woff2') format('woff2');
         font-weight: normal;
     font-style: normal;
   }
 
-  @font-face {
-    font-family: 'PP';
-    src: url('/PPMonumentExtended-Black') format('otf');
-        font-weight: bold;
-    font-style: normal;
-  }
 
 
 
