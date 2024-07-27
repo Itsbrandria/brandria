@@ -47,7 +47,7 @@ export function NavBar() {
       title: "Portfolio",
       titleAR:
         "أعمالنا",
-      path: "/"
+      path: `/${locale}/portfolio`
     },
     {
       title: "Blog",

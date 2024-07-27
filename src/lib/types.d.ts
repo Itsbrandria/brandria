@@ -1,5 +1,11 @@
 export type Projects = Project[];
 
+export type PortfolioCategory =
+  | "Branding"
+  | "UI/UX"
+  | "Web Development"
+  | "Video Production";
+
 export interface Project {
   id: number;
   date: string;
@@ -27,6 +33,7 @@ export interface Project {
   yoast_head: string;
   yoast_head_json: YoastHeadJson;
   _links: Links;
+  categories?: PortfolioCategory[];
 }
 
 export interface Guid {
