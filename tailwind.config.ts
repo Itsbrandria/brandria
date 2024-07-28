@@ -16,6 +16,7 @@ const config = {
       screens: {
         "2xl": "1400px",
       },
+
     },
     extend: {
       boxShadow: {
@@ -23,6 +24,9 @@ const config = {
         'text-md': '0 2px 4px rgba(0, 0, 0, 0.1)',
         'text-lg': '0 4px 6px rgba(0, 0, 0, 0.1)',
         'text-xl': '0 10px 20px rgba(0, 0, 0, 0.2)',
+      },
+      listStyleImage: {
+        checkmark: 'url("/badge-check.png")',
       },
       colors: {
         brand: "#e93331",
