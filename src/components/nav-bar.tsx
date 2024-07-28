@@ -55,6 +55,12 @@ export function NavBar() {
         "المدونة",
       path: "/"
     },
+    {
+      title: "Contact",
+      titleAR:
+        "اتصل بنا",
+      path: `/${locale}/contact`
+    },
   ];
 
   const t = useTranslations('Hero')
