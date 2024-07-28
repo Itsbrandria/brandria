@@ -28,14 +28,14 @@ export default function page() {
     lName: "Last Name",
     email:"Email",
     PhoneNum:"Phone Number",
-    gender:"Gender",
+    gender: {male:"Male", female:"Female"},
     textArea:"tell us a bit about your goals, what are you hoping to achieve",
     Btn:"Send",
     fNameAR: "الإسم",
     lNameAR: "إسم العائله",
     emailAR:"الإيميل",
     PhoneNumAR:"رقم الهاتف",
-    genderAR:"الجنس",
+    genderAR:{male:"رجل",female:"إمرأه"},
     textAreaAR:"أخبرنا قليلاً عن أهدافك، ماذا تأمل أن تحقق؟",
     BtnAR:"إرسل"
   }
@@ -113,12 +113,16 @@ export default function page() {
           </div>
           <div className='p-3 col-span-1 sm:col-span-1'>
           <BlurFade inView delay={0.9}>
-            <input
+          <select name="gender" id="gender" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="Male">{locale === "en" ? inputPlaceHolders.gender.male : inputPlaceHolders.genderAR.male}</option>
+            <option value="Female">{locale === "en" ? inputPlaceHolders.gender.female : inputPlaceHolders.genderAR.female}</option>
+          </select>
+            {/* <input
               id="5"
               type="text"
               placeholder={locale === "en" ? inputPlaceHolders.gender : inputPlaceHolders.genderAR}              
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            /> */}
           </BlurFade>
           </div>
           <div className='p-3 col-span-1 sm:col-span-2'>
