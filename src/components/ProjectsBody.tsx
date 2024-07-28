@@ -3,6 +3,8 @@ import { Projects } from "@/lib/types";
 import { Button } from "./ui/button/button";
 import { useState } from "react";
 import { PortfolioItem } from "./portfolio-item";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 export function PortfolioBody({
   data
 }: {
@@ -10,10 +12,11 @@ export function PortfolioBody({
 }) {
 
   const [shownData, setShownData] = useState(data);
-
+  const t = useTranslations("Portfolio");
   return (<>
     <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
-      <h1 className="text-4xl font-bold tracking-tighter">Our Portfolio</h1>
+      <h1 className="text-4xl font-bold tracking-tighter">{t("h")}</h1>
+
       <div className="flex flex-wrap gap-2">
         <Button variant="outline" className="px-4 py-2 text-lg" onClick={
           () => {
@@ -51,7 +54,13 @@ export function PortfolioBody({
           Video Production
         </Button>
       </div>
-      <p className="text-muted-foreground md:text-lg">Explore the creative work of our talented team.</p>
+      <p className="text-muted-foreground md:text-lg">{t("p")}</p>
+      <Image
+            src="/BlueTree.svg"
+            alt="Blue Tree"
+            width={50}
+            height={50}
+          />
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12 xl:gap-16">
 

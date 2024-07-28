@@ -1,5 +1,8 @@
+import BlurFade from '@/components/magicui/blur-fade';
 import { useLocale, useTranslations } from 'next-intl';
 import React from 'react'
+import Balancer from 'react-wrap-balancer';
+import Image from "next/image";
 
 export default function page() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -20,15 +23,25 @@ export default function page() {
     };
   
   return (
-    <main className="py-36 flex flex-col gap-20">
-      <div className="flex px-14 flex-col gap-16 ">
-        <div className='leading-loose flex flex-col justify-center gap-6'>
-          <p className='lg:max-w-5xl mx-auto space-y-4 '>{t("h")}</p>
-          <h1 className='text-2xl font-bold ltr:tracking-wider sm:text-5xl md:text-4xl mx-96 text-center'>{t("h2")}</h1>
-          <h5 className='lg:max-w-5xl mx-auto space-y-4 '>{t("p")}</h5>
-        </div>
-        <form className='grid grid-cols-8 gap-4 mx-52'>
-          <div className='p-4 col-span-4 py-2'>
+    <main className="py-16 sm:py-36 flex flex-col gap-10 sm:gap-20">
+      <div className="flex px-4 sm:px-14 flex-col gap-8 sm:gap-16">
+        <BlurFade inView delay={0.1}>
+            <div className='leading-loose flex flex-col justify-center gap-6'>
+              <p className='lg:max-w-5xl mx-auto space-y-4'>{t("h")}</p>
+              <div className='flex justify-center items-center gap-4'>
+                <h1 className='text-2xl font-bold ltr:tracking-wider sm:text-5xl md:text-4xl text-center'>{t("h2")}</h1>
+                <Image
+                  src="/Alien.svg"
+                  alt="Blue Tree"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <h5 className='lg:max-w-5xl mx-auto space-y-4'>{t("p")}</h5>
+            </div>
+        </BlurFade>
+        <form className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mx-4 sm:mx-52'>
+          <div className='p-4 col-span-1 sm:col-span-1'>
             <input
               id="1"
               type="text"
@@ -36,7 +49,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-4 py-2'>
+          <div className='p-4 col-span-1 sm:col-span-1'>
             <input
               id="2"
               type="text"
@@ -44,7 +57,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-8 py-2'>
+          <div className='p-4 col-span-1 sm:col-span-2'>
             <input
               id="3"
               type="email"
@@ -52,7 +65,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-4 py-2'>
+          <div className='p-4 col-span-1 sm:col-span-1'>
             <input
               id="4"
               type="tel"
@@ -60,7 +73,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-4 py-2'>
+          <div className='p-4 col-span-1 sm:col-span-1'>
             <input
               id="5"
               type="tel"
@@ -68,19 +81,17 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>          
-          <div className='p-4 col-span-8 py-2'>
-            <textarea name="Message" id="6" rows={4} cols={50} 
-            
+          <div className='p-4 col-span-1 sm:col-span-2'>
+            <textarea name="Message" id="6" rows={4} 
               placeholder="tell us a bit about your goals, what are you hoping to achieve"              
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-2'>
+          <div className='p-4 col-span-1'>
             <input type="submit" value={t("btn")} className='border rounded py-2 px-3 bg-white text-black cursor-pointer'/>
           </div>
         </form>
-        <div className='flex flex-col mx-40'>
-          
+        <div className='flex flex-col mx-4 sm:mx-40'>
           <h4>{locale === "en" ? ListText.subTitle : ListText.subTitleAR}</h4>
           <ul className='list-image-[url(/badge-check.svg)]'>
             <li>{locale === "en" ? ListText.element1 : ListText.element1AR}</li>

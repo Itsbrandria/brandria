@@ -75,5 +75,9 @@
     "p":"Drop us a line through the form below and we will get back to you",
     "btn":"Send"
 
+  },
+  "Portfolio": {
+    "h": "Our Portfolio",
+    "p": "Explore the creative work of our talented team."
   }
 }
