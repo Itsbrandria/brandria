@@ -36,11 +36,11 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 300]),
+    useTransform(scrollYProgress, [0, 300], [0, 300]),
     springConfig,
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -250]),
+    useTransform(scrollYProgress, [0, 1], [0, 300]),
     springConfig,
   );
   const rotateX = useSpring(
@@ -56,13 +56,13 @@ export const HeroParallax = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-700, 100]),
     springConfig,
   );
   return (
     <section
       ref={ref}
-      className="h-[250dvh] 2xl:h-[300dvh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 w-full">
+      className="h-[210dvh] 2xl:h-fit overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] -pt-8 w-full">
       <Header />
 
       <motion.div
@@ -72,8 +72,8 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}>
-          
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20 -mt-72">
+
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -92,7 +92,7 @@ export const HeroParallax = ({
           ))}
         </motion.div>
 
-        
+
       </motion.div>
     </section>
   );
@@ -101,7 +101,6 @@ export const HeroParallax = ({
 export const Header = () => {
   const t = useTranslations("Hero");
   const locale = useLocale();
-  const splitedText = t("description").split(" ");
 
   return (
     <div
@@ -112,26 +111,14 @@ export const Header = () => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 15 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-2xl md:text-7xl font-bold  !leading-snug max-w-xl">
-        <Balancer>{t("title")}</Balancer>
+        transition={{ duration: 0.5, delay: 0 }}
+        className="text-2xl md:text-7xl font-bold  !leading-snug max-w-4xl !line-clamp-2">
+        {t("title")}
       </motion.h1>
       <p className="max-w-2xl text-lg md:text-xl dark:text-neutral-200 !leading-loose">
-
-        {splitedText.map((el, i) => (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 1,
-              delay: i / 10
-            }}
-            key={i}
-          >
-            {el}{" "}
-          </motion.span>
-        ))}
-
+        <Balancer>
+          {t("description")}
+        </Balancer>
       </p>
       <div className="flex items-center gap-2 relative z-40">
         <motion.div
@@ -178,7 +165,7 @@ export const ProductCard = ({
             y: -20,
           }}
           key={product.title}
-          className="group/product h-96 w-[30rem] relative flex-shrink-0"
+          className="group/product h-96 w-[20rem] relative flex-shrink-0"
         >
           <Link
             href={product.link}
@@ -201,12 +188,12 @@ export const ProductCard = ({
           </div>
         </motion.div>
       </DialogTrigger>
-      <DialogContent  style={{ backgroundImage: `url(${product.thumbnail})`}}>
+      <DialogContent style={{ backgroundImage: `url(${product.thumbnail})` }}>
         <div style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
           {product.title}
         </div>
         <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
-          {product.description}        
+          {product.description}
         </p>
         <Button>
           Go To Project
