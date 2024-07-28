@@ -21,7 +21,7 @@ export default function page() {
       element2AR: "عينت شركة Survicate مسؤول حماية البيانات، رودي كوسيور. إذا كانت لديك أي أسئلة أو مخاوف بشأن حماية البيانات أو الامتثال للوائح الخصوصية، فلا تتردد في التواصل معه عبر إرسال بريد إلكتروني إلى security@brandira.com.",
       element3AR: "إذا كانت لديك مشكلات أو شكاوى بخصوص جودة الخدمة أو الفواتير أو الفوترة أو مخاوف بشأن سياساتنا، يرجى التواصل معنا في أي وقت من خلال زر إرسال رسالة داخل منتج أو إرسال بريد إلكتروني إلى security@brandira.com.",
     };
-  
+
   return (
     <main className="py-16 sm:py-36 flex flex-col gap-10 sm:gap-20">
       <div className="flex px-4 sm:px-14 flex-col gap-8 sm:gap-16">
@@ -29,7 +29,7 @@ export default function page() {
             <div className='leading-loose flex flex-col justify-center gap-6'>
               <p className='lg:max-w-5xl mx-auto space-y-4'>{t("h")}</p>
               <div className='flex justify-center items-center gap-4'>
-                <h1 className='text-2xl font-bold ltr:tracking-wider sm:text-5xl md:text-4xl text-center'>{t("h2")}</h1>
+                <h1 className='text-2xl font-bold ltr:tracking-wider sm:text-5xl md:text-4xl text-center'>{t("h2")} <br/> {t("h2N")}</h1>
                 <Image
                   src="/Alien.svg"
                   alt="Blue Tree"
@@ -40,8 +40,8 @@ export default function page() {
               <h5 className='lg:max-w-5xl mx-auto space-y-4'>{t("p")}</h5>
             </div>
         </BlurFade>
-        <form className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mx-4 sm:mx-52'>
-          <div className='p-4 col-span-1 sm:col-span-1'>
+        <form className='grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mx-4 sm:mx-52'>
+          <div className='p-3 col-span-1 sm:col-span-1'>
             <input
               id="1"
               type="text"
@@ -49,7 +49,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-1 sm:col-span-1'>
+          <div className='p-3 col-span-1 sm:col-span-1'>
             <input
               id="2"
               type="text"
@@ -57,7 +57,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-1 sm:col-span-2'>
+          <div className='p-3 col-span-1 sm:col-span-2'>
             <input
               id="3"
               type="email"
@@ -65,7 +65,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-1 sm:col-span-1'>
+          <div className='p-3 col-span-1 sm:col-span-1'>
             <input
               id="4"
               type="tel"
@@ -73,7 +73,7 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-1 sm:col-span-1'>
+          <div className='p-3 col-span-1 sm:col-span-1'>
             <input
               id="5"
               type="tel"
@@ -81,13 +81,13 @@ export default function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>          
-          <div className='p-4 col-span-1 sm:col-span-2'>
+          <div className='p-3 col-span-1 sm:col-span-2'>
             <textarea name="Message" id="6" rows={4} 
               placeholder="tell us a bit about your goals, what are you hoping to achieve"              
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className='p-4 col-span-1'>
+          <div className='p-3 col-span-1'>
             <input type="submit" value={t("btn")} className='border rounded py-2 px-3 bg-white text-black cursor-pointer'/>
           </div>
         </form>
