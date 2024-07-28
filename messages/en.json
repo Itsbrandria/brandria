@@ -68,5 +68,12 @@
     "p5":"Our branches’ offices are not just the physical place that hosts our team of professionals and specialists. It is the place that makes us feel connected, opens our hearts to each other, and helps us out through thick and thin. It’s also a place to enjoy great food and organize wonderful weekend gatherings. Our office is an environment that fosters a sense of connection and nurtures its community.",
     "p6":"Our mission is to strive to eradicate the mediocrity of digital marketing worldwide. Not to be the best in digital marketing, but to master the ability to foster a nurturing environment for people in the digital marketing field."
 
+  },
+  "Contact": {
+    "h": "Contact",
+    "h2": "Lets talk about your project",
+    "p":"Drop us a line through the form below and we will get back to you",
+    "btn":"Send"
+
   }
 }

@@ -136,8 +136,6 @@ export default function Page() {
   return (
     <main className="py-36 flex flex-col px-8 lg:px-0 gap-14 lg:gap-20">
       <section className="flex lg:px-4 flex-col gap-12 px-0 mx-auto lg:w-9/12">
-
-
         <h1 className="  overflow-hidden  text-3xl  md:text-6xl line-clamp-2 !leading-relaxed ltr:!tracking-wider  !font-semibold  mx-auto ">
           <Balancer>
             {
@@ -145,8 +143,6 @@ export default function Page() {
             }
           </Balancer>
         </h1>
-
-
         <div className="flex">
           <div className=" mx-auto space-y-4">
             <div className="text-lg lg:text-2xl  !leading-relaxed">
