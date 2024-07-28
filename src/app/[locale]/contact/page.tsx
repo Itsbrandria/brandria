@@ -23,6 +23,23 @@ export default function page() {
       element3AR: "إذا كانت لديك مشكلات أو شكاوى بخصوص جودة الخدمة أو الفواتير أو الفوترة أو مخاوف بشأن سياساتنا، يرجى التواصل معنا في أي وقت من خلال زر إرسال رسالة داخل منتج أو إرسال بريد إلكتروني إلى security@brandira.com.",
     };
 
+  const inputPlaceHolders = {
+    fName: "First Name",
+    lName: "Last Name",
+    email:"Email",
+    PhoneNum:"Phone Number",
+    gender:"Gender",
+    textArea:"tell us a bit about your goals, what are you hoping to achieve",
+    Btn:"Send",
+    fNameAR: "الإسم",
+    lNameAR: "إسم العائله",
+    emailAR:"الإيميل",
+    PhoneNumAR:"رقم الهاتف",
+    genderAR:"الجنس",
+    textAreaAR:"أخبرنا قليلاً عن أهدافك، ماذا تأمل أن تحقق؟",
+    BtnAR:"إرسل"
+  }
+
   return (
     <main className="py-16 sm:py-36 flex flex-col gap-10 sm:gap-20">
       <div className="flex px-4 sm:px-14 flex-col gap-8 sm:gap-16">
@@ -31,15 +48,21 @@ export default function page() {
               <p className='lg:max-w-5xl mx-auto space-y-4'>{t("h")}</p>
               <div className='flex justify-center items-center gap-4'>
                 <div className='flex flex-col gap-0'>
+                {locale === "en" ? 
+                <>
                 <h1 className='text-2xl font-bold ltr:tracking-wider sm:text-5xl md:text-4xl text-center'>{t("h2")}</h1>
                 <GradualSpacing className="font-display text-center text-2xl font-bold tracking-[-0.1em]  text-black dark:text-white sm:text-5xl md:text-4xl md:leading-[5rem]"
                 text={t("h2N")}/>
+                </> : <>
+                <h1 className='text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center'>{t("h2")}</h1>
+                <h1 className='text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center'>{t("h2N")}</h1>
+                </>}
                 </div>
                 <Image
                   src="/Alien.svg"
                   alt="Blue Tree"
-                  width={50}
-                  height={50}
+                  width={60}
+                  height={60}
                 />
               </div>
               <h5 className='lg:max-w-5xl mx-auto space-y-4'>{t("p")}</h5>
@@ -51,7 +74,7 @@ export default function page() {
             <input
               id="1"
               type="text"
-              placeholder="First Name"              
+              placeholder={locale === "en" ? inputPlaceHolders.fName : inputPlaceHolders.fNameAR}            
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </BlurFade>
@@ -61,7 +84,7 @@ export default function page() {
             <input
               id="2"
               type="text"
-              placeholder="Last Name"              
+              placeholder={locale === "en" ? inputPlaceHolders.lName : inputPlaceHolders.lNameAR}             
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </BlurFade>
@@ -72,7 +95,7 @@ export default function page() {
             <input
               id="3"
               type="email"
-              placeholder="Email"              
+              placeholder={locale === "en" ? inputPlaceHolders.email : inputPlaceHolders.emailAR}             
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               </BlurFade>
@@ -82,8 +105,8 @@ export default function page() {
           <BlurFade inView delay={0.8}>
             <input
               id="4"
-              type="tel"
-              placeholder="Phone Number"              
+              type="number"
+              placeholder={locale === "en" ? inputPlaceHolders.PhoneNum : inputPlaceHolders.PhoneNumAR}              
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </BlurFade>
@@ -92,8 +115,8 @@ export default function page() {
           <BlurFade inView delay={0.9}>
             <input
               id="5"
-              type="tel"
-              placeholder="Gender"              
+              type="text"
+              placeholder={locale === "en" ? inputPlaceHolders.gender : inputPlaceHolders.genderAR}              
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </BlurFade>
@@ -101,14 +124,14 @@ export default function page() {
           <div className='p-3 col-span-1 sm:col-span-2'>
           <BlurFade inView delay={0.1}>      
             <textarea name="Message" id="6" rows={4} 
-              placeholder="tell us a bit about your goals, what are you hoping to achieve"              
+              placeholder={locale === "en" ? inputPlaceHolders.textArea : inputPlaceHolders.textAreaAR}             
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </BlurFade>   
           </div>
           <div className='p-3 col-span-1'>
           <BlurFade inView delay={0.1}>
-            <input type="submit" value={t("btn")} className='border rounded py-2 px-3 bg-white text-black cursor-pointer'/>
+            <input type="submit" value={locale === "en" ? inputPlaceHolders.Btn : inputPlaceHolders.BtnAR} className='border rounded py-2 px-3 bg-white text-black cursor-pointer'/>
           </BlurFade>
           </div>
         </form>
