@@ -167,8 +167,12 @@ export default function Page() {
               height={100}
               />
           </div>
-          <h1 className="text-4xl font-bold ltr:tracking-wider sm:text-5xl md:text-6xl text-center p-4 col-span-7 overflow-hidden">
-            <SparklesText text={t("h")} sparklesCount={30} />
+          <h1 className="overflow-hidden  text-3xl  md:text-6xl line-clamp-2 !leading-relaxed ltr:!tracking-wider  !font-semibold  mx-auto  p-4 col-span-7">
+          <Balancer>
+             {
+              t("h")
+            }
+          </Balancer>
           </h1>
           <div className="p-4 col-span-1  transform scale-x-[-1]">
           <motion.img
@@ -216,20 +220,10 @@ export default function Page() {
           </div>
         </div>
       </div>
-      {/* <Suspense fallback={<div>Loading...</div>}>
-        <div className="aspect-w-16 aspect-h-9">
-          <VideoComponent
-            src="https://www.youtube.com/embed/5qap5aO4i9A"
-            title="Video"
-          />
-        </div>
-
-
-      </section>
       <section className="lg:w-9/12 mx-auto flex flex-col gap-2 ">
-        <h2 className="text-2xl lg:text-6xl font-bold">{t("h2")}</h2>
-        <p className="text-lg lg:text-xl !leading-loose ">{t("p3")}</p>
-        <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
+         <h2 className="text-2xl lg:text-6xl font-bold">{t("h2")}</h2>
+         <p className="text-lg lg:text-xl !leading-loose ">{t("p3")}</p>
+         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
           {featureText.map((f, index) => (
             <div className="flex flex-col gap-4" key={index}>
               {f.icon}
@@ -320,6 +314,14 @@ export default function Page() {
           ))}
         </Marquee>
       </section>
+      {/* </section>
+      <section className="mt-20">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {reviews.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+      </section> */}
     </main>
   );
 }
