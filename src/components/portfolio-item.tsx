@@ -32,7 +32,6 @@ export const PortfolioItem = (project: Project) => {
             project.portfolio_category.map(category => portfolio_categories[category]).join(', ')
           }
         </p>
-
       </div>
     </div>
   )
