@@ -136,21 +136,19 @@ export default function Page() {
   return (
     <main className="py-36 flex flex-col px-8 lg:px-0 gap-14 lg:gap-20">
       <section className="flex lg:px-4 flex-col gap-12 px-0 mx-auto lg:w-9/12">
-        <h1 className="  overflow-hidden  text-3xl  md:text-6xl line-clamp-2 !leading-relaxed ltr:!tracking-wider  !font-semibold  mx-auto ">
+        <h1 className="  overflow-hidden  text-3xl text-center  md:text-6xl line-clamp-2 !leading-relaxed ltr:!tracking-wider  !font-semibold  mx-auto ">
           <Balancer>
-            {
-              t("h")
-            }
+            {t("h")}
           </Balancer>
         </h1>
         <div className="flex">
           <div className=" mx-auto space-y-4">
-            <div className="text-lg lg:text-2xl  !leading-relaxed">
+            <div className="text-lg lg:text-2xl text-center !leading-relaxed">
               <BlurFade inView delay={0.1}>
                 <Balancer>{t("p1")}</Balancer>
               </BlurFade>
             </div>
-            <div className="text-lg lg:text-2xl font-light !leading-relaxed">
+            <div className="text-lg lg:text-2xl font-light text-center  !leading-relaxed">
               <BlurFade inView delay={0.1 * 2}>
                 <Balancer>{t("p2")} </Balancer>
               </BlurFade>
