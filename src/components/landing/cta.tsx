@@ -1,16 +1,6 @@
 "use client";
-// React and Next.js imports
-import Link from "next/link";
-
-// Third-party library imports
 import Balancer from "react-wrap-balancer";
-
-// UI component imports
-import { Button } from "@/components/ui/button/button";
-
-// Custom components
-import { Section, Container } from "@/components/craft";
-import { ContactForm } from "../contact-form";
+import { CredForm } from "../cred-form";
 import { useLocale } from "next-intl";
 
 const CTA = () => {
@@ -33,7 +23,7 @@ const CTA = () => {
           </Balancer>
         </h3>
         <div className="not-prose mx-auto flex items-center gap-2">
-          <ContactForm />
+          <CredForm />
         </div>
       </div>
     </section>
