@@ -1,27 +1,96 @@
+export type Projects = Project[];
+
+export type Blogs = Bog[];
+
 export type PortfolioCategory =
   | "Branding"
   | "UI/UX"
   | "Web Development"
   | "Video Production";
 
-export interface Project {
+
+export interface Blog{
   id: number;
   date: string;
+  date_gmt: string;
+  guid: Guid;
   modified: string;
+  modified_gmt: string;
   slug: string;
   status: string;
   type: string;
   link: string;
-  title: { rendered: string };
-  content: { rendered: string; protected: boolean };
-  excerpt: { rendered: string; protected: boolean };
+  title: Title;
+  content: Content;
+  excerpt: Excerpt;
   author: number;
   featured_media: number;
-  categories?: PortfolioCategory[];
+  menu_order: number;
+  comment_status: string;
+  ping_status: string;
+  template: string;
+  meta: Meta;
+  portfolio_category: number[];
   class_list: string[];
   acf: any[];
   yoast_head: string;
   yoast_head_json: YoastHeadJson;
+  _links: Links;
+  categories?: PortfolioCategory[];
+}
+
+export interface Project {
+  id: number;
+  date: string;
+  date_gmt: string;
+  guid: Guid;
+  modified: string;
+  modified_gmt: string;
+  slug: string;
+  status: string;
+  type: string;
+  link: string;
+  title: Title;
+  content: Content;
+  excerpt: Excerpt;
+  author: number;
+  featured_media: number;
+  menu_order: number;
+  comment_status: string;
+  ping_status: string;
+  template: string;
+  meta: Meta;
+  portfolio_category: number[];
+  class_list: string[];
+  acf: any[];
+  yoast_head: string;
+  yoast_head_json: YoastHeadJson;
+  _links: Links;
+  categories?: PortfolioCategory[];
+}
+
+export interface Guid {
+  rendered: string;
+}
+
+export interface Title {
+  rendered: string;
+}
+
+export interface Content {
+  rendered: string;
+  protected: boolean;
+}
+
+export interface Excerpt {
+  rendered: string;
+  protected: boolean;
+}
+
+export interface Meta {
+  _acf_changed: boolean;
+  _eb_attr: string;
+  footnotes: string;
 }
 
 export interface YoastHeadJson {

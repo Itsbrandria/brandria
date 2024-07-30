@@ -56,11 +56,11 @@ export function PortfolioBody({
       </div>
       <p className="text-muted-foreground md:text-lg">{t("p")}</p>
       <Image
-            src="/BlueTree.svg"
-            alt="Blue Tree"
-            width={50}
-            height={50}
-          />
+        src="/BlueTree.svg"
+        alt="Blue Tree"
+        width={50}
+        height={50}
+      />
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12 xl:gap-16">
 
