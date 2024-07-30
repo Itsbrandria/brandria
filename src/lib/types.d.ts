@@ -1,10 +1,43 @@
 export type Projects = Project[];
 
+export type Blogs = Bog[];
+
 export type PortfolioCategory =
   | "Branding"
   | "UI/UX"
   | "Web Development"
   | "Video Production";
+
+
+export interface Blog{
+  id: number;
+  date: string;
+  date_gmt: string;
+  guid: Guid;
+  modified: string;
+  modified_gmt: string;
+  slug: string;
+  status: string;
+  type: string;
+  link: string;
+  title: Title;
+  content: Content;
+  excerpt: Excerpt;
+  author: number;
+  featured_media: number;
+  menu_order: number;
+  comment_status: string;
+  ping_status: string;
+  template: string;
+  meta: Meta;
+  portfolio_category: number[];
+  class_list: string[];
+  acf: any[];
+  yoast_head: string;
+  yoast_head_json: YoastHeadJson;
+  _links: Links;
+  categories?: PortfolioCategory[];
+}
 
 export interface Project {
   id: number;
