@@ -18,6 +18,7 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { Select } from "./ui/select"
 import { SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { useLocale } from "next-intl"
 
 
 const serviceOptions = [
@@ -44,6 +45,8 @@ const formSchema = z.object({
 
 
 export function OurForm() {
+
+  const locale = useLocale();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -73,9 +76,15 @@ export function OurForm() {
             name="name"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Name</FormLabel>
+                <FormLabel>
+                  {
+                    locale === "en" ? "Name" : "الاسم"
+                  }
+                </FormLabel>
                 <FormControl>
-                  <Input placeholder="Name" {...field} />
+                  <Input placeholder={
+                    locale === "en" ? "Name" : "الاسم"
+                  } {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -86,9 +95,15 @@ export function OurForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Email</FormLabel>
+                <FormLabel>
+                  {
+                    locale === "en" ? "Email" : "البريد الإلكتروني"
+                  }
+                </FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...field} />
+                  <Input placeholder={
+                    locale === "en" ? "Email" : "البريد الإلكتروني"
+                  } {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -101,9 +116,15 @@ export function OurForm() {
           name="phone"
           render={({ field }) => (
             <FormItem className="flex flex-col items-start">
-              <FormLabel className="text-left">Phone Number</FormLabel>
+              <FormLabel className="text-left">
+                {
+                  locale === "en" ? "Phone" : "الهاتف"
+                }
+              </FormLabel>
               <FormControl className="w-full">
-                <PhoneInput placeholder="Enter a phone number" {...field} />
+                <PhoneInput placeholder={
+                  locale === "en" ? "Phone" : "الهاتف"
+                } {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -114,12 +135,14 @@ export function OurForm() {
           name="service"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Service</FormLabel>
+              <FormLabel>{
+                locale === "en" ? "Service" : "الخدمة"
+              }</FormLabel>
 
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Service" />
+                    <SelectValue placeholder={locale === 'en' ? 'Service' : 'الخدمة'} />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -140,10 +163,16 @@ export function OurForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>
+                {
+                  locale === "en" ? "Message" : "الرسالة"
+                }
+              </FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Type your Message"
+                  placeholder={
+                    locale === "en" ? "Message" : "الرسالة"
+                  }
                   {...field}
                   className="resize-none h-52"
                 />
@@ -152,7 +181,9 @@ export function OurForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{
+          locale === "en" ? "Submit" : "إرسال"
+        }</Button>
       </form>
     </Form>
   )
