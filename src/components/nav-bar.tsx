@@ -53,7 +53,7 @@ export function NavBar() {
       title: "Blog",
       titleAR:
         "المدونة",
-      path: "/"
+      path: `/${locale}/blog`
     },
     {
       title: "Contact",
