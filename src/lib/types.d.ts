@@ -95,144 +95,36 @@ export interface Meta {
 
 export interface YoastHeadJson {
   title: string;
-  robots: Robots;
-  canonical: string;
+  description?: string;
+  robots: {
+    index: string;
+    follow: string;
+  };
   og_locale: string;
   og_type: string;
   og_title: string;
   og_description: string;
   og_url: string;
   og_site_name: string;
-  article_modified_time: string;
-  og_image: OgImage[];
+  og_image: {
+    url: string;
+    width?: number;
+    height?: number;
+    type?: string;
+  }[];
   twitter_card: string;
-  twitter_misc: TwitterMisc;
-  schema: Schema;
+  twitter_misc: {
+    "Est. reading time": string;
+    "Written by"?: string;
+  };
+  schema: {
+    "@context": string;
+    "@graph": Array<{
+      "@type": string;
+      "@id": string;
+      [key: string]: any;
+    }>;
+  };
 }
 
-export interface Robots {
-  index: string;
-  follow: string;
-  "max-snippet": string;
-  "max-image-preview": string;
-  "max-video-preview": string;
-}
-
-export interface OgImage {
-  width: number;
-  height: number;
-  url: string;
-  type: string;
-}
-
-export interface TwitterMisc {
-  "Est. reading time": string;
-}
-
-export interface Schema {
-  "@context": string;
-  "@graph": Graph[];
-}
-
-export interface Graph {
-  "@type": string;
-  "@id": string;
-  url?: string;
-  name?: string;
-  isPartOf?: IsPartOf;
-  datePublished?: string;
-  dateModified?: string;
-  breadcrumb?: Breadcrumb;
-  inLanguage?: string;
-  potentialAction?: PotentialAction[];
-  itemListElement?: ItemListElement[];
-  description?: string;
-}
-
-export interface IsPartOf {
-  "@id": string;
-}
-
-export interface Breadcrumb {
-  "@id": string;
-}
-
-export interface PotentialAction {
-  "@type": string;
-  target: any;
-  "query-input"?: string;
-}
-
-export interface ItemListElement {
-  "@type": string;
-  position: number;
-  name: string;
-  item?: string;
-}
-
-export interface Links {
-  self: Self[];
-  collection: Collection[];
-  about: About[];
-  author: Author[];
-  replies: Reply[];
-  "version-history": VersionHistory[];
-  "predecessor-version": PredecessorVersion[];
-  "wp:featuredmedia": Featuredmedum[];
-  "wp:attachment": WpAttachment[];
-  "wp:term": WpTerm[];
-  curies: Cury[];
-}
-
-export interface Self {
-  href: string;
-}
-
-export interface Collection {
-  href: string;
-}
-
-export interface About {
-  href: string;
-}
-
-export interface Author {
-  embeddable: boolean;
-  href: string;
-}
-
-export interface Reply {
-  embeddable: boolean;
-  href: string;
-}
-
-export interface VersionHistory {
-  count: number;
-  href: string;
-}
-
-export interface PredecessorVersion {
-  id: number;
-  href: string;
-}
-
-export interface Featuredmedum {
-  embeddable: boolean;
-  href: string;
-}
-
-export interface WpAttachment {
-  href: string;
-}
-
-export interface WpTerm {
-  taxonomy: string;
-  embeddable: boolean;
-  href: string;
-}
-
-export interface Cury {
-  name: string;
-  href: string;
-  templated: boolean;
-}
+export type Projects = Project[];
