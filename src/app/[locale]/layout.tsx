@@ -6,6 +6,7 @@ import { NavBar } from "@/components/nav-bar";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ReactLenis, useLenis } from "@/lib/lenis";
+import { Providers } from "../providers";
 const inter = Inter({
   weight: ["400", "500", "600", "700"],
   style: "normal",
@@ -40,26 +41,28 @@ export default async function RootLayout({
     <html lang={locale} dir={
       locale === "ar" ? "rtl" : "ltr"
     }>
-      <body
-        className={`${locale === "ar" ? plexArabic.className : inter.className} antialiased `}
-      >
-        {/* <ReactLenis root> */}
+      <Providers>
+        <body
+          className={`${locale === "ar" ? plexArabic.className : inter.className} antialiased `}
+        >
+          {/* <ReactLenis root> */}
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        > <NextIntlClientProvider messages={messages} locale={locale}>
-            <NavBar />
-            <div vaul-drawer-wrapper="" className="bg-background">
-              {children}
-            </div>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          > <NextIntlClientProvider messages={messages} locale={locale}>
+              <NavBar />
+              <div vaul-drawer-wrapper="" className="bg-background">
+                {children}
+              </div>
+            </NextIntlClientProvider>
+          </ThemeProvider>
 
-        {/* </ReactLenis> */}
-      </body>
+          {/* </ReactLenis> */}
+        </body>
+      </Providers>
     </html>
   );
 }

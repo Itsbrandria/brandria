@@ -8,7 +8,7 @@ export const PortfolioItem = (project: Project) => {
 
   return (
     <div className="relative group overflow-hidden rounded-lg">
-      <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
+      <Link href={`portfolio/${project.slug}`} className="absolute inset-0 z-10" prefetch={false}>
         <span className="sr-only">View project</span>
       </Link>
       <Image

@@ -112,7 +112,7 @@ export default function page() {
       <div className="flex px-4 sm:px-14 flex-col gap-8 sm:gap-16">
         <BlurFade inView delay={0.1}>
           <div className='leading-loose flex flex-col justify-center gap-6'>
-            <p className='lg:max-w-5xl mx-auto space-y-4'>{t("h")}</p>
+            <span className='lg:max-w-5xl mx-auto space-y-4'>{t("h")}</span>
             <div className='flex justify-center items-center gap-4'>
               <div className='flex flex-col gap-0'>
                 {locale === "en" ?
