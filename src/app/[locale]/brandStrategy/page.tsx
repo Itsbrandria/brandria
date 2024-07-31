@@ -181,7 +181,7 @@ const CardBody = ({ className = "p-4" }) => (
   </>
 );
 
-export const SimpleCard_V1 = () => {
+const SimpleCard_V1 = () => {
   const Ellipses = () => {
     const sharedClasses =
       "rounded-full outline outline-8 dark:outline-gray-950 sm:my-6 md:my-8 size-1 my-4 outline-gray-50 bg-red-800";
