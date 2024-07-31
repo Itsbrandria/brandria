@@ -7,6 +7,7 @@ import { Process } from "@/components/landing/process";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { StarryNight } from "@/components/StarryNight";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { motion } from "framer-motion";
 // import { useLenis } from "lenis/react";
 import dynamic from "next/dynamic";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <CTA />
       <section className="flex flex-col justify-center items-center gap-14 ">
         <Process />
+        
         <FAQ />
       </section>
     </main>

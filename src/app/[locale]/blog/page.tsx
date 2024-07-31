@@ -11,7 +11,7 @@ const blockedProjects = [
 export default async function Page() {
 
   
-  const res = await fetch('https://dbrandria.com/wp-json/wp/v2/portfolio?per_page=100');
+  const res = await fetch('https://dbrandria.com/wp-json/wp/v2/portfolio?per_page=100'); //To Change
 
   let data = await res.json() as Projects;
 

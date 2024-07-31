@@ -157,7 +157,7 @@ export default function Page() {
         </div>
         <div className="p-4  max-sm:hidden absolute top-5 right-5">
           <Image
-            src="/Dodles.svg"
+            src="/SeeingEye.svg"
             alt="Description of the image"
             width={100}
             height={500}
@@ -165,7 +165,7 @@ export default function Page() {
         </div>
         <div className="p-4  max-sm:hidden absolute top-32 left-5 ">
           <Image
-            src="/Dodles.svg"
+            src="/fork.svg"
             alt="Description of the image"
             width={100}
             height={500}
@@ -173,7 +173,7 @@ export default function Page() {
         </div>
         <div className="p-4  max-sm:hidden absolute top-2/3 left-5">
           <Image
-            src="/Dodles.svg"
+            src="/CyanFlower.svg"
             alt="Description of the image"
             width={100}
             height={500}
@@ -181,7 +181,7 @@ export default function Page() {
         </div>
         <div className="p-4  max-sm:hidden absolute top-3/4 right-5">
           <Image
-            src="/Dodles.svg"
+            src="/CyanFlower.svg"
             alt="Description of the image"
             width={100}
             height={500}

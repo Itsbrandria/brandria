@@ -7,6 +7,8 @@ import GradualSpacing from '@/components/magicui/gradual-spacing';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BadgeCheck } from 'lucide-react';
 import { OurForm } from '@/components/contact-form';
+import { Button } from '@/components/ui/button';
+import { Phone } from 'lucide-react';
 
 
 export default function Page() {
@@ -41,17 +43,36 @@ export default function Page() {
             <h5 className='lg:max-w-5xl mx-auto space-y-4'>{t("p")}</h5>
           </div>
         </BlurFade>
+        <div className='flex justify-center gap-5'>
+          <Button className='hover:bg-red-600 hover:text-white'>
+            <Phone className='h-6 w-6 px-1'/>
+            Egypt Phone
+          </Button>
+          <Button className='hover:bg-red-600 hover:text-white'>
+          <Phone className='h-6 w-6 px-1'/>
+            Dubai Phone
+          </Button>
+
+        </div>
         <section className='flex gap-4 justify-center align-middle flex-col lg:flex-row rtl:flex-row-reverse'>
+            <Image
+              src="/BlueHand.svg"
+              alt="Blue Tree"
+              width={350}
+              height={800}
+              className='transform scale-x-[-1]'
+              unoptimized
+            />
+
+          <OurForm />
 
           <Image
-            src="/Map.png"
-            alt="Blue Tree"
-            width={350}
-            height={800}
-            className='object-cover'
-            unoptimized
-          />
-          <OurForm />
+              src="/BlueHand.svg"
+              alt="Blue Tree"
+              width={350}
+              height={800}
+              unoptimized
+            />
         </section>
         <section className="border rounded-lg border-white px-10 py-10">
           <div>
@@ -107,16 +128,6 @@ export default function Page() {
     </main>
   )
 }
-
-
-
-
-
-
-
-
-
-
 const ListText =
 {
   subTitle: "If you need to contact us for any other matters, please use the following contact channels:",
