@@ -63,7 +63,7 @@ const FAQ = () => {
   return (
     <section className="">
       <div>
-        <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+        <h2 className="!mt-0 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-center">
           {
             locale === 'en' ? <>
               Frequently Asked Questions
@@ -73,14 +73,14 @@ const FAQ = () => {
           }
         </h2>
 
-        <div className="not-prose mt-4 flex flex-col gap-4 md:mt-8">
+        <div className="not-prose mt-4 flex flex-col gap-4 px-10 md:mt-8">
           {content.map((item, index) => (
             <Accordion key={index} type="single" collapsible>
               <AccordionItem
                 value={locale === 'en' ? item.question : item.questionAR}
-                className="rounded-md  px-4 transition-all hover:bg-muted/50 !border-b-0"
+                className="rounded-md px-4 transition-all hover:bg-muted/50 !border-b-0"
               >
-                <AccordionTrigger className="ltr:text-left rtl:text-start hover:no-underline text-3xl lg:text-5xl leading-normal ">
+                <AccordionTrigger className="ltr:text-left rtl:text-start hover:no-underline text-2xl lg:text-4xl leading-normal ">
                   {
                     locale === 'en' ? item.question : item.questionAR
 

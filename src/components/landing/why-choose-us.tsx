@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Balancer from "react-wrap-balancer";
 import { useLocale, useTranslations } from "next-intl";
@@ -8,8 +9,12 @@ import {
   MessagesSquareIcon,
   ThumbsUpIcon,
 } from "lucide-react";
+import Image from "next/image";
 import { Separator } from "../ui/separator";
 import clsx from "clsx";
+import FlipText from "../magicui/flip-text";
+import Scaler from "../Scaler";
+import { motion } from "framer-motion";
 
 
 type FeatureText = {
@@ -55,11 +60,32 @@ export const WhyChooseUs = () => {
   return (
     <>
       <section className="container pt-12 pb-4 2xl:py-24 space-y-8 lg:space-y-14">
+
+      <div className="h-36 flex justify-center">
+          <motion.img
+              src="/Alien.svg"
+              alt="Blue Tree"
+              width={90}
+              height={90}
+              animate={{
+                y: [0, -20, 0], // Animation keyframes
+              }}
+              transition={{
+                duration: 2, // Duration of each loop
+                repeat: Infinity, // Infinite looping
+                ease: "easeInOut", // Easing function
+              }}
+            />
+
+      </div>
+
         <h2 className="text-3xl  tracking-tighter sm:text-4xl md:text-5xl text-center ">
+          <BlurFade>
           {
             locale === 'en' ? (
               <Balancer>
-                Why Choose <span className="font-bold italic text-[#e93331] pr-0.5">Digital Brandria</span>?
+                <FlipText word="Why Choose"/>
+                <span className="font-bold italic text-[#e93331] pr-0.5">  Digital Brandria </span>?
               </Balancer>
             ) : (
               <Balancer>
@@ -67,7 +93,9 @@ export const WhyChooseUs = () => {
               </Balancer>
             )
           }
+          </BlurFade>
         </h2>
+        <Scaler>
         <div className="grid lg:grid-cols-2 gap-8 gap-y-12 grid-cols-1">
           {
             featureText.map(
@@ -92,6 +120,7 @@ export const WhyChooseUs = () => {
             )
           }
         </div>
+        </Scaler>
       </section>
     </>
   );
