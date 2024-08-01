@@ -81,10 +81,10 @@ export const WhyChooseUs = () => {
 
         <h2 className="text-3xl  tracking-tighter sm:text-4xl md:text-5xl text-center ">
           <BlurFade>
-          {
+          { 
             locale === 'en' ? (
               <Balancer>
-                <FlipText word="Why Choose"/>
+                <FlipText inView word="Why Choose"/>
                 <span className="font-bold italic text-[#e93331] pr-0.5">  Digital Brandria </span>?
               </Balancer>
             ) : (

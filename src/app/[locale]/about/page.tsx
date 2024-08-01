@@ -1,10 +1,9 @@
 "use client";
 import BlurFade from "@/components/magicui/blur-fade";
-import SparklesText from "@/components/magicui/sparkles-text";
 import { useLocale, useTranslations } from "next-intl";
 import Balancer from "react-wrap-balancer";
 import "lite-youtube-embed/src/lite-yt-embed.css";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import {
   Lightbulb,
@@ -18,7 +17,10 @@ import NumberTicker from "@/components/magicui/number-ticker";
 import Image from "next/image";
 import Marquee from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
-import { AnimationProps, motion, Variant } from "framer-motion";
+import { AnimationProps, motion, useInView } from "framer-motion";
+import Scaler from "@/components/Scaler";
+import GradualSpacing from "@/components/magicui/gradual-spacing";
+import { VelocityScroll } from "@/components/magicui/VelocityScroll";
 // import { useGLTF } from '@react-three/drei'
 
 const Clients = dynamic(() => import("@/components/landing/clients").then((mod) => mod.Clients));
@@ -132,7 +134,9 @@ export default function Page() {
   const rotation = (mouseY / window.innerWidth - 0.25) * 150;
   // Adjust 20 to control the rotation sensitivity
   const rotation2 = (mouseY / window.innerHeight - 0.25) * 500; // Adjust 20 to control the rotation sensitivity
-
+ 
+  const ref = useRef(null)
+  const isInView = useInView(ref)
   return (
     <main className="py-36 flex flex-col px-8 lg:px-0 gap-14 lg:gap-20">
       <section className="flex lg:px-4 flex-col gap-12 px-0 mx-auto lg:w-9/12">
@@ -145,7 +149,7 @@ export default function Page() {
           <div className=" mx-auto space-y-4">
             <div className="text-lg lg:text-2xl text-center !leading-relaxed">
               <BlurFade inView delay={0.1}>
-                <Balancer>{t("p1")}</Balancer>
+                {t("p1")}
               </BlurFade>
             </div>
             <div className="text-lg lg:text-2xl font-light text-center  !leading-relaxed">
@@ -171,14 +175,7 @@ export default function Page() {
             height={500}
           />
         </div>
-        <div className="p-4  max-sm:hidden absolute top-2/3 left-5">
-          <Image
-            src="/CyanFlower.svg"
-            alt="Description of the image"
-            width={100}
-            height={500}
-          />
-        </div>
+
         <div className="p-4  max-sm:hidden absolute top-3/4 right-5">
           <Image
             src="/CyanFlower.svg"
@@ -190,12 +187,21 @@ export default function Page() {
 
 
       </section>
+
+
       <section className="lg:w-9/12 mx-auto flex flex-col gap-2 ">
-        <h2 className="text-2xl lg:text-6xl font-bold">{t("h2")}</h2>
-        <p className="text-lg lg:text-xl !leading-loose ">{t("p3")}</p>
+        <Scaler>
+          <div>
+            <GradualSpacing inView delayMultiple={0.1} text={t("h2")} className="text-2xl lg:text-6xl font-bold"/>
+            {/* <h2 className="text-2xl lg:text-6xl font-bold">{t("h2")}</h2> */}
+            <p className="text-lg lg:text-xl !leading-loose ">{t("p3")}</p>
+          </div>
+        </Scaler>
+        
         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
           {featureText.map((f, index) => (
             <div className="flex flex-col gap-4" key={index}>
+              <BlurFade inView delay={index * 0.5}>
               {f.icon}
               <h4 className="text-2xl text-primary font-semibold">
                 {locale === "en" ? f.title : f.titleAR}
@@ -203,16 +209,29 @@ export default function Page() {
               <p className="text-lg !leading-relaxed">
                 {locale === "en" ? f.description : f.descriptionAR}
               </p>
+            </BlurFade>
             </div>
           ))}
         </div>
       </section>
+
       <section className="lg:w-9/12 mx-auto flex flex-col gap-2 mt-20">
-        <h2 className="text-2xl lg:text-6xl font-bold">{t("h3")}</h2>
+      
+      {locale === "en" ? 
+          (      
+            <GradualSpacing inView text={t("h3")} className="text-left text-2xl lg:text-6xl font-bold"/>
+          ) :  (
+            <BlurFade inView delay={0.3}>
+              <h2 className="text-2xl lg:text-6xl font-bold">{t("h3")}</h2>
+              </BlurFade>
+          )}
+          <BlurFade inView delay={0.3}>
         <p className="text-lg lg:text-xl !leading-loose ">{t("p4")}</p>
+        </BlurFade>
         <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
           {featureText2.map((f, index) => (
             <div className="flex flex-col gap-4" key={index}>
+              <BlurFade inView delay={index * 0.5}>
               {f.icon}
               <h4 className="text-2xl text-primary font-semibold">
                 {locale === "en" ? f.title : f.titleAR}
@@ -220,19 +239,29 @@ export default function Page() {
               <p className="text-lg !leading-relaxed">
                 {locale === "en" ? f.description : f.descriptionAR}
               </p>
+              </BlurFade>
             </div>
           ))}
         </div>
       </section>
-      <section className="flex lg:gap-4 lg:w-9/12 mx-auto mt-20 flex-col lg:flex-row gap-8">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-2xl lg:text-6xl font-bold">{t("h4")}</h2>
-          <p className="text-lg lg:text-xl !leading-loose ">{t("p5")}</p>
-        </div>
-        <div className="flex flex-col gap-2">
+      <section className="flex lg:gap-4 lg:w-9/12 mx-auto mt-20 flex-col lg:flex-row gap-8 ">
+        <motion.div ref={ref} initial={{ x:-900 }} animate={isInView ?{ x:0 }:{x:-900}} transition={{ ease:"easeInOut", duration:1.1 }} className="flex flex-col gap-2">
+
+            <h2 className="text-2xl lg:text-6xl font-bold">{t("h4")}</h2>
+
+          <BlurFade inView delay={0.7}>
+            <p className="text-lg lg:text-xl !leading-loose ">{t("p5")}</p>
+          </BlurFade>
+          
+        </motion.div>
+        <motion.div ref={ref} initial={{ x:800 }} animate={isInView ? { x:0 }:{x:-800}} transition={{ ease:"easeInOut", duration:1 }} className="flex flex-col gap-2">
+
           <h2 className="text-2xl lg:text-6xl font-bold">{t("h5")}</h2>
-          <p className="text-lg lg:text-xl !leading-loose ">{t("p6")}</p>
-        </div>
+
+          <BlurFade inView delay={0.7}>
+            <p className="text-lg lg:text-xl !leading-loose ">{t("p6")}</p>
+          </BlurFade>
+        </motion.div>
       </section>
       <section className="flex flex-col gap-2 lg:w-9/12 mx-auto mt-20">
         <div className="flex gap-4 text-5xl italic ">

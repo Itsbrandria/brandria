@@ -24,7 +24,7 @@ export default function Scaler({
 
   const { scrollYProgress } =useScroll({
     target:ref,
-    offset:["0 1" , "1.33 1", ]
+    offset:["0 1" , "1.23 1", ]
   });
   return (
     <div className="flex justify-center space-x-2">
@@ -32,7 +32,7 @@ export default function Scaler({
           <motion.div
             ref={ref}
             style={{ 
-              scale:scrollYProgress,
+              scale: scrollYProgress,
               opacity:scrollYProgress
              }}
             initial="hidden"

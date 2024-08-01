@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, Variants } from "framer-motion";
-
+import { AnimatePresence, motion,useInView, Variants } from "framer-motion";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface GradualSpacingProps {
@@ -9,6 +9,8 @@ interface GradualSpacingProps {
   duration?: number;
   delayMultiple?: number;
   framerProps?: Variants;
+  inView?: boolean;
+  inViewMargin?: string;
   className?: string;
 }
 
@@ -16,20 +18,26 @@ export default function GradualSpacing({
   text,
   duration = 0.5,
   delayMultiple = 0.04,
+  inView = false,
+  inViewMargin = "-50px",
   framerProps = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 },
   },
   className,
 }: GradualSpacingProps) {
+  const ref = useRef(null);
+  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
+  const isInView = !inView || inViewResult;
   return (
-    <div className="flex justify-center space-x-1">
+    <div className="flex space-x-1">
       <AnimatePresence>
         {text.split("").map((char, i) => (
           <motion.h1
             key={i}
+            ref={ref}
             initial="hidden"
-            animate="visible"
+            animate={isInView ? "visible" : "hidden"}
             exit="hidden"
             variants={framerProps}
             transition={{ duration, delay: i * delayMultiple }}
