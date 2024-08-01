@@ -6,6 +6,7 @@ import { headers } from 'next/headers';
 import GradualSpacing from "../magicui/gradual-spacing";
 import { getLocale } from "next-intl/server";
 import BlurFade from "../magicui/blur-fade";
+import { ServicesHeader } from "../ServicesHeader";
 
 const HorizontalScrollCarousel = dynamic(() => import('@/components/horizontal-scroll'), { ssr: false });
 
@@ -18,7 +19,8 @@ export async function Services() {
   return (
     <section className="lg:relative w-full overflow-hidden" id='ourS'>
       <div className="flex">
-        <div className="flex-1">
+        <ServicesHeader/>
+        {/* <div className="flex-1">
           
         {locale === "en" ? 
           <>        
@@ -36,7 +38,7 @@ export async function Services() {
               </Balancer>
             </p>
           </BlurFade>
-        </div>
+        </div> */}
       </div>
       {
         isMobile ? (

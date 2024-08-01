@@ -3,17 +3,20 @@ import { useLocale, useTranslations } from 'next-intl';
 import React from 'react'
 import Balancer from 'react-wrap-balancer';
 import Image from "next/image";
+import { headers } from 'next/headers';
 import GradualSpacing from '@/components/magicui/gradual-spacing';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BadgeCheck } from 'lucide-react';
 import { OurForm } from '@/components/contact-form';
 import { Button } from '@/components/ui/button';
-import { Phone } from 'lucide-react';
+import { Phone, Earth } from 'lucide-react';
 
 
 export default function Page() {
   const t = useTranslations("Contact");
   const locale = useLocale();
+  const userAgent = headers().get('user-agent') || '';
+  const isMobile = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(userAgent);
 
   return (
     <main className="py-16 sm:py-36 flex flex-col gap-10 sm:gap-20">
@@ -43,36 +46,47 @@ export default function Page() {
             <h5 className='lg:max-w-5xl mx-auto space-y-4'>{t("p")}</h5>
           </div>
         </BlurFade>
-        <div className='flex justify-center gap-5'>
-          <Button className='hover:bg-red-600 hover:text-white'>
-            <Phone className='h-6 w-6 px-1'/>
-            Egypt Phone
-          </Button>
-          <Button className='hover:bg-red-600 hover:text-white'>
-          <Phone className='h-6 w-6 px-1'/>
-            Dubai Phone
-          </Button>
 
-        </div>
-        <section className='flex gap-4 justify-center align-middle flex-col lg:flex-row rtl:flex-row-reverse'>
-            <Image
-              src="/BlueHand.svg"
-              alt="Blue Tree"
-              width={350}
-              height={800}
-              className='transform scale-x-[-1]'
-              unoptimized
-            />
-
+        <section className='flex gap-4 justify-center align-middle  flex-col lg:flex-row rtl:flex-row-reverse'>
           <OurForm />
-
-          <Image
-              src="/BlueHand.svg"
-              alt="Blue Tree"
-              width={350}
-              height={800}
-              unoptimized
-            />
+          {
+            isMobile ? (
+              <div className='w-1 h-10 overflow-hidden self-center transform rotate-90' >
+                <Image
+                  src="/RedLine1.svg"
+                  alt="Blue Tree"
+                  width={50}
+                  height={50} 
+                  unoptimized
+                />
+              </div>
+            ) : (
+            <div className='w-1 h-full self-center ' >
+              <Image
+                src="/RedLine.svg"
+                alt="Blue Tree"
+                width={11}
+                height={50}
+                className='self-center'
+                unoptimized
+              />
+            </div>
+            )
+          }
+          <div className="flex flex-col justify-center gap-8 sm:gap-28 px-4 sm:px-0">
+            <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
+              <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+              Egypt Phone
+            </Button>
+            <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
+              <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+              Dubai Phone
+            </Button>
+            <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
+              <Earth className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+              Locate Self
+            </Button>
+          </div>
         </section>
         <section className="border rounded-lg border-white px-10 py-10">
           <div>
@@ -203,3 +217,21 @@ const content: FAQItem[] = [
   },
 
 ];
+
+
+{/* <Image
+    src="/BlueHand.svg"
+    alt="Blue Tree"
+    width={350}
+    height={800}
+    unoptimized
+  /> */}
+
+  {/* <Image
+    src="/BlueHand.svg"
+    alt="Blue Tree"
+    width={350}
+    height={800}
+    className='transform scale-x-[-1]'
+    unoptimized
+  /> */}

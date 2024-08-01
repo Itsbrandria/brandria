@@ -10,32 +10,33 @@ export function ServicesHeader() {
   const t = useTranslations("OurServices");
   const locale =  useLocale();
   return (
-      <div className="flex justify-center items-center">
-        <div>
+      <div className="flex gap-1">
+        <div className="flex-1 text-center">
         {locale === "en" ? 
-          <>        
-          <GradualSpacing className="font-display text-2xl font-bold  text-black dark:text-white sm:text-5xl md:text-4xl md:leading-[5rem]"
+          (      
+            <Balancer>
+
+          <GradualSpacing inView className="font-display text-2xl font-bold text-black dark:text-white sm:text-5xl md:text-4xl md:leading-[5rem]"
             text={t("h")} />
-          </> :  <>
+            </Balancer>
+          ) :  (
           <h2 className="text-3xl font-bold ltr:tracking-tighter sm:text-4xl md:text-5xl text-center">
             {t("h")}
           </h2>
-          </>}
-          <BlurFade>
+          )}
             <p className="text-xl text-center lg:w-3/4 mx-auto pt-4">
               <Balancer>
                 {t("p")}
               </Balancer>
             </p>
-          </BlurFade>
           </div>
-          <div>
+          <div className="w-72 h-52 self-center justify-self-start">
             <DotLottieReact
-              src="Animation1.json"
+              src="Shapes.json"
               autoplay
               loop
-              width={50}
-              height={50}
+              width={70}
+              height={70}
 
             />
           
