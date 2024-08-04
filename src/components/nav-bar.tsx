@@ -75,7 +75,7 @@ export function NavBar() {
                 <MenuIcon />
               </SheetTrigger>
               <Image
-                src="/logo.svg"
+                src="/RedLogo.svg"
                 alt="logo"
                 width={100}
                 height={100}
@@ -87,12 +87,11 @@ export function NavBar() {
               <LanguageToggle />
             </div>
           </div>
-
           <SheetContent side="left">
             <SheetHeader>
               <SheetTitle>
                 <Image
-                  src="/logo.svg"
+                  src="/RedLogo.svg"
                   alt="logo"
                   width={50}
                   height={50}
@@ -126,7 +125,7 @@ export function NavBar() {
           <NavigationMenuList className="max-[825px]:hidden ">
             <Link href="/" className="pl-2">
               <Image
-                src="/logo.svg"
+                src="/RedLogo.svg"
                 alt="logo"
                 width={50}
                 height={50}

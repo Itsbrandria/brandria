@@ -10,6 +10,8 @@ import { BadgeCheck } from 'lucide-react';
 import { OurForm } from '@/components/contact-form';
 import { Button } from '@/components/ui/button';
 import { Phone, Earth } from 'lucide-react';
+import { motion } from 'framer-motion';
+import ContactButtons from '@/components/ContactButtons';
 
 
 export default function Page() {
@@ -47,11 +49,11 @@ export default function Page() {
           </div>
         </BlurFade>
 
-        <section className='flex gap-4 justify-center align-middle  flex-col lg:flex-row rtl:flex-row-reverse'>
+        <section className='flex gap-4 justify-center align-middle  flex-col lg:flex-row rtl:flex-row-reverse py-4'>
           <OurForm />
           {
             isMobile ? (
-              <div className='w-1 h-10 overflow-hidden self-center transform rotate-90' >
+              <div className='w-1 h-10 overflow-hidden self-center transform rotate-90 ' >
                 <Image
                   src="/RedLine1.svg"
                   alt="Blue Tree"
@@ -73,22 +75,12 @@ export default function Page() {
             </div>
             )
           }
-          <div className="flex flex-col justify-center gap-8 sm:gap-28 px-4 sm:px-0">
-            <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
-              <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-              Egypt Phone
-            </Button>
-            <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
-              <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-              Dubai Phone
-            </Button>
-            <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
-              <Earth className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-              Locate Self
-            </Button>
-          </div>
+
+          {/* Contact Buttons */}
+          <ContactButtons/>
+
         </section>
-        <section className="border rounded-lg border-white px-10 py-10">
+        <section className="border rounded-lg border-white px-10 py-10 bg-sky-50 dark:bg-transparent">
           <div>
             <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-3xl md:text-4xl ">
               {
@@ -128,7 +120,7 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <BlurFade inView delay={0.3}>
+        {/* <BlurFade inView delay={0.3}>
           <div className='flex flex-col mx-4 sm:mx-40'>
             <h4>{locale === "en" ? ListText.subTitle : ListText.subTitleAR}</h4>
             <ul className='list-image-[url(/badge-check.svg)]'>
@@ -137,7 +129,7 @@ export default function Page() {
               <li>{locale === "en" ? ListText.element3 : ListText.element3AR}</li>
             </ul>
           </div>
-        </BlurFade>
+        </BlurFade> */}
       </div>
     </main>
   )
