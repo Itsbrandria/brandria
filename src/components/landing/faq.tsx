@@ -61,7 +61,7 @@ const content: FAQItem[] = [
 const FAQ = () => {
   const locale = useLocale();
   return (
-    <section className="">
+    <section className="bg-sky-100 dark:bg-transparent py-9">
       <div>
         <h2 className="!mt-0 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-center">
           {

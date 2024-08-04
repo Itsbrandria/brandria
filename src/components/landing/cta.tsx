@@ -19,7 +19,7 @@ const CTA = () => {
             }
           </Balancer>
         </h2>
-        <h3 className="!mb-0 text-zinc-200 text-lg lg:text-xl">
+        <h3 className="!mb-0 dark:text-zinc-200 text-lg lg:text-xl text-black">
           <Balancer>
             {
               locale === "en" ? "Let's create something amazing together." : "لنخلق شيئًا مذهلاً معًا."

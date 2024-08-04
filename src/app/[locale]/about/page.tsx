@@ -134,9 +134,26 @@ export default function Page() {
   const rotation = (mouseY / window.innerWidth - 0.25) * 150;
   // Adjust 20 to control the rotation sensitivity
   const rotation2 = (mouseY / window.innerHeight - 0.25) * 500; // Adjust 20 to control the rotation sensitivity
- 
+
+  const animVariants: AnimationProps ={
+    transition: {
+      duration:1,
+      ease:"easeInOut"
+    },
+    variants:{
+      visible: {
+        x:0
+  
+        },
+      hidden: {
+        x:-800,
+      }
+    }
+  
+  }
+
   const ref = useRef(null)
-  const isInView = useInView(ref)
+  const isInView = useInView(ref, { once: true })
   return (
     <main className="py-36 flex flex-col px-8 lg:px-0 gap-14 lg:gap-20">
       <section className="flex lg:px-4 flex-col gap-12 px-0 mx-auto lg:w-9/12">
@@ -244,23 +261,16 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section className="flex lg:gap-4 lg:w-9/12 mx-auto mt-20 flex-col lg:flex-row gap-8 ">
-        <motion.div ref={ref} initial={{ x:-900 }} animate={isInView ?{ x:0 }:{x:-900}} transition={{ ease:"easeInOut", duration:1.1 }} className="flex flex-col gap-2">
-
+      <section className="flex lg:gap-4 lg:w-9/12 mx-auto mt-20 flex-col lg:flex-row gap-8 overflow-hidden py-1">
+        <motion.div ref={ref} initial="hidden" {...animVariants} animate={isInView ? "visible":"hidden"} transition={{ ease:"backInOut", duration:1.1 }} className="flex flex-col gap-2">
             <h2 className="text-2xl lg:text-6xl font-bold">{t("h4")}</h2>
-
           <BlurFade inView delay={0.7}>
             <p className="text-lg lg:text-xl !leading-loose ">{t("p5")}</p>
           </BlurFade>
-          
         </motion.div>
-        <motion.div ref={ref} initial={{ x:800 }} animate={isInView ? { x:0 }:{x:-800}} transition={{ ease:"easeInOut", duration:1 }} className="flex flex-col gap-2">
-
+        <motion.div ref={ref} initial="hidden" {...animVariants} animate={isInView ? "visible":"hidden"} transition={{ ease:"anticipate", duration:1 }} className="flex flex-col gap-2">
           <h2 className="text-2xl lg:text-6xl font-bold">{t("h5")}</h2>
-
-          <BlurFade inView delay={0.7}>
-            <p className="text-lg lg:text-xl !leading-loose ">{t("p6")}</p>
-          </BlurFade>
+          <p className="text-lg lg:text-xl !leading-loose ">{t("p6")}</p>
         </motion.div>
       </section>
       <section className="flex flex-col gap-2 lg:w-9/12 mx-auto mt-20">

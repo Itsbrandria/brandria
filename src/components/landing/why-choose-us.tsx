@@ -59,7 +59,7 @@ export const WhyChooseUs = () => {
   const locale = useLocale()
   return (
     <>
-      <section className="container pt-12 pb-4 2xl:py-24 space-y-8 lg:space-y-14">
+      <section className="container pt-12 pb-4 2xl:py-24 space-y-8 lg:space-y-14 bg-sky-100 dark:bg-transparent">
 
       <div className="h-36 flex justify-center">
           <motion.img

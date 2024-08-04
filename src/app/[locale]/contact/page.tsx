@@ -47,11 +47,11 @@ export default function Page() {
           </div>
         </BlurFade>
 
-        <section className='flex gap-4 justify-center align-middle  flex-col lg:flex-row rtl:flex-row-reverse'>
+        <section className='flex gap-4 justify-center align-middle  flex-col lg:flex-row rtl:flex-row-reverse py-4'>
           <OurForm />
           {
             isMobile ? (
-              <div className='w-1 h-10 overflow-hidden self-center transform rotate-90' >
+              <div className='w-1 h-10 overflow-hidden self-center transform rotate-90 ' >
                 <Image
                   src="/RedLine1.svg"
                   alt="Blue Tree"
@@ -73,7 +73,7 @@ export default function Page() {
             </div>
             )
           }
-          <div className="flex flex-col justify-center gap-8 sm:gap-28 px-4 sm:px-0">
+          <div className="flex flex-col justify-center gap-8 sm:gap-28 px-4 sm:px-0 ">
             <Button className="flex items-center hover:bg-red-600 hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
               <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
               Egypt Phone
@@ -88,7 +88,7 @@ export default function Page() {
             </Button>
           </div>
         </section>
-        <section className="border rounded-lg border-white px-10 py-10">
+        <section className="border rounded-lg border-white px-10 py-10 bg-sky-50 dark:bg-transparent">
           <div>
             <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-3xl md:text-4xl ">
               {

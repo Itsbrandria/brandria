@@ -102,7 +102,7 @@ function ProcessCard({
     <BlurFade inView delay={0.05 * index} className={className}>
       <div className={
         clsx(
-          "drop-shadow-xl relative shadow-[0px_5px_0px_0px_rgba(255,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,0,0,0.5)] rounded-xl w-full p-4 flex flex-col gap-4",
+          "drop-shadow-xl relative shadow-[0px_5px_0px_0px_rgba(255,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,0,0,0.5)] border-2 border-red-400 dark:border-none rounded-xl w-full p-4 flex flex-col gap-4",
         )
       } dir={
         lang === "en" ? "ltr" : "rtl"
