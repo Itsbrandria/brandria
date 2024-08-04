@@ -6,8 +6,8 @@ import { Phone, Earth } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const DubaiPhone ="+8212412524734"; //To Be Changed
-const EgyptPhone = "+201513125582"; //To Be Changed
+const DubaiPhone ="+8212412524734"; //TODO: To Be Changed
+const EgyptPhone = "+201513125582"; //TODO: To Be Changed
 
 const ourLocation = "https://www.google.com/maps/place/Digital+Brandria/@29.9572821,31.2509199,17z/data=!4m6!3m5!1s0x1458390d3b80e5f5:0x533ade03b5b21cbe!8m2!3d29.9576354!4d31.2527867!16s%2Fg%2F11nwwrmhz1?authuser=0&entry=ttu";
 
