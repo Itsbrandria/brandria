@@ -29,8 +29,10 @@ export default function Home() {
       <CTA />
       <section className="flex flex-col justify-center items-center gap-14 ">
         <Process />
+        <StarryNight>
+          <FAQ />
+        </StarryNight>
         
-        <FAQ />
       </section>
     </main>
   );

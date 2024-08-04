@@ -30,17 +30,15 @@ export function ServicesHeader() {
               </Balancer>
             </p>
           </div>
-          <div className="w-72 h-52 self-center justify-self-start">
+          {/* <div className="w-72 h-52 self-center justify-self-start">
             <DotLottieReact
               src="Shapes.json"
               autoplay
               loop
               width={70}
               height={70}
-
             />
-          
-        </div>
+        </div> */}
       </div>
   )
 }

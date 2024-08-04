@@ -1,3 +1,4 @@
+'use client'
 // React and Next.js imports
 import React from "react";
 
@@ -16,6 +17,7 @@ import {
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
 import { useLocale } from "next-intl";
+import { motion } from "framer-motion";
 
 type FAQItem = {
   question: string;
@@ -61,9 +63,10 @@ const content: FAQItem[] = [
 const FAQ = () => {
   const locale = useLocale();
   return (
-    <section className="bg-sky-100 dark:bg-transparent py-9">
+    <section className="bg-neutral-100 dark:bg-transparent py-9">
       <div>
-        <h2 className="!mt-0 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-center">
+        <h2
+        className="!mt-0 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-center underline">
           {
             locale === 'en' ? <>
               Frequently Asked Questions
@@ -75,10 +78,11 @@ const FAQ = () => {
 
         <div className="not-prose mt-4 flex flex-col gap-4 px-10 md:mt-8">
           {content.map((item, index) => (
-            <Accordion key={index} type="single" collapsible>
+            <Accordion key={index} type="single" collapsible > 
+            <motion.div whileHover={{ scaleY:1.1 ,transition: { duration: 0.5 }, }} whileTap={{ scale: 0.9 }}>
               <AccordionItem
                 value={locale === 'en' ? item.question : item.questionAR}
-                className="rounded-md px-4 transition-all hover:bg-muted/50 !border-b-0"
+                className="rounded-md px-4 transition-all hover:bg-muted/50 !border-b-0 "
               >
                 <AccordionTrigger className="ltr:text-left rtl:text-start hover:no-underline text-2xl lg:text-4xl leading-normal ">
                   {
@@ -95,7 +99,8 @@ const FAQ = () => {
 
                   </Balancer>
                 </AccordionContent>
-              </AccordionItem>
+              </AccordionItem>     
+            </motion.div>
             </Accordion>
           ))}
         </div>

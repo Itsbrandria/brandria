@@ -1,7 +1,13 @@
+'use client'
 import clsx from "clsx";
 import { Separator } from "../ui/separator";
 import { useLocale } from "next-intl"
 import BlurFade from "../magicui/blur-fade";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import FlipText from "../magicui/flip-text";
+import Particles from "../magicui/Particles";
+import { useTheme } from "next-themes";
 
 const processes = [
   {
@@ -46,33 +52,39 @@ const processes = [
 
 export function Process() {
   const locale = useLocale()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
   return (
-    <section className="space-y-8 w-full max-w-6xl mt-4" dir={
+    <section className="space-y-8 w-full max-w-6xl mt-4 overflow-hidden" dir={
       locale === "en" ? "ltr" : "rtl"
 
     }>
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+      <motion.h2 ref={ref} initial={{ x:900 }} animate={isInView ?  { x:0 } : { x:900 }} transition={{ duration:1,ease:"easeInOut" }} className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center ">
         {
           locale === "en" ? "How it works" : "كيف نقوم بذلك؟"
         }
-      </h2>
+      </motion.h2>
+
+      {/* <FlipText inView word=
+        { locale === "en" ? "How it works" : "كيف نقوم بذلك؟" } 
+        className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center font-pp"/> */}
+
       <div className="lg:grid-cols-2 *:max-lg:col-span-2 grid gap-x-4 gap-y-8 w-full">
         {processes.map((process, index) => (
-          <ProcessCard
-            key={index}
-            title={process.title}
-            description={process.description}
-            titleAR={process.titleAR ?? ''}
-            descriptionAR={process.descriptionAR ?? ''}
-            index={index + 1}
-            lang={locale}
-            className={
-              clsx(
-                index === 4 ? "col-span-2 max-w-2xl justify-center mx-auto" : "",
-              )
-            }
-            color={process.color}
-          />
+              <ProcessCard
+              key={index}
+              title={process.title}
+              description={process.description}
+              titleAR={process.titleAR ?? ''}
+              descriptionAR={process.descriptionAR ?? ''}
+              index={index + 1}
+              lang={locale}
+              className={
+                clsx(
+                  index === 4 ? "col-span-2 max-w-2xl justify-center mx-auto" : "",
+                )
+              }
+              color={process.color}/>
         ))}
       </div>
     </section>
@@ -85,6 +97,8 @@ function ProcessCard({
   titleAR,
   descriptionAR,
   index,
+  inView = false,
+  inViewMargin = "-50px",
   lang,
   className,
   color
@@ -95,41 +109,63 @@ function ProcessCard({
   descriptionAR: string;
   index: number;
   lang: string;
+  inView?: boolean;
+  inViewMargin?: string;
   className?: string;
   color: string
 }) {
+
+  const ref = useRef(null);
+  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
+  const isInView = !inView || inViewResult;
+  
+  const { theme } = useTheme()
+  const [paColor, setPaColor] = useState('#ffffff')
+  useEffect(() => {
+    setPaColor(theme === 'dark' ? '#ffffff' : '#1a1aff')
+  }, [theme])
+
   return (
     <BlurFade inView delay={0.05 * index} className={className}>
-      <div className={
-        clsx(
-          "drop-shadow-xl relative shadow-[0px_5px_0px_0px_rgba(255,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,0,0,0.5)] border-2 border-red-400 dark:border-none rounded-xl w-full p-4 flex flex-col gap-4",
-        )
-      } dir={
-        lang === "en" ? "ltr" : "rtl"
-      }>
-        <div className="flex items-center gap-2">
-          <span className={
-            clsx(
-              "h-8 w-8 relative flex items-center justify-center rounded-full shadow-xl",
-              color
-            )
-          }>
-            <span className="absolute  text-lg font-bold">
-              {index}
+      
+        <div
+        className={
+          clsx(
+            "drop-shadow-xl relative shadow-[0px_5px_0px_0px_rgba(255,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,0,0,0.5)] border-2 border-red-400 dark:border-none rounded-xl w-full p-4 flex flex-col gap-4",
+          )
+        } dir={
+          lang === "en" ? "ltr" : "rtl"
+        }>
+          <div className="flex items-center gap-2">
+            <span className={
+              clsx(
+                "h-8 w-8 relative flex items-center justify-center rounded-full shadow-xl",
+                color
+              )
+            }>
+              <span className="absolute  text-lg font-bold">
+                {index}
+              </span>
             </span>
-          </span>
-          <h3 className="text-2xl font-bold ltr:tracking-wider">
+            <h3 className="text-2xl font-bold ltr:tracking-wider">
+              {
+                lang === "en" ? title : titleAR
+              }
+            </h3>
+          </div>
+          <p className="text-lg">
             {
-              lang === "en" ? title : titleAR
+              lang === "en" ? description : descriptionAR
             }
-          </h3>
+          </p>
+          <Particles             
+          className="absolute inset-0"
+            quantity={100}
+            ease={80}
+            color={paColor}
+            refresh/>
         </div>
-        <p className="text-lg">
-          {
-            lang === "en" ? description : descriptionAR
-          }
-        </p>
-      </div>
-    </BlurFade>
+
+      </BlurFade>
   );
 }
