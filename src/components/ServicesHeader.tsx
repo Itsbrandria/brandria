@@ -1,8 +1,6 @@
 'use client'
 import Balancer from "react-wrap-balancer";
-import dynamic from "next/dynamic";
 import GradualSpacing from "./magicui/gradual-spacing";
-import BlurFade from "./magicui/blur-fade";
 import { useLocale, useTranslations } from "next-intl";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 

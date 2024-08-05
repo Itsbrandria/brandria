@@ -8,10 +8,9 @@ import GradualSpacing from '@/components/magicui/gradual-spacing';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BadgeCheck } from 'lucide-react';
 import { OurForm } from '@/components/contact-form';
-import { Button } from '@/components/ui/button';
-import { Phone, Earth } from 'lucide-react';
-import { motion } from 'framer-motion';
 import ContactButtons from '@/components/ContactButtons';
+import { HoverImageLinks } from '@/components/Hover.dev/HoverImageLinks';
+import VerticalAccordion from '@/components/Hover.dev/VerticalAccordion';
 
 
 export default function Page() {
@@ -43,6 +42,7 @@ export default function Page() {
                 alt="Blue Tree"
                 width={60}
                 height={60}
+                className='bg-neutral-200 rounded-2xl dark:border-none dark:bg-transparent'
               />
             </div>
             <h5 className='lg:max-w-5xl mx-auto space-y-4'>{t("p")}</h5>
@@ -78,9 +78,8 @@ export default function Page() {
 
           {/* Contact Buttons */}
           <ContactButtons/>
-
         </section>
-        <section className="border rounded-lg border-white px-10 py-10 bg-sky-50 dark:bg-transparent">
+        <section className="border rounded-lg border-white px-10 py-10 bg-neutral-100 dark:bg-transparent">
           <div>
             <h2 className="!mt-0 text-3xl font-bold tracking-tighter sm:text-3xl md:text-4xl ">
               {
@@ -91,15 +90,15 @@ export default function Page() {
                 </>
               }
             </h2>
-            <div className="not-prose mt-2 flex flex-col gap-4 md:mt-5">
+            <div className="not-prose mt-2 flex flex-col gap-4 md:mt-5 ">
               {content.map((item, index) => (
-                <Accordion key={index} type="single" collapsible>
+                <Accordion key={index} type="single" collapsible >
                   <AccordionItem
                     value={locale === 'en' ? item.question : item.questionAR}
-                    className="rounded-md px-4 transition-all hover:bg-muted/50 !border-b-0">
+                    className="rounded-md px-4 transition-all dark:hover:bg-muted/50 hover:bg-neutral-200 !border-b-0 ">
 
-                    <div className='flex'>
-                      <BadgeCheck className='relative top-4 right-2' />
+                    <div className='flex '>
+                      <BadgeCheck className='relative top-4 ltr:right-2 rtl:left-2' />
                       <AccordionTrigger className="ltr:text-left rtl:text-start hover:no-underline text-xl lg:text-xl leading-normal ">
                         {locale === 'en' ? item.question : item.questionAR}
                       </AccordionTrigger>
@@ -120,6 +119,8 @@ export default function Page() {
             </div>
           </div>
         </section>
+        {/* <VerticalAccordion/> */}
+        <HoverImageLinks/>
         {/* <BlurFade inView delay={0.3}>
           <div className='flex flex-col mx-4 sm:mx-40'>
             <h4>{locale === "en" ? ListText.subTitle : ListText.subTitleAR}</h4>

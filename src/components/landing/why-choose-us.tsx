@@ -94,8 +94,8 @@ export const WhyChooseUs = () => {
               <motion.img
                 src="/Bee.svg"
                 alt="Blue Tree"
-                width={90}
-                height={90}
+                width={130}
+                height={130}
                 animate={{
                   y: [0, -20, 0], // Animation keyframes
                 }}
@@ -107,8 +107,6 @@ export const WhyChooseUs = () => {
               />
             </>
           }
-
-
         </div>
 
         <h2 className="text-3xl  tracking-tighter sm:text-4xl md:text-5xl text-center ">
