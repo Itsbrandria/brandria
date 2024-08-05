@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56.124" height="43.743" viewBox="0 0 56.124 43.743">
+  <defs>
+    <filter id="Path_102" x="0" y="5.453" width="46.017" height="38.29" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="AttentionEyes1" transform="translate(602.424 -275)">
+    <g id="Group_115" data-name="Group 115">
+      <g transform="matrix(1, 0, 0, 1, -602.42, 275)" filter="url(#Path_102)">
+        <path id="Path_102-2" data-name="Path 102" d="M-586,289.2a7.489,7.489,0,0,0-5.8,3.2,10.843,10.843,0,0,0-1.5,4.7,9.761,9.761,0,0,0,1.1,6.5,7.294,7.294,0,0,0,8.8,2.6,8,8,0,0,0,4.5-8.1c.7,2.6,1.7,5.6,4.2,6.5,2.1.7,4.4-.3,6-1.8a11.2,11.2,0,0,0,1.5-14,4.891,4.891,0,0,0-1.6-1.6,5.759,5.759,0,0,0-6.6.7A12.6,12.6,0,0,0-579,294C-580.6,291.2-582.7,289.1-586,289.2Z" transform="translate(602.42 -275)" fill="#cac9c7"/>
+      </g>
+      <path id="Path_103" data-name="Path 103" d="M-583.6,300.1a3.27,3.27,0,0,0,1.5,1.1c4,1.6,7.4-3.4,4.1-6.3C-581.4,291.9-586,296.7-583.6,300.1Z" fill="#ff302d"/>
+      <path id="Path_104" data-name="Path 104" d="M-568.6,300.1a3.27,3.27,0,0,0,1.5,1.1c4,1.6,7.4-3.4,4.1-6.3C-566.3,291.9-571,296.7-568.6,300.1Z" fill="#ff302d"/>
+    </g>
+    <g id="Group_119" data-name="Group 119">
+      <g id="Group_116" data-name="Group 116">
+        <path id="Path_105" data-name="Path 105" d="M-560.1,285.6l-1.6-1.3A99.281,99.281,0,0,0-555,275l1.8,1.1C-555.4,279.3-557.7,282.6-560.1,285.6Z" fill="#f9eb00"/>
+      </g>
+      <g id="Group_117" data-name="Group 117">
+        <path id="Path_106" data-name="Path 106" d="M-554.9,288.6l-1.2-1.7a86.373,86.373,0,0,1,8.9-5.2l.9,1.9A68.45,68.45,0,0,0-554.9,288.6Z" fill="#f9eb00"/>
+      </g>
+      <g id="Group_118" data-name="Group 118">
+        <rect id="Rectangle_3" data-name="Rectangle 3" width="2.1" height="5.1" transform="translate(-557.338 294.88) rotate(-76.296)" fill="#f9eb00"/>
+      </g>
+    </g>
+  </g>
+</svg>

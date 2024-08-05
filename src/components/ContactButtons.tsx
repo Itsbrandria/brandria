@@ -1,10 +1,9 @@
-
 'use client'
 import React from 'react'
 import { Button } from '@/components/ui/button';
 import { Phone, Earth } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const DubaiPhone ="+8212412524734"; //TODO: To Be Changed
 const EgyptPhone = "+201513125582"; //TODO: To Be Changed
@@ -21,57 +20,69 @@ export default function ContactButtons(){
   };
 
   return(
-  <div className="flex flex-col justify-center gap-8 sm:gap-28 px-4 sm:px-0 ">
-    <motion.div
-    whileHover={{ x:-16 }}>
-      <Button 
-      onClick={() => copyToClipboard(EgyptPhone)}
-      className="flex items-center hover:bg-[#ff0021] hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
-        
-        <motion.span
-        whileHover={{ x:-4 }}
-        >
-          <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-        </motion.span>
-        <a href={`tel:${EgyptPhone}`}>
-        Egypt Phone
-        </a>
+    <div className='flex gap-5'>
+      <div className="flex flex-col justify-center gap-8 sm:gap-28 px-4 sm:px-0 ">
+        <motion.div
+          whileHover={{ x:-16 }}>
+          <Button 
+          onClick={() => copyToClipboard(EgyptPhone)}
+          className="flex items-center hover:bg-[#ff0021] hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
+            
+            <motion.span
+            whileHover={{ x:-4 }}
+            >
+              <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+            </motion.span>
+            <a href={`tel:${EgyptPhone}`}>
+            Egypt Phone
+            </a>
 
-      </Button>
-    </motion.div>
+          </Button>
+        </motion.div>
 
-    <motion.div
-    whileHover={{ x:-16 }}>
-      <Button
-      onClick={() => copyToClipboard(DubaiPhone)}
-      className="flex items-center hover:bg-[#ff0021] hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
-        
-        <motion.span
-        whileHover={{ x:-4 }}
-        >
-          <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-        </motion.span>
-        <a href={`tel:${DubaiPhone}`}>
-        Dubai Phone
-        </a>
-      </Button>
-    </motion.div>
+        <motion.div
+        whileHover={{ x:-16 }}>
+          <Button
+          onClick={() => copyToClipboard(DubaiPhone)}
+          className="flex items-center hover:bg-[#ff0021] hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
+            
+            <motion.span
+            whileHover={{ x:-4 }}
+            >
+              <Phone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+            </motion.span>
+            <a href={`tel:${DubaiPhone}`}>
+            Dubai Phone
+            </a>
+          </Button>
+        </motion.div>
 
-    <motion.div
-    whileHover={{ x:-16 }}>
-      <Button  className="flex items-center hover:bg-[#ff0021] hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
-        
-        <motion.span
-        whileHover={{ x:-4 }}
-        >
-          <Earth className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-        </motion.span>
-        <a  target="_blank" href={ourLocation}>
-        Our Location
-        </a>
-      </Button>
-    </motion.div>
-  </div>
+        <motion.div
+        whileHover={{ x:-16 }}>
+          <Button  className="flex items-center hover:bg-[#ff0021] hover:text-white py-2 px-3 sm:px-6 text-sm sm:text-base">
+            
+            <motion.span
+            whileHover={{ x:-4 }}
+            >
+              <Earth className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+            </motion.span>
+            <a  target="_blank" href={ourLocation}>
+            Our Location
+            </a>
+          </Button>
+        </motion.div>
+      </div>
+      {/* <div className="w-72 h-52 self-center justify-self-start">
+            <DotLottieReact
+              src="Shapes.json"
+              autoplay
+              loop
+              width={70}
+              height={70}
+            />
+        </div> */}
+    </div>
+  
   )
 }
 
