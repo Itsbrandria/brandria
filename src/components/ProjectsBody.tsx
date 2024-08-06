@@ -5,6 +5,8 @@ import { useState } from "react";
 import { PortfolioItem } from "./portfolio-item";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import MouseFollower from "./MouseFollower";
 export function PortfolioBody({
   data
 }: {
@@ -62,14 +64,16 @@ export function PortfolioBody({
         height={50}
       />
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-3 xl:gap-5">
 
-      {
-        shownData.map((project, index) => (
-          <PortfolioItem key={index} {...project} />
-        ))
-      }
-    </div>
+      <motion.div 
+      className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-3 xl:gap-5">
+
+        {
+          shownData.map((project, index) => (
+            <PortfolioItem key={index} {...project} />
+          ))
+        }
+      </motion.div>
   </>
   )
 }
