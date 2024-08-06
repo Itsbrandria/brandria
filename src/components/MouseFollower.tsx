@@ -39,18 +39,19 @@ const MouseFollower: React.FC<MouseFollowerProps> = ({ children , text, classNam
       
       {isHovering && (
         <motion.div
-          className="absolute w-16 h-16 pointer-events-none z-50"
+          className="absolute pointer-events-none z-50 rtl:left-1"
           initial={{ opacity: 0}}
           animate={{ opacity: 1, x: position.x - 32, y: position.y - 32 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0, ease:"easeInOut" }}
         >
 
+          {/* w-20 h-20 */}
           <motion.div 
           initial={{ opacity: 0, scale:1 }}
           animate={{ opacity: 1 , scale:1.3, }}
-          transition={{ duration: 0.6 }}
-          className={cn("w-20 h-20 -z-40 flex items-center justify-center rounded-full", className)}>
+          transition={{ duration: 0.3 }}
+          className={cn("-z-40 flex items-center justify-center rounded-full", className)}> 
             <p className='text-center z-30'>
               {text}
             </p>
