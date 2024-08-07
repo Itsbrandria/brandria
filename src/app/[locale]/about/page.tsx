@@ -21,6 +21,7 @@ import { AnimationProps, motion, useInView } from "framer-motion";
 import Scaler from "@/components/Scaler";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import { VelocityScroll } from "@/components/magicui/VelocityScroll";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 // import { useGLTF } from '@react-three/drei'
 
 const Clients = dynamic(() => import("@/components/landing/clients").then((mod) => mod.Clients));
@@ -157,22 +158,26 @@ export default function Page() {
   return (
     <main className="py-36 flex flex-col px-8 lg:px-0 gap-14 lg:gap-20">
       <section className="flex lg:px-4 flex-col gap-12 px-0 mx-auto lg:w-9/12">
-        <h1 className="  overflow-hidden  text-3xl text-center  md:text-6xl line-clamp-2 !leading-relaxed ltr:!tracking-wider  !font-semibold  mx-auto ">
+        <h1 className="overflow-hidden text-3xl text-center md:text-6xl line-clamp-2 !leading-relaxed ltr:!tracking-wider !font-semibold  mx-auto ">
           <Balancer>
             {t("h")}
           </Balancer>
         </h1>
         <div className="flex">
           <div className=" mx-auto space-y-4">
-            <div className="text-lg lg:text-2xl text-center !leading-relaxed">
-              <BlurFade inView delay={0.1}>
-                {t("p1")}
-              </BlurFade>
+            <div className="text-lg lg:text-2xl px-5 text-center !leading-relaxed">
+              <Balancer>
+                <BlurFade inView delay={0.1}>
+                  {t("p1")}
+                </BlurFade>
+              </Balancer>
             </div>
-            <div className="text-lg lg:text-2xl font-light text-center  !leading-relaxed">
+            <div className="text-lg lg:text-2xl font-light text-center px-11 !leading-relaxed">
+            <Balancer>
               <BlurFade inView delay={0.1 * 2}>
                 <Balancer>{t("p2")} </Balancer>
               </BlurFade>
+            </Balancer>
             </div>
           </div>
         </div>
@@ -184,13 +189,16 @@ export default function Page() {
             height={500}
           />
         </div>
-        <div className="p-4  max-sm:hidden absolute top-32 left-5 ">
-          <Image
-            src="/fork.svg"
-            alt="Description of the image"
-            width={100}
-            height={500}
-          />
+        <div className="p-4  max-sm:hidden absolute top-36 left-6 ">
+        <div className="w-72 h-52 self-center justify-self-start">
+        <DotLottieReact
+              src="/Shapes.json"
+              autoplay
+              loop
+              width={70}
+              height={70}
+            />
+        </div>
         </div>
 
         <div className="p-4  max-sm:hidden absolute top-3/4 right-5">
@@ -201,15 +209,14 @@ export default function Page() {
             height={500}
           />
         </div>
-
-
       </section>
 
 
       <section className="lg:w-9/12 mx-auto flex flex-col gap-2 ">
         <Scaler>
           <div>
-            <GradualSpacing inView delayMultiple={0.1} text={t("h2")} className="text-2xl lg:text-6xl font-bold"/>
+            {locale === 'en' ? <GradualSpacing inView delayMultiple={0.1} text={t("h2")} className="text-2xl lg:text-6xl font-bold"/> 
+            : <h2 className="text-2xl lg:text-6xl font-bold">{t("h2")}</h2>}
             {/* <h2 className="text-2xl lg:text-6xl font-bold">{t("h2")}</h2> */}
             <p className="text-lg lg:text-xl !leading-loose ">{t("p3")}</p>
           </div>
