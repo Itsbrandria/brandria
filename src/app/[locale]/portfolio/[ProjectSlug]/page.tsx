@@ -77,4 +77,5 @@ export default function Page({ params }: { params: { ProjectSlug: string } }) {
       </div>
     </main>
   )
+
 }
