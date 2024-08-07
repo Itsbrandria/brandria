@@ -126,7 +126,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="container px-4 md:px-6 flex flex-col lg:flex-row justify-between bg-background py-8 rounded-xl shadow-2xl from-[#7447A7] via-background to-red-800 bg-gradient-to-tr max-sm:gap-8">
+      <div className="container px-4 md:px-6 flex flex-col lg:flex-row justify-between bg-background py-8 rounded-xl shadow-2xl from-[#7447A7] via-50% to-background bg-gradient-to-l max-sm:gap-8">
         <div className="flex justify-center items-center">
           <h2 className="text-2xl font-bold text-center italic !leading-relaxed">
             What is our brand strategy process?

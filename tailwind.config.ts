@@ -19,6 +19,9 @@ const config = {
 
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       boxShadow: {
         'text-sm': '0 1px 2px rgba(0, 0, 0, 0.05)',
         'text-md': '0 2px 4px rgba(0, 0, 0, 0.1)',

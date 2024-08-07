@@ -56,7 +56,9 @@ export function PortfolioBody({
           Video Production
         </Button>
       </div>
-      <p className="text-muted-foreground md:text-lg">{t("p")}</p>
+      <p className="text-muted-foreground md:text-lg ">
+        {t("p")}
+      </p>
       <Image
         src="/BlueTree.svg"
         alt="Blue Tree"
